@@ -109,6 +109,7 @@ O = {
     sanegx = { active = false },
     snap = { active = false },
     tabnine = { active = false },
+    editorconfig = {active = false},
   },
 
   custom_plugins = {
