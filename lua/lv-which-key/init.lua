@@ -217,6 +217,7 @@ if O.plugin.zen.active then
   vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", { noremap = true, silent = true })
   mappings["z"] = "Zen"
 end
+
 if O.plugin.telescope_project.active then
   -- open projects
   vim.api.nvim_set_keymap(
@@ -239,7 +240,7 @@ if O.lushmode then
 end
 
 if O.plugin.floatterm then
-  vim.api.nvim_set_keymap("n", "<leader>gg", "<CMD>lua _G.__fterm_lazygit()<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>gg", "<CMD>lua _G.__fterm_command('lazygit')<CR>", { noremap = true, silent = true })
   mappings["gg"] = "LazyGit"
 end
 
