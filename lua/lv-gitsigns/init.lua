@@ -1,6 +1,9 @@
-local M = {}
+local m = {
+  "lewis6991/gitsigns.nvim",
+  event = "BufRead",
+}
 
-M.config = function()
+m.config = function()
   local status_ok, gitsigns = pcall(require, "gitsigns")
   if not status_ok then
     return
@@ -8,4 +11,4 @@ M.config = function()
   gitsigns.setup(O.plugin.gitsigns)
 end
 
-return M
+return m

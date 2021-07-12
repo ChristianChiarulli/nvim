@@ -81,10 +81,15 @@
 --   wk.register(textobj_move_keymaps["goto_previous_end"], normal)
 -- end
 
-local status_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
+local m = { "nvim-treesitter/nvim-treesitter" }
+
+m.config = function()
+  local status_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
+  if not status_ok then
+    return
+  end
+
+  treesitter_configs.setup(O.treesitter)
 end
 
-
-treesitter_configs.setup(O.treesitter)
+return m
