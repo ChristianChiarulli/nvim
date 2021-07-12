@@ -1,7 +1,92 @@
 local lv_utils = {}
 
+LocalConfigTrusted = false
+
+function lv_utils.ask_user(prompt, cb)
+  local answer = vim.fn.input(prompt)
+
+  -- Clear all the output in the status line so that it looks good!
+  print ""
+
+  if answer ~= "" and string.lower(string.sub(answer, 1, 1)) == "y" then
+    if cb then
+      cb()
+    end
+    return true
+  end
+
+  return false
+end
+
+function lv_utils.check_if_config_trusted(config_file)
+  local trusted_local_configs_file = DATA_PATH .. "/lunar_vim/trusted_local_configs"
+  if vim.fn.filereadable(trusted_local_configs_file) ~= 1 then
+    local file = io.open(trusted_local_configs_file, "w")
+    file:close()
+  end
+
+  local file, err = io.open(trusted_local_configs_file, "r")
+  if err then
+    return false
+  end
+  local content = file:read()
+
+  if content and content:find(config_file, nil, true) then
+    LocalConfigTrusted = true
+    file:close()
+    return true
+  end
+
+  file:close()
+  return false
+end
+
+function lv_utils.make_config_trusted(config_file)
+  local file = io.open(DATA_PATH .. "/lunar_vim/trusted_local_configs", "a")
+
+  LocalConfigTrusted = true
+  file:write(config_file, "\n")
+
+  file:close()
+end
+
+function lv_utils.load_user_config()
+  -- Load the user config
+  local global_status_ok, _ = pcall(vim.cmd, "luafile " .. CONFIG_PATH .. "/lv-config.lua")
+  if not global_status_ok then
+    print "something is wrong with your lv-config"
+  end
+
+  -- Check if a local config exists and source it
+  local local_config_path = vim.fn.getcwd() .. "/.lv-config.lua"
+  if vim.fn.filereadable(local_config_path) == 1 then
+    if
+      O.never_trust_local_config
+      or not (
+        O.always_trust_local_config
+        or LocalConfigTrusted
+        or lv_utils.check_if_config_trusted(local_config_path)
+        or lv_utils.ask_user(
+          [[There is a local `lv-config` file in this directory!
+Do you trust this file? Note such files could be insecure! (y/N)]],
+          function()
+            lv_utils.make_config_trusted(local_config_path)
+          end
+        )
+      )
+    then
+      return
+    end
+
+    local local_status_ok, _ = pcall(vim.cmd, "luafile " .. local_config_path)
+    if not local_status_ok then
+      print "something is wrong with your local lv-config (./.lv-config.lua)"
+    end
+  end
+end
+
 function lv_utils.reload_lv_config()
-  vim.cmd "source ~/.config/nvim/lv-config.lua"
+  lv_utils.load_user_config()
   vim.cmd "source ~/.config/nvim/lua/plugins.lua"
   vim.cmd "source ~/.config/nvim/lua/settings.lua"
   vim.cmd "source ~/.config/nvim/lua/lv-formatter/init.lua"
@@ -65,7 +150,7 @@ lv_utils.define_augroups {
       "*",
       "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
     },
-    { "BufWritePost", "lv-config.lua", "lua require('lv-utils').reload_lv_config()" },
+    { "BufWritePost", "lv-config.lua,.lv-config.lua", "lua require('lv-utils').reload_lv_config()" },
     -- { "VimLeavePre", "*", "set title set titleold=" },
   },
   _solidity = {
