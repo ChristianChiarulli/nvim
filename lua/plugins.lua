@@ -27,7 +27,7 @@ local plugins = {}
 
 return require("packer").startup(function(use)
   local plugins_conf = {
-  -- Packer can manage itself as an optional plugin
+    -- Packer can manage itself as an optional plugin
     { "wbthomason/packer.nvim" },
     "lv-telescope",
     { "neovim/nvim-lspconfig" },
@@ -127,16 +127,13 @@ return require("packer").startup(function(use)
     -- TODO: Find another way than checking the type
     if type(plugin_conf) == "string" then
       local ok, plugin = pcall(require, plugin_conf)
-      if not ok then
-        goto continue
-        -- PRINT some error
+      if ok then
+        use(plugin)
+        table.insert(plugins, plugin)
       end
-      use(plugin)
-      table.insert(plugins, plugin)
-      goto continue
+    else
+      use(plugin_conf)
     end
-    use(plugin_conf)
-    ::continue::
   end
 
   for _, plugin in pairs(O.user_plugins) do

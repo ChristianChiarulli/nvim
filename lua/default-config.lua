@@ -151,7 +151,7 @@ O = {
     kotlin = {},
     latex = {
       auto_save = false,
-      ignore_errors = { },
+      ignore_errors = {},
     },
     lua = {
       diagnostics = {
