@@ -2,16 +2,18 @@
 --   return
 -- end
 
-local M = {}
+local m = {
+  "hrsh7th/nvim-compe",
+  -- event = "InsertEnter",
+}
 
-vim.g.vsnip_snippet_dir = O.vnsip_dir
-
-M.config = function()
+m.config = function()
   local status_ok, compe = pcall(require, "compe")
   if not status_ok then
     return
   end
 
+  vim.g.vsnip_snippet_dir = O.vnsip_dir
   compe.setup(O.completion)
 
   local t = function(str)
@@ -64,4 +66,4 @@ M.config = function()
   vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })", { noremap = true, silent = true, expr = true })
 end
 
-return M
+return m

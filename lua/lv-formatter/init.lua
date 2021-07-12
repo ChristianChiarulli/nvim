@@ -1,17 +1,8 @@
--- autoformat
-if O.format_on_save then
-  require("lv-utils").define_augroups {
-    autoformat = {
-      {
-        "BufWritePost",
-        "*",
-        ":silent FormatWrite",
-      },
-    },
-  }
-end
+local m = {
+  "mhartington/formatter.nvim",
+  event = "BufRead",
+}
 
--- check if formatter has been defined for the language or not
 local function formatter_exists(lang_formatter)
   if lang_formatter == nil then
     return false
@@ -31,31 +22,48 @@ local function formatter_return(lang_formatter)
   }
 end
 
--- fill a table like this -> {rust: {exe:"sth",args:{"a","b"},stdin=true},go: {}...}
-local formatter_filetypes = {}
-for k, v in pairs(O.lang) do
-  if formatter_exists(v.formatter) then
-    local keys = v.filetypes
-    if keys == nil then
-      keys = { k }
+m.config = function()
+  -- autoformat
+  if O.format_on_save then
+    require("lv-utils").define_augroups {
+      autoformat = {
+        {
+          "BufWritePost",
+          "*",
+          ":silent FormatWrite",
+        },
+      },
+    }
+  end
+
+  -- fill a table like this -> {rust: {exe:"sth",args:{"a","b"},stdin=true},go: {}...}
+  local formatter_filetypes = {}
+  for k, v in pairs(O.lang) do
+    if formatter_exists(v.formatter) then
+      local keys = v.filetypes
+      if keys == nil then
+        keys = { k }
+      end
+      for _, l in pairs(keys) do
+        formatter_filetypes[l] = {
+          function()
+            return formatter_return(v.formatter)
+          end,
+        }
+      end
     end
-    for _, l in pairs(keys) do
-      formatter_filetypes[l] = {
-        function()
-          return formatter_return(v.formatter)
-        end,
-      }
-    end
+  end
+
+  require("formatter").setup {
+    logging = false,
+    filetype = formatter_filetypes,
+  }
+
+  if not O.format_on_save then
+    vim.cmd [[if exists('#autoformat#BufWritePost')
+	            :autocmd! autoformat
+	            endif]]
   end
 end
 
-require("formatter").setup {
-  logging = false,
-  filetype = formatter_filetypes,
-}
-
-if not O.format_on_save then
-  vim.cmd [[if exists('#autoformat#BufWritePost')
-	:autocmd! autoformat
-	endif]]
-end
+return m

@@ -55,7 +55,7 @@ O.plugin.which_key = {
   },
   -- NOTE: Prefer using : over <cmd> as the latter avoids going back in normal-mode.
   -- see https://neovim.io/doc/user/map.html#:map-cmd
-  vmappings ={
+  vmappings = {
     ["/"] = { ":CommentToggle<CR>", "Comment" },
   },
   mappings = {

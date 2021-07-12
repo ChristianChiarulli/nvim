@@ -1,6 +1,10 @@
-local M = {}
+local m = {
+  "numToStr/FTerm.nvim",
+  event = "BufWinEnter",
+  disable = not O.plugin.floatterm.active,
+}
 
-M.config = function()
+m.config = function()
   local status_ok, fterm = pcall(require, "FTerm")
   if not status_ok then
     return
@@ -61,4 +65,4 @@ M.config = function()
   )
 end
 
-return M
+return m

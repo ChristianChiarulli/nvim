@@ -1,6 +1,10 @@
-local M = {}
+local m = {
+  "ChristianChiarulli/dashboard-nvim",
+  event = "BufWinEnter",
+  disable = not O.plugin.dashboard.active,
+}
 
-M.config = function()
+m.config = function()
   vim.g.dashboard_disable_at_vimenter = 0
 
   vim.g.dashboard_custom_header = O.plugin.dashboard.custom_header
@@ -19,8 +23,8 @@ M.config = function()
 
   vim.api.nvim_exec(
     [[
-    let g:dashboard_custom_footer = ['LuaJIT loaded '..packages..' plugins']
-]],
+      let g:dashboard_custom_footer = ['LuaJIT loaded '..packages..' plugins']
+    ]],
     false
   )
 
@@ -28,23 +32,23 @@ M.config = function()
 
   -- vim.g.dashboard_session_directory = CACHE_PATH..'/session'
   -- vim.g.dashboard_custom_footer = O.dashboard.footer
+
+  require("lv-utils").define_augroups {
+    _dashboard = {
+      -- seems to be nobuflisted that makes my stuff disapear will do more testing
+      {
+        "FileType",
+        "dashboard",
+        "setlocal nocursorline noswapfile synmaxcol& signcolumn=no norelativenumber nocursorcolumn nospell  nolist  nonumber bufhidden=wipe colorcolumn= foldcolumn=0 matchpairs= ",
+      },
+      {
+        "FileType",
+        "dashboard",
+        "set showtabline=0 | autocmd BufLeave <buffer> set showtabline=2",
+      },
+      { "FileType", "dashboard", "nnoremap <silent> <buffer> q :q<CR>" },
+    },
+  }
 end
 
-require("lv-utils").define_augroups {
-  _dashboard = {
-    -- seems to be nobuflisted that makes my stuff disapear will do more testing
-    {
-      "FileType",
-      "dashboard",
-      "setlocal nocursorline noswapfile synmaxcol& signcolumn=no norelativenumber nocursorcolumn nospell  nolist  nonumber bufhidden=wipe colorcolumn= foldcolumn=0 matchpairs= ",
-    },
-    {
-      "FileType",
-      "dashboard",
-      "set showtabline=0 | autocmd BufLeave <buffer> set showtabline=2",
-    },
-    { "FileType", "dashboard", "nnoremap <silent> <buffer> q :q<CR>" },
-  },
-}
-
-return M
+return m
