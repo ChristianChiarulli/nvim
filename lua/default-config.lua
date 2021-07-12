@@ -62,6 +62,7 @@ O = {
   lsp = {
     document_highlight = true,
     popup_border = "single",
+    default_keybinds = true,
   },
 
   database = { save_location = "~/.config/lunarvim_db", auto_execute = 1 },
