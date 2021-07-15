@@ -60,7 +60,7 @@ installpiponmac() {
 }
 
 installpiponubuntu() {
-    sudo apt install python3-pip >/dev/null
+    sudo apt install python3-pip
 }
 
 installpiponarch() {
@@ -68,7 +68,7 @@ installpiponarch() {
 }
 
 installpiponfedora() {
-    sudo dnf install -y pip >/dev/nul
+    sudo dnf install -y pip
 }
 
 installpipongentoo() {
@@ -125,12 +125,12 @@ asktoinstallnode() {
 }
 
 asktoinstallpip() {
-    # echo "pip not found"
-    # echo -n "Would you like to install pip now (y/n)? "
-    # read answer
-    # [ "$answer" != "${answer#[Yy]}" ] && installpip
-    echo "Please install pip3 before continuing with install"
-    exit
+    echo "pip not found"
+    echo -n "Would you like to install pip now (y/n)? "
+    read answer
+    [ "$answer" != "${answer#[Yy]}" ] && installpip
+    # echo "Please install pip3 before continuing with install"
+    # exit
 }
 
 installonmac() {
