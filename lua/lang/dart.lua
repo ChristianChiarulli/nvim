@@ -2,12 +2,32 @@ local M = {}
 
 M.config = function()
   O.lang.dart = {
+    flutter_tools = {
+      active = false,
+    },
     sdk_path = "/usr/lib/dart/bin/snapshots/analysis_server.dart.snapshot",
     formatter = {
       exe = "dart",
       args = { "format" },
     },
   }
+  if O.lang.dart.flutter_tools.active then
+    O.plugin.which_key.mappings["F"] = {
+      name = "Flutter",
+      c = { ":FlutterCopyProfilerUrl<CR>", "Copy Profile Url" },
+      d = { ":FlutterDevices<CR>", "Devices" },
+      D = { ":FlutterDevTools<CR>", "Dev Tools" },
+      e = { ":FlutterEmulators<CR>", "Emulators" },
+      h = { ":FlutterReload<CR>", "Reload" },
+      H = { ":FlutterRestart<CR>", "Restart" },
+      l = { ":FlutterLogClear<CR>", "Log Clear" },
+      o = { ":FlutterOutline<CR>", "Outline" },
+      p = { ":FlutterPubGet<CR>", "Pub Get" },
+      q = { ":FlutterQuit<CR>", "Quit" },
+      r = { ":FlutterRun<CR>", "Run" },
+      v = { ":FlutterVisualDebug<CR>", "Visual Debug" },
+    }
+  end
 end
 
 M.format = function()
