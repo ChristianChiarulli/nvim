@@ -110,10 +110,10 @@ local mappings = {
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
+  ["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["/"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" },
   ["c"] = { "<cmd>Bdelete! %d<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
