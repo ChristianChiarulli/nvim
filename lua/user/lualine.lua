@@ -7,6 +7,17 @@ local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end
 
+--   git add
+--   git mod
+--   git remove
+--   git ignore
+--   git rename
+--   error
+--   info
+--   question
+--   warning
+--   lightbulb
+
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },

@@ -16,16 +16,16 @@ todo_comments.setup({
 	-- keywords recognized as todo comments
 	keywords = {
 		FIX = {
-			icon = " ", -- icon used for the sign, and in search results
+			icon = " ", -- icon used for the sign, and in search results
 			color = error_red, -- can be a hex color, or a named color (see below)
 			alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
 			-- signs = false, -- configure signs for some keywords individually
 		},
-		TODO = { icon = " ", color = hint_blue },
-		HACK = { icon = " ", color = warning_orange },
-		WARN = { icon = " ", color = warning_orange, alt = { "WARNING", "XXX" } },
-		PERF = { icon = " ", color = perf_purple, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-		NOTE = { icon = " ", color = info_yellow, alt = { "INFO" } },
+		TODO = { icon = " ", color = hint_blue },
+		HACK = { icon = " ", color = warning_orange },
+		WARN = { icon = " ", color = warning_orange, alt = { "WARNING", "XXX" } },
+		PERF = { icon = " ", color = perf_purple, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+		NOTE = { icon = " ", color = info_yellow, alt = { "INFO" } },
 	},
 	-- merge_keywords = true, -- when true, custom keywords will be merged with the defaults
 	-- highlighting of the line containing the todo comment
