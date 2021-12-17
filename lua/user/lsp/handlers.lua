@@ -88,7 +88,13 @@ local function lsp_keymaps(bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
+local notify_status_ok, notify = pcall(require, "notify")
+if not notify_status_ok then
+  return
+end
+
 M.on_attach = function(client, bufnr)
+  -- notify(client.name)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
   end
@@ -105,11 +111,6 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
-local notify_status_ok, notify = pcall(require, "notify")
-if not notify_status_ok then
-  return
-end
 
 function M.enable_format_on_save()
   vim.cmd [[
