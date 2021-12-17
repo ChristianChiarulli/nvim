@@ -2,8 +2,7 @@ local status_ok, gitlinker = pcall(require, "gitlinker")
 if not status_ok then
 	return
 end
--- TODO: come back for this
--- lvim.builtin.which_key.mappings["gy"] = "Link"
+
 gitlinker.setup({
 	opts = {
 		callbacks = {
