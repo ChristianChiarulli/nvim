@@ -3,10 +3,10 @@ local M = {}
 M.setup = function()
   local signs = {
 
---   error
---   info
---   question
---   warning
+    --   error
+    --   info
+    --   question
+    --   warning
     { name = "DiagnosticSignError", text = " " },
     { name = "DiagnosticSignWarn", text = " " },
     { name = "DiagnosticSignHint", text = " " },
@@ -106,6 +106,11 @@ end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
+local notify_status_ok, notify = pcall(require, "notify")
+if not notify_status_ok then
+  return
+end
+
 function M.enable_format_on_save()
   vim.cmd [[
     augroup format_on_save
@@ -113,12 +118,12 @@ function M.enable_format_on_save()
       autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
     augroup end
   ]]
-  print "Enabled format on save"
+  notify "Enabled format on save"
 end
 
 function M.disable_format_on_save()
   M.remove_augroup "format_on_save"
-  print "Disabled format on save"
+  notify "Disabled format on save"
 end
 
 function M.toggle_format_on_save()
