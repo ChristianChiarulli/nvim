@@ -17,7 +17,7 @@ notify.setup {
   render = "default",
 
   -- Default timeout for notifications
-  timeout = 50,
+  timeout = 100,
 
   -- For stages that change opacity this is treated as the highlight behind the window
   -- Set this to either a highlight group or an RGB hex value e.g. "#000000"
@@ -28,11 +28,11 @@ notify.setup {
 
   -- Icons for the different levels
   icons = {
-    ERROR = "",
-    WARN = "",
-    INFO = "",
-    DEBUG = "",
-    TRACE = "✎",
+    ERROR = " ",
+    WARN = " ",
+    INFO = " ",
+    DEBUG = " ",
+    TRACE = " ",
   },
 }
 
