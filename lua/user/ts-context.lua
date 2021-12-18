@@ -7,16 +7,16 @@ require'treesitter-context'.setup{
         -- Note that setting an entry here replaces all other patterns for this entry.
         -- By setting the 'default' entry below, you can control which nodes you want to
         -- appear in the context window.
-        default = {
-            'class',
-            'function',
-            'method',
-            -- 'for', -- These won't appear in the context
-            -- 'while',
-            -- 'if',
-            -- 'switch',
-            -- 'case',
-        },
+        -- default = {
+        --     'class',
+        --     'function',
+        --     'method',
+        --     -- 'for', -- These won't appear in the context
+        --     -- 'while',
+        --     -- 'if',
+        --     -- 'switch',
+        --     -- 'case',
+        -- },
         -- Example for a specific filetype.
         -- If a pattern is missing, *open a PR* so everyone can benefit.
         --   rust = {
