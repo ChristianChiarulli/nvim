@@ -134,6 +134,7 @@ return packer.startup(function(use)
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
   use 'romgrk/nvim-treesitter-context'
+  use 'mizlan/iswap.nvim'
 
   -- Git
   use "lewis6991/gitsigns.nvim"

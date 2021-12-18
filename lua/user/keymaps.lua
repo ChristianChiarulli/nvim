@@ -83,6 +83,9 @@ keymap("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], opts)
 keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
+keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
+keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
+keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
 -- keymap("n", "<C-\\>", "<cmd>vsplit<cr>", opts)
 -- vim.cmd[[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]]
 -- vim.cmd[[nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN]]
