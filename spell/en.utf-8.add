@@ -11,3 +11,14 @@ config
 config
 codicon
 nonicons
+stylua
+tsserver
+pyright
+vimls
+jsonls
+solang
+RubyGem
+lsp
+ABI
+healthcheck
+chris
