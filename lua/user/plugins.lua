@@ -76,6 +76,7 @@ return packer.startup(function(use)
   use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
+  use 'metakirby5/codi.vim'
   use {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
