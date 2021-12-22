@@ -93,7 +93,6 @@ if not notify_status_ok then
   return
 end
 
-
 M.on_attach = function(client, bufnr)
   -- notify(client.name)
   if client.name == "tsserver" then
