@@ -99,6 +99,20 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
+  use {
+    "tzachar/cmp-tabnine",
+    config = function()
+      local tabnine = require "cmp_tabnine.config"
+      tabnine:setup {
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+      }
+    end,
+
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+  }
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
 
   -- snippets
