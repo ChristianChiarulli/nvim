@@ -76,8 +76,12 @@ return packer.startup(function(use)
   use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
-  use 'metakirby5/codi.vim'
+  use "metakirby5/codi.vim"
   use {
+    "nyngwang/NeoZoom.lua",
+  }
+  use {
+
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = "markdown",
@@ -126,7 +130,7 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
-  use 'ray-x/lsp_signature.nvim'
+  use "ray-x/lsp_signature.nvim"
   use "b0o/SchemaStore.nvim"
   use {
     "folke/trouble.nvim",
@@ -150,8 +154,8 @@ return packer.startup(function(use)
   use "ChristianChiarulli/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
-  use 'romgrk/nvim-treesitter-context'
-  use 'mizlan/iswap.nvim'
+  use "romgrk/nvim-treesitter-context"
+  use "mizlan/iswap.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
