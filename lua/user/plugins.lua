@@ -45,7 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim"
+  use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
@@ -58,41 +58,21 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
-  use "unblevable/quick-scope"
-  use "phaazon/hop.nvim"
-  use "andymass/vim-matchup"
-  use "nacro90/numb.nvim"
-  use "monaqa/dial.nvim"
-  use "norcalli/nvim-colorizer.lua"
-  use "windwp/nvim-spectre"
-  use "folke/zen-mode.nvim"
-  use "karb94/neoscroll.nvim"
-  use "folke/todo-comments.nvim"
-  use "kevinhwang91/nvim-bqf"
-  use "ThePrimeagen/harpoon"
-  use "MattesGroeger/vim-bookmarks"
-  use "lunarvim/vim-solidity"
-  use "blackCauldron7/surround.nvim"
-  use "Shatur/neovim-session-manager"
-  use "rcarriga/nvim-notify"
-  use "tversteeg/registers.nvim"
-  use "metakirby5/codi.vim"
-  use {
-    "nyngwang/NeoZoom.lua",
-  }
-  use {
-
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    ft = "markdown",
-  }
+  use "sbdchd/neoformat"
+  use "junegunn/goyo.vim"
 
   -- Colorschemes
-  use "folke/tokyonight.nvim"
-  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
-  use "rose-pine/neovim"
-  use "rebelot/kanagawa.nvim"
+  use "folke/tokyonight.nvim"
+  use "EdenEast/nightfox.nvim"
+  use "overcache/NeoSolarized"
+  use "rakr/vim-one"
+  use "drewtempelmeyer/palenight.vim"
+  use "ayu-theme/ayu-vim"
+  use "rafi/awesome-vim-colorschemes"
+  use "sonph/onehalf"
+-- use "lunarvim/colorshemes"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -101,23 +81,6 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-emoji"
-  use "hrsh7th/cmp-nvim-lua"
-  use {
-    "tzachar/cmp-tabnine",
-    config = function()
-      local tabnine = require "cmp_tabnine.config"
-      tabnine:setup {
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-      }
-    end,
-
-    run = "./install.sh",
-    requires = "hrsh7th/nvim-cmp",
-  }
-  -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -128,22 +91,9 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "filipdutescu/renamer.nvim"
-  use "simrat39/symbols-outline.nvim"
-  use "ray-x/lsp_signature.nvim"
-  use "b0o/SchemaStore.nvim"
-  use {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  }
 
-  -- Java
-  use "mfussenegger/nvim-jdtls"
-
-  -- Telescope
+ -- Telescope
   use "nvim-telescope/telescope.nvim"
-  use "tom-anders/telescope-vim-bookmarks.nvim"
-  use "nvim-telescope/telescope-media-files.nvim"
 
   -- Treesitter
   use {
@@ -151,24 +101,9 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "ChristianChiarulli/nvim-ts-rainbow"
-  use "nvim-treesitter/playground"
-  use "windwp/nvim-ts-autotag"
-  use "romgrk/nvim-treesitter-context"
-  use "mizlan/iswap.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
-  use "f-person/git-blame.nvim"
-  use "ruifm/gitlinker.nvim"
-  use "mattn/vim-gist"
-  use "mattn/webapi-vim"
-
-  -- DAP
-  use "mfussenegger/nvim-dap"
-  use "theHamsta/nvim-dap-virtual-text"
-  use "rcarriga/nvim-dap-ui"
-  use "Pocco81/DAPInstall.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

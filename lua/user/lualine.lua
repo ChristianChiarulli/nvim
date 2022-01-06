@@ -7,23 +7,11 @@ local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end
 
---   git add
---   git mod
---   git remove
---   git ignore
---   git rename
---   error
---   info
---   question
---   warning
---   lightbulb
-
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
-	-- symbols = { error = "  ", warn = "  " },
 	colored = false,
 	update_in_insert = false,
 	always_visible = true,
@@ -80,7 +68,7 @@ lualine.setup({
 		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
+		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
 	},
 	sections = {

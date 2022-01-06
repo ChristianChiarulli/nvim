@@ -13,8 +13,6 @@ vim.g.nvim_tree_icons = {
     ignored = "◌",
   },
   folder = {
-    -- arrow_open = " ",
-    -- arrow_closed = "",
     default = "",
     open = "",
     empty = "",
@@ -52,15 +50,10 @@ nvim_tree.setup {
     enable = true,
     auto_open = true,
   },
---   error
---   info
---   question
---   warning
---   lightbulb
   diagnostics = {
     enable = true,
     icons = {
-      hint = "",
+      hint = "",
       info = "",
       warning = "",
       error = "",

@@ -7,6 +7,7 @@ local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
+keymap("n", "<C-z>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -31,7 +32,7 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Naviagate buffers
+-- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
@@ -42,6 +43,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+keymap("i", "<CAPS>", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -67,41 +69,3 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- Custom
-keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
-keymap("n", "<TAB>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
-keymap("n", "<F1>", ":e ~/Notes/<cr>", opts)
-keymap("n", "<F3>", ":e .<cr>", opts)
-keymap("n", "<F4>", "<cmd>Telescope resume<cr>", opts)
-keymap("n", "<F5>", "<cmd>Telescope commands<CR>", opts)
-keymap(
-  "n",
-  "<F6>",
-  [[:echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>]],
-  opts
-)
-keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
-keymap("n", "<F8>", "<cmd>TSPlaygroundToggle<cr>", opts)
-keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], opts)
-keymap(
-  "n",
-  "<C-p>",
-  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  opts
-)
-keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
-keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
-keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
-keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
--- keymap("n", "<C-\\>", "<cmd>vsplit<cr>", opts)
--- vim.cmd[[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]]
--- vim.cmd[[nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN]]
--- keymap("n", "c*", [[/\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]], opts)
--- keymap("n", "c#", [[?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN]], opts)
--- keymap("n", "gx", [[:execute '!brave ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
-keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
--- Change '<CR>' to whatever shortcut you like :)
-vim.api.nvim_set_keymap('n', '<CR>', '<cmd>NeoZoomToggle<CR>', { noremap=true, silent=true, nowait=true })

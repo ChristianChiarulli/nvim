@@ -1,0 +1,11 @@
+vim.cmd [[
+try
+  colorscheme ayu
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+  set background=dark
+  hi Normal guibg=NONE
+endtry
+]]
+vim.cmd [[hi Normal guibg=NONE]]
+vim.cmd [[let ayucolor=mirage]]
