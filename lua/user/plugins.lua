@@ -136,6 +136,7 @@ return packer.startup(function(use)
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   }
+  use "github/copilot.vim"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
