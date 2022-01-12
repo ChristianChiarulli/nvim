@@ -30,6 +30,11 @@ lsp_installer.on_server_ready(function(server)
     return
   end
 
+  if server.name == "solang" then
+    local solang_opts = require "user.lsp.settings.solang"
+    opts = vim.tbl_deep_extend("force", solang_opts, opts)
+  end
+
   -- This setup() function is exactly the same as lspconfig's setup function.
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
   server:setup(opts)
