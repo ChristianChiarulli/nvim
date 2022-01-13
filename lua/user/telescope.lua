@@ -94,6 +94,21 @@ telescope.setup {
       filetypes = { "png", "webp", "jpg", "jpeg" },
       find_cmd = "rg", -- find command (defaults to `fd`)
     },
+    file_browser = {
+      -- theme = "ivy",
+      -- require("telescope.themes").get_dropdown {
+      --   previewer = false,
+      --   -- even more opts
+      -- },
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {
         previewer = false,
@@ -103,4 +118,5 @@ telescope.setup {
   },
 }
 
-require("telescope").load_extension("ui-select")
+require("telescope").load_extension "ui-select"
+require("telescope").load_extension "file_browser"
