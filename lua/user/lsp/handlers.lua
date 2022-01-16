@@ -54,7 +54,6 @@ local function lsp_highlight_document(client)
     vim.api.nvim_exec(
       [[
       let ftToIgnore = ['html']
-      autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | set your options
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> if index(ftToIgnore, &ft) < 0 | lua vim.lsp.buf.document_highlight()
