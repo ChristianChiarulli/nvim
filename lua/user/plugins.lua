@@ -62,7 +62,7 @@ return packer.startup(function(use)
   use "junegunn/goyo.vim"
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "folke/tokyonight.nvim"
   use "EdenEast/nightfox.nvim"
@@ -72,7 +72,7 @@ return packer.startup(function(use)
   use "ayu-theme/ayu-vim"
   use "rafi/awesome-vim-colorschemes"
   use "sonph/onehalf"
--- use "lunarvim/colorshemes"
+  use "markvincze/panda-vim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
