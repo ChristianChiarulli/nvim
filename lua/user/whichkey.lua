@@ -112,7 +112,7 @@ local mappings = {
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
   -- ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["/"] = { "<cmd>lua require(\"Comment.api\").toggle_current_linewise()<CR>", "Comment" },
+  ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -220,11 +220,18 @@ local mappings = {
   },
 
   S = {
-    name = "Session",
-    s = { "<cmd>SaveSession<cr>", "Save" },
-    l = { "<cmd>LoadLastSession!<cr>", "Load Last" },
-    d = { "<cmd>LoadCurrentDirSession!<cr>", "Load Last Dir" },
-    f = { "<cmd>Telescope sessions save_current=false<cr>", "Find Session" },
+    -- name = "Session",
+    -- s = { "<cmd>SaveSession<cr>", "Save" },
+    -- l = { "<cmd>LoadLastSession!<cr>", "Load Last" },
+    -- d = { "<cmd>LoadCurrentDirSession!<cr>", "Load Last Dir" },
+    -- f = { "<cmd>Telescope sessions save_current=false<cr>", "Find Session" },
+    name = "Surround",
+    ["."] = { "<cmd>lua require('surround').repeat_last()<cr>", "Repeat" },
+    a = { "<cmd>lua require('surround').surround_add(true)<cr>", "Add" },
+    d = { "<cmd>lua require('surround').surround_delete()<cr>", "Delete" },
+    r = { "<cmd>lua require('surround').surround_replace()<cr>", "Replace" },
+    q = { "<cmd>lua require('surround').toggle_quotes()<cr>", "Quotes" },
+    b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" },
   },
 
   t = {
@@ -258,9 +265,8 @@ local vopts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-  ["/"] = { "<ESC><CMD>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
+  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
 }
-
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
