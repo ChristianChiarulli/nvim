@@ -28,8 +28,10 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
-
 ]]
+-- autocmd BufLeave * if (!exists('b:caret')) | let b:caret = winsaveview() | endif
+-- autocmd BufEnter * if (exists('b:caret')) | call winrestview(b:caret) | endif
+
 -- Autoformat
 -- augroup _lsp
 --   autocmd!

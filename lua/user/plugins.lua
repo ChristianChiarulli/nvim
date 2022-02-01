@@ -79,6 +79,7 @@ return packer.startup(function(use)
   use "tversteeg/registers.nvim"
   use "metakirby5/codi.vim"
   use "nyngwang/NeoZoom.lua"
+  use { 'michaelb/sniprun', run = 'bash ./install.sh'}
   use {
 
     "iamcco/markdown-preview.nvim",
