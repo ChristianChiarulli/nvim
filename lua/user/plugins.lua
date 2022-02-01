@@ -165,6 +165,7 @@ return packer.startup(function(use)
   use "ruifm/gitlinker.nvim"
   use "mattn/vim-gist"
   use "mattn/webapi-vim"
+  use "https://github.com/rhysd/conflict-marker.vim"
 
   -- DAP
   use "mfussenegger/nvim-dap"
