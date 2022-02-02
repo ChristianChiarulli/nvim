@@ -41,12 +41,12 @@ sniprun.setup {
   },
 
   --# customize highlight groups (setting this overrides colorscheme)
-  snipruncolors = {
-    SniprunVirtualTextOk = { bg = "NONE", fg = "#66eeff", ctermbg = "Black", cterfg = "Cyan" },
-    SniprunFloatingWinOk = { fg = "NONE", ctermfg = "Cyan" },
-    SniprunVirtualTextErr = { bg = "#881515", fg = "#000000", ctermbg = "DarkRed", cterfg = "Black" },
-    SniprunFloatingWinErr = { fg = "#881515", ctermfg = "DarkRed" },
-  },
+  -- snipruncolors = {
+  --   SniprunVirtualTextOk = { bg = "NONE", fg = "#66eeff", ctermbg = "Black", cterfg = "Cyan" },
+  --   SniprunFloatingWinOk = { fg = "NONE", ctermfg = "Cyan" },
+  --   SniprunVirtualTextErr = { bg = "#881515", fg = "#000000", ctermbg = "DarkRed", cterfg = "Black" },
+  --   SniprunFloatingWinErr = { fg = "#881515", ctermfg = "DarkRed" },
+  -- },
 
   --# miscellaneous compatibility/adjustement settings
   inline_messages = 0, --# inline_message (0/1) is a one-line way to display messages
