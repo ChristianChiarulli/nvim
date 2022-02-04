@@ -95,7 +95,10 @@ return packer.startup(function(use)
   use "rebelot/kanagawa.nvim"
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use {"hrsh7th/nvim-cmp",
+    commit = "d93104244c3834fbd8f3dd01da9729920e0b5fe7"
+
+  } -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -154,7 +157,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "ChristianChiarulli/nvim-ts-rainbow"
+  use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
   use "romgrk/nvim-treesitter-context"
