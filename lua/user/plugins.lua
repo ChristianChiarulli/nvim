@@ -141,6 +141,7 @@ return packer.startup(function(use)
     cmd = "TroubleToggle",
   }
   use "github/copilot.vim"
+  use "RRethy/vim-illuminate"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
