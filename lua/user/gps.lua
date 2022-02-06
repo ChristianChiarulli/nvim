@@ -9,27 +9,27 @@ gps.setup {
   disable_icons = false, -- Setting it to true will disable all icons
 
   icons = {
-    ["class-name"] = " ", -- Classes and class-like objects
-    ["function-name"] = " ", -- Functions
-    ["method-name"] = " ", -- Methods (functions inside class-like objects)
-    ["container-name"] = "⛶ ", -- Containers (example: lua tables)
-    ["tag-name"] = "炙", -- Tags (example: html tags)
-    ["mapping-name"] = " ",
-    ["sequence-name"] = " ",
-    ["null-name"] = "[] ",
-    ["boolean-name"] = "ﰰﰴ ",
-    ["integer-name"] = "# ",
-    ["float-name"] = " ",
-    ["string-name"] = " ",
-    ["array-name"] = " ",
-    ["object-name"] = " ",
-    ["number-name"] = "# ",
-    ["table-name"] = " ",
-    ["date-name"] = " ",
-    ["date-time-name"] = " ",
-    ["inline-table-name"] = " ",
-    ["time-name"] = " ",
-    ["module-name"] = " ",
+    ["class-name"] = "  ", -- Classes and class-like objects
+    ["function-name"] = "  ", -- Functions
+    ["method-name"] = "  ", -- Methods (functions inside class-like objects)
+    ["container-name"] = "  ", -- Containers (example: lua tables)
+    ["tag-name"] = "  ", -- Tags (example: html tags)
+    ["mapping-name"] = "  ",
+    ["sequence-name"] = "  ",
+    ["null-name"] = "  ",
+    ["boolean-name"] = "  ",
+    ["integer-name"] = "  ",
+    ["float-name"] = "  ",
+    ["string-name"] = "  ",
+    ["array-name"] = "  ",
+    ["object-name"] = "  ",
+    ["number-name"] = "  ",
+    ["table-name"] = "  ",
+    ["date-name"] = "  ",
+    ["date-time-name"] = "  ",
+    ["inline-table-name"] = "  ",
+    ["time-name"] = "  ",
+    ["module-name"] = "  ",
   },
 
   -- Add custom configuration per language or

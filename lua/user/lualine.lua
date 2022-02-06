@@ -99,8 +99,9 @@ lualine.setup {
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = { branch, diagnostics },
-    lualine_b = { mode },
+    -- lualine_a = { branch, diagnostics },
+    lualine_a = { branch },
+    lualine_b = { diagnostics },
     -- lualine_c = { _gps },
     lualine_c = {
       { nvim_gps, cond = hide_in_width },
