@@ -77,8 +77,9 @@ return packer.startup(function(use)
   use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
-  use "metakirby5/codi.vim"
+  -- use "metakirby5/codi.vim"
   use "nyngwang/NeoZoom.lua"
+  use "SmiteshP/nvim-gps"
   use { 'michaelb/sniprun', run = 'bash ./install.sh'}
   use {
 
