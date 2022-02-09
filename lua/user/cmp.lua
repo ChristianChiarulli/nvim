@@ -113,10 +113,10 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  documentation = false,
-  -- documentation = {
-  -- 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  -- },
+  -- documentation = true,
+  documentation = {
+  	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  },
   experimental = {
     ghost_text = true,
     native_menu = false,
