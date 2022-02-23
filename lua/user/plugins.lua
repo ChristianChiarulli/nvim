@@ -72,7 +72,7 @@ return packer.startup(function(use)
   use "ThePrimeagen/harpoon"
   use "MattesGroeger/vim-bookmarks"
   use "lunarvim/vim-solidity"
-  use "blackCauldron7/surround.nvim"
+  use "Mephistophiles/surround.nvim"
   use "tpope/vim-repeat"
   use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
@@ -112,6 +112,12 @@ return packer.startup(function(use)
         max_lines = 1000,
         max_num_results = 20,
         sort = true,
+        run_on_every_keystroke = true,
+        snippet_placeholder = "..",
+        ignored_file_types = { -- default is not to ignore
+          -- uncomment to ignore in lua:
+          -- lua = true
+        },
       }
     end,
 
