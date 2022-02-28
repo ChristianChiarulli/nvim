@@ -63,7 +63,7 @@ return packer.startup(function(use)
   use "andymass/vim-matchup"
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
-  use "norcalli/nvim-colorizer.lua"
+  use "br1anchen/nvim-colorizer.lua"
   use "windwp/nvim-spectre"
   use "folke/zen-mode.nvim"
   use "karb94/neoscroll.nvim"
@@ -162,7 +162,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "p00f/nvim-ts-rainbow"
+  use {'p00f/nvim-ts-rainbow', commit = 'c6c26c4def0e9cd82f371ba677d6fc9baa0038af'}
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
   use "romgrk/nvim-treesitter-context"
