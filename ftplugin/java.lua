@@ -30,10 +30,14 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = WORKSPACE_PATH .. project_name
 
 -- TODO: Testing
--- local bundles = {
---     vim.fn.glob(home .. "/.config/lvim/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
--- };
--- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/lvim/java/vscode-java-test/server/*.jar"), "\n"))
+
+local bundles = {
+  vim.fn.glob(
+    home .. "/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+  ),
+}
+
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/vscode-java-test/server/*.jar"), "\n"))
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -158,8 +162,8 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = {},
-    -- bundles = bundles,
+    -- bundles = {},
+    bundles = bundles,
   },
 }
 -- This starts a new client & server,
@@ -204,6 +208,9 @@ local mappings = {
     o = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize Imports" },
     v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
     c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
+    t = { "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", "Test Method" },
+    T = { "<Cmd>lua require'jdtls'.test_class()<CR>", "Test Class" },
+    u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
   },
 }
 
@@ -221,3 +228,6 @@ which_key.register(vmappings, vopts)
 
 vim.cmd [[setlocal shiftwidth=2]]
 vim.cmd [[setlocal tabstop=2]]
+
+-- debugging
+-- git clone git@github.com:microsoft/java-debug.git
