@@ -39,14 +39,14 @@ lir.setup {
     winblend = 0,
     curdir_window = {
       enable = false,
-      highlight_dirname = false,
+      highlight_dirname = true,
     },
 
     -- -- You can define a function that returns a table to be passed as the third
     -- -- argument of nvim_open_win().
     win_opts = function()
-      local width = math.floor(vim.o.columns * 0.8)
-      local height = math.floor(vim.o.lines * 0.8)
+      local width = math.floor(vim.o.columns * 0.7)
+      local height = math.floor(vim.o.lines * 0.7)
       return {
         border = "rounded",
         width = width,
