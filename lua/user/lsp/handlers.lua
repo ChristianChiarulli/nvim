@@ -83,6 +83,7 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" or client.name == "html" then
     client.resolved_capabilities.document_formatting = false
   end
+  vim.lsp.codelens.refresh()
 
   if client.name == "jdt.ls" then
     require("jdtls").setup_dap { hotcodereplace = "auto" }
