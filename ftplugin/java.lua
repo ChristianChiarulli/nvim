@@ -120,7 +120,7 @@ local config = {
         includeDecompiledSources = true,
       },
       format = {
-        enabled = true,
+        enabled = false,
         -- settings = {
         --   profile = "asdf"
         -- }
