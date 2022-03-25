@@ -92,6 +92,7 @@ local config = {
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+  -- or https://github.com/redhat-developer/vscode-java#supported-vs-code-settings
   -- for a list of options
   settings = {
     java = {
@@ -102,6 +103,9 @@ local config = {
       -- },
       eclipse = {
         downloadSources = true,
+      },
+      configuration = {
+        updateBuildConfiguration = "interactive",
       },
       maven = {
         downloadSources = true,
