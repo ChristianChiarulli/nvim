@@ -1,10 +1,12 @@
-vim.cmd[[filetype plugin on
+vim.cmd[[
+set wrap
+let g:vimtex_compiler_method = 'latexrun'
+let g:vimtex_compiler_latexmk = {
+            \ 'build_dir' : 'build',
+            \}
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = "zathura"
+let g:vimtex_quickfix_ignore_filters = [
+      \ 'DeclareDelimAlias*',
+      \]
 ]]
-  local cmp = require('cmp')
-local sources = cmp.get_config().sources
-for i = #sources, 1, -1 do
-  if sources[i].name == 'emoji' then
-    table.remove(sources, i)
-  end
-end
-cmp.setup.buffer({ sources = sources })
