@@ -2,7 +2,6 @@ local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
   return
 end
-
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
   return
@@ -92,22 +91,22 @@ cmp.setup {
 
         nvim_lsp = "",
         nvim_lua = "",
-        luasnip = "",
-        buffer = "",
+        -- luasnip = "",
+        -- buffer = "",
         path = "",
-        emoji = "",
+        -- emoji = "",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "nvim_lua" },
-    { name = "luasnip" },
-    { name = "buffer" },
+    -- { name = "nvim_lua" },
+    -- { name = "luasnip" },
+    -- { name = "buffer" },
     { name = "cmp_tabnine" },
     { name = "path" },
-    { name = "emoji" },
+    -- { name = "emoji" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
