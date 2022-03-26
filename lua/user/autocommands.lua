@@ -34,6 +34,12 @@ vim.cmd [[
     autocmd!
     autocmd VimEnter * hi link illuminatedWord LspReferenceText
   augroup END
+
+ " let ftToEnable = ['java']
+ augroup codelens
+   autocmd!
+   autocmd BufWritePost *.java lua vim.lsp.codelens.refresh() 
+ augroup END
 ]]
 -- autocmd BufLeave * if (!exists('b:caret')) | let b:caret = winsaveview() | endif
 -- autocmd BufEnter * if (exists('b:caret')) | call winrestview(b:caret) | endif
