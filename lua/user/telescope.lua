@@ -112,14 +112,14 @@ telescope.setup {
         },
       },
     },
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
-        previewer = false,
-        -- even more opts
-      },
-    },
+    -- ["ui-select"] = {
+    --   require("telescope.themes").get_dropdown {
+    --     previewer = false,
+    --     -- even more opts
+    --   },
+    -- },
   },
 }
 
-telescope.load_extension "ui-select"
+-- telescope.load_extension "ui-select"
 telescope.load_extension "file_browser"

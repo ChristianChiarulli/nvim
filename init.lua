@@ -49,5 +49,3 @@ require "user.illuminate"
 require "user.dap"
 require "user.lir"
 vim.opt.laststatus = 3
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
