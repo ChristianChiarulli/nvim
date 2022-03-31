@@ -72,7 +72,7 @@ return packer.startup(function(use)
   use "kevinhwang91/nvim-bqf"
   use "ThePrimeagen/harpoon"
   use "MattesGroeger/vim-bookmarks"
-  use "lunarvim/vim-solidity"
+  -- use "lunarvim/vim-solidity"
   use "Mephistophiles/surround.nvim"
   use "tpope/vim-repeat"
   use "Shatur/neovim-session-manager"
