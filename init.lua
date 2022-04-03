@@ -48,4 +48,5 @@ require "user.gps"
 require "user.illuminate"
 require "user.dap"
 require "user.lir"
+require "user.better-escape"
 vim.opt.laststatus = 3
