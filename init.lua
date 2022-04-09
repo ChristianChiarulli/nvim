@@ -49,4 +49,3 @@ require "user.illuminate"
 require "user.dap"
 require "user.lir"
 require "user.jabs"
-vim.opt.laststatus = 3

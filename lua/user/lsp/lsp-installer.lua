@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 -- TODO: add something to installer later
-require("lspconfig").motoko.setup {}
+-- require("lspconfig").motoko.setup {}
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
