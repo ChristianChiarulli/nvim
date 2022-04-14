@@ -71,3 +71,7 @@ TODO
 vercel
 udev
 JUnit
+statusline
+Lualine
+lightline
+galaxyline

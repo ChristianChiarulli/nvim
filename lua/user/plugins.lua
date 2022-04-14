@@ -98,7 +98,10 @@ return packer.startup(function(use)
   -- use "rebelot/kanagawa.nvim"
 
   -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
+  -- use "hrsh7th/nvim-cmp" -- The completion plugin
+    use { 'hrsh7th/nvim-cmp',
+      commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
+    }
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
