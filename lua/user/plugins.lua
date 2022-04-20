@@ -75,7 +75,7 @@ return packer.startup(function(use)
   -- use "lunarvim/vim-solidity"
   use "Mephistophiles/surround.nvim"
   use "tpope/vim-repeat"
-  use "Shatur/neovim-session-manager"
+  -- use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
   -- use "metakirby5/codi.vim"
@@ -99,8 +99,8 @@ return packer.startup(function(use)
 
   -- cmp plugins
   -- use "hrsh7th/nvim-cmp" -- The completion plugin
-    use { 'hrsh7th/nvim-cmp',
-      commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
+    use { 'hrsh7th/nvim-cmp'
+      -- commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
     }
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -129,6 +129,7 @@ return packer.startup(function(use)
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
   }
+  
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
 
   -- snippets
@@ -136,7 +137,7 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "christianchiarulli/nvim-lspconfig" -- enable LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
