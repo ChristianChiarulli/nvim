@@ -234,7 +234,7 @@ lualine.setup {
     disabled_filetypes = { "alpha", "dashboard" },
     section_separators = { left = "", right = "" },
     -- disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
-    disabled_filetypes = { "alpha", "dashboard", "toggleterm" },
+    disabled_filetypes = { "alpha", "dashboard", "toggleterm", "NvimTree" },
     always_divide_middle = true,
   },
   sections = {
