@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
   -- use "metakirby5/codi.vim"
-  use "nyngwang/NeoZoom.lua"
+  use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
   use "SmiteshP/nvim-gps"
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
@@ -99,9 +99,10 @@ return packer.startup(function(use)
 
   -- cmp plugins
   -- use "hrsh7th/nvim-cmp" -- The completion plugin
-    use { 'hrsh7th/nvim-cmp'
-      -- commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
-    }
+  use {
+    "hrsh7th/nvim-cmp",
+    -- commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
+  }
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -129,7 +130,7 @@ return packer.startup(function(use)
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
   }
-  
+
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
 
   -- snippets
