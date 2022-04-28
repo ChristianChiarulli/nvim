@@ -53,8 +53,14 @@ vim.cmd [[ command! SnipRunToggle execute 'lua require("user.functions").toggle_
 
 -- get length of current word
 function M.get_word_length()
-  local word = vim.fn.expand("<cword>")
+  local word = vim.fn.expand "<cword>"
   return #word
+end
+
+function M.toggle_option(option)
+  local value = not vim.api.nvim_get_option_value(option, {})
+  vim.opt[option] = value
+  vim.notify(option .. " set to " .. tostring(value))
 end
 
 return M
