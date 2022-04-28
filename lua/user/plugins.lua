@@ -110,6 +110,7 @@ return packer.startup(function(use)
   use "lunarvim/darkplus.nvim"
   use "rose-pine/neovim"
   use "sainnhe/sonokai"
+  use "wuelnerdotexe/vim-enfocado"
   -- use "rebelot/kanagawa.nvim"
 
   -- cmp plugins
