@@ -68,7 +68,7 @@ lir.setup {
     )
 
     -- echo cwd
-    vim.api.nvim_echo({ { vim.fn.expand "%:p", "Normal" } }, false, {})
+    -- vim.api.nvim_echo({ { vim.fn.expand "%:p", "Normal" } }, false, {})
   end,
 }
 
