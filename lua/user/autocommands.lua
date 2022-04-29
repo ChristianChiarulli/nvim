@@ -1,33 +1,39 @@
-vim.cmd [[
-  augroup _general_settings
-    autocmd!
-    autocmd FileType qf,help,man,lspinfo,spectre_panel nnoremap <silent> <buffer> q :close<CR> 
-    autocmd FileType qf set nobuflisted
-  augroup end
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = { "AlphaReady" },
+  callback = function()
+    vim.cmd [[
+      set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+    ]]
+  end,
+})
 
-  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-
-  augroup _alpha
-    autocmd!
-    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-  augroup end
-]]
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
+  callback = function()
+    vim.cmd [[
+      nnoremap <silent> <buffer> q :close<CR> 
+      set nobuflisted 
+    ]]
+  end,
+})
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()
     vim.cmd [[
-    setlocal wrap
-    setlocal spell
+      setlocal wrap
+      setlocal spell
     ]]
   end,
 })
 
--- TODO why this no work?
--- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   callback =
---     "++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
--- })
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  callback = function()
+    vim.cmd [[
+      if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+    ]]
+  end,
+})
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
@@ -65,12 +71,3 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
     vim.cmd "hi link illuminatedWord LspReferenceText"
   end,
 })
-
--- autocmd BufLeave * if (!exists('b:caret')) | let b:caret = winsaveview() | endif
--- autocmd BufEnter * if (exists('b:caret')) | call winrestview(b:caret) | endif
-
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
