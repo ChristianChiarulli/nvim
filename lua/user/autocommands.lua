@@ -6,6 +6,11 @@ vim.cmd [[
   augroup end
 
   autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+
+  augroup _alpha
+    autocmd!
+    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+  augroup end
 ]]
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -20,7 +25,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- TODO why this no work?
 -- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   callback = 
+--   callback =
 --     "++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
 -- })
 
