@@ -139,12 +139,11 @@ local mappings = {
 
   o = {
     name = "Options",
-  w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
-  r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
-  l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Relative" },
-  s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Relative" },
+    w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
+    r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
+    l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Relative" },
+    s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Relative" },
   },
-
 
   r = {
     name = "Replace",
@@ -231,7 +230,7 @@ local mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
     F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },

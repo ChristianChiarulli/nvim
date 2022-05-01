@@ -46,13 +46,13 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-  if client.resolved_capabilities.document_highlight then
+  -- if client.server_capabilities.document_highlight then
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
       return
     end
     illuminate.on_attach(client)
-  end
+  -- end
 end
 
 local function lsp_keymaps(bufnr)
@@ -81,9 +81,18 @@ end
 M.on_attach = function(client, bufnr)
   -- vim.notify(client.name .. " starting...")
   -- TODO: refactor this into a method that checks if string in list
-  if client.name == "tsserver" or client.name == "html" or client.name == "jdt.ls" then
-    client.resolved_capabilities.document_formatting = false
-  end
+  -- if client.name == "tsserver" or client.name == "html" or client.name == "jdt.ls" then
+  --   client.resolved_capabilities.document_formatting = false
+  -- end
+  -- vim.lsp.buf.format {
+  --   filter = function(clients)
+  --     -- filter out clients that you don't want to use
+  --     return vim.tbl_filter(function(client)
+  --       return client.name ~= "sumneko_lua"
+  --     end, clients)
+  --   end,
+  --   bufnr = bufnr,
+  -- }
 
   if client.name == "jdt.ls" then
     require("jdtls").setup_dap { hotcodereplace = "auto" }
