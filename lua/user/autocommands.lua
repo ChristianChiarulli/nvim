@@ -27,13 +27,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  callback = function()
-    vim.cmd [[
-      if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-    ]]
-  end,
-})
+vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   callback = function()
+--     vim.cmd [[
+--       if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+--     ]]
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
