@@ -78,11 +78,9 @@ local nvim_gps = function()
   end
 end
 
--- TODO: find out what is overriding this
-vim.opt.laststatus = 3
-
 lualine.setup {
   options = {
+    globalstatus = true,
     icons_enabled = true,
     theme = "auto",
     component_separators = { left = "", right = "" },
@@ -115,5 +113,3 @@ lualine.setup {
   tabline = {},
   extensions = {},
 }
-
-vim.opt.laststatus = 3
