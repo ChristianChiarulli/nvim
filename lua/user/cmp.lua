@@ -106,6 +106,7 @@ cmp.setup {
         buffer = "",
         path = "",
         emoji = "",
+        dap = "",
       })[entry.source.name]
       return vim_item
     end,
