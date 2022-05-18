@@ -110,6 +110,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
+  use "rcarriga/cmp-dap"
   use {
     "tzachar/cmp-tabnine",
     config = function()
