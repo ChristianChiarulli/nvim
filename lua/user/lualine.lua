@@ -236,6 +236,7 @@ lualine.setup {
     -- disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
     disabled_filetypes = { "alpha", "dashboard", "toggleterm", "NvimTree" },
     always_divide_middle = true,
+    globalstatus = false,
   },
   sections = {
     lualine_a = { mode, branch },
