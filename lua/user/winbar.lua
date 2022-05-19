@@ -7,6 +7,8 @@ end
 
 M.gps = function()
 
+  -- local file_path = vim.fn.expand("%")
+
   if not gps.is_available() then  -- Returns boolean value indicating whether a output can be provided
     return
   end
