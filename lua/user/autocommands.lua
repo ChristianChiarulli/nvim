@@ -46,10 +46,41 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
   end,
 })
 
+local function has_value(tab, val)
+  for _, value in ipairs(tab) do
+    if value == val then
+      return true
+    end
+  end
+
+  return false
+end
+
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter" }, {
   callback = function()
-    local gps = require("user.winbar").gps()
-    vim.opt_local.winbar = gps
+    local winbar_filetype_exclude = {
+      "help",
+      "startify",
+      "dashboard",
+      "packer",
+      "neogitstatus",
+      "NvimTree",
+      "Trouble",
+      "alpha",
+    }
+
+    if has_value(winbar_filetype_exclude, vim.bo.filetype) then
+      vim.opt_local.winbar = nil
+      return
+    end
+
+    local value = require("user.winbar").gps()
+
+    if value == nil then
+      value = require("user.winbar").filename()
+    end
+
+    vim.opt_local.winbar = value
   end,
 })
 

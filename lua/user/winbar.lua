@@ -9,34 +9,37 @@ local function isempty(s)
   return s == nil or s == ""
 end
 
-local function has_value(tab, val)
-  for _, value in ipairs(tab) do
-    if value == val then
-      return true
-    end
-  end
+M.filename = function()
+  local filename = vim.fn.expand("%"):match "([^/]+)$"
 
-  return false
+  local extension = ""
+  local file_icon = ""
+  local file_icon_color = ""
+
+  if not isempty(filename) then
+    extension = filename:match "^.+(%..+)$"
+
+    local default = false
+
+    if isempty(extension) then
+      extension = " "
+      default = true
+    else
+      extension = extension:gsub("%.", "") -- remove . (. is a special character so we have to escape it)
+    end
+
+    file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = default })
+
+    local icons = require "user.icons"
+
+    local hl_group = "FileIconColor" .. extension
+
+    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
+    return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
+  end
 end
 
 M.gps = function()
-  local winbar_filetype_exclude = {
-    "help",
-    "startify",
-    "dashboard",
-    "packer",
-    "neogitstatus",
-    "NvimTree",
-    "Trouble",
-    "alpha"
-  }
-
-  if has_value(winbar_filetype_exclude, vim.bo.filetype) then
-    return
-  end
-
-  -- print(vim.bo.filetype)
-
   local filename = vim.fn.expand("%"):match "([^/]+)$"
 
   local extension = ""
@@ -77,7 +80,7 @@ M.gps = function()
     --   return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
     --   -- return filename
     -- else
-      return
+    return
     -- end
   end
 
