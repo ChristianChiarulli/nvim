@@ -15,6 +15,8 @@ M.filename = function()
   local extension = ""
   local file_icon = ""
   local file_icon_color = ""
+  local default_file_icon = ""
+  local default_file_icon_color = ""
 
   if not isempty(filename) then
     extension = filename:match "^.+(%..+)$"
@@ -33,6 +35,10 @@ M.filename = function()
     local hl_group = "FileIconColor" .. extension
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
+    if file_icon == nil then
+      file_icon = default_file_icon
+      file_icon_color = default_file_icon_color
+    end
     return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
   end
 end
