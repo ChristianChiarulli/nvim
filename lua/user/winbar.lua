@@ -30,8 +30,6 @@ M.filename = function()
 
     file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = default })
 
-    local icons = require "user.icons"
-
     local hl_group = "FileIconColor" .. extension
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
@@ -40,27 +38,6 @@ M.filename = function()
 end
 
 M.gps = function()
-  local filename = vim.fn.expand("%"):match "([^/]+)$"
-
-  local extension = ""
-  local file_icon = ""
-  local file_icon_color = ""
-
-  if not isempty(filename) then
-    extension = filename:match "^.+(%..+)$"
-
-    local default = false
-
-    if isempty(extension) then
-      extension = " "
-      default = true
-    else
-      extension = extension:gsub("%.", "") -- remove . (. is a special character so we have to escape it)
-    end
-
-    file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = default })
-  end
-
   local status_ok, gps_location = pcall(gps.get_location, {})
   if not status_ok then
     return
@@ -68,42 +45,19 @@ M.gps = function()
 
   local icons = require "user.icons"
 
-  local hl_group = "FileIconColor" .. extension
-
-  vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
-  -- vim.api.nvim_set_hl(0, "Test", { bg = "#fff111" })
-  -- vim.api.nvim_set_hl(0, "WinBarContent", { fg = colors.green, bg = colors.grey })
-
   if not gps.is_available() then -- Returns boolean value indicating whether a output can be provided
-    -- print(filename)
-    -- if not isempty(filename) then
-    --   return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
-    --   -- return filename
-    -- else
     return
-    -- end
   end
+
+  local retval = M.filename()
 
   if gps_location == "error" then
     return ""
   else
     if not isempty(gps_location) then
-      return " "
-        .. "%#"
-        .. hl_group
-        .. "#"
-        .. file_icon
-        .. "%*"
-        .. " "
-        .. "%#LineNr#"
-        .. filename
-        .. "%*"
-        .. " "
-        .. icons.ui.ChevronRight
-        .. " "
-        .. gps_location
+      return retval .. " " .. icons.ui.ChevronRight .. " " .. gps_location
     else
-      return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
+      return retval
     end
   end
 end
