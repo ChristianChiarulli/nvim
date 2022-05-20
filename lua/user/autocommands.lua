@@ -67,6 +67,9 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
       "NvimTree",
       "Trouble",
       "alpha",
+      "lir",
+      "Outline",
+      "spectre_panel",
     }
 
     if has_value(winbar_filetype_exclude, vim.bo.filetype) then
