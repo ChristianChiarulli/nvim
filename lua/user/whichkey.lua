@@ -144,6 +144,7 @@ local mappings = {
     r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
     l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
     s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
+    t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
   },
 
   r = {

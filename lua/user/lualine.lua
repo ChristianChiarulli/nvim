@@ -93,10 +93,10 @@ lualine.setup {
     -- lualine_a = { branch, diagnostics },
     lualine_a = { branch },
     lualine_b = { diagnostics },
-    -- lualine_c = { _gps },
-    lualine_c = {
-      { nvim_gps, cond = hide_in_width },
-    },
+    lualine_c = {},
+    -- lualine_c = {
+    --   { nvim_gps, cond = hide_in_width },
+    -- },
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_x = { diff, spaces, "encoding", filetype },
     lualine_y = { location },

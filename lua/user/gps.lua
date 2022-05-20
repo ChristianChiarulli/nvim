@@ -5,33 +5,37 @@ end
 
 local icons = require "user.icons"
 
+-- vim.api.nvim_set_hl(0, "WinBarSeparator", { fg = "#111fff" })
+-- local fg = vim.api.nvim_get_hl_by_name('DiffAdd', 0).background
+-- local bg = vim.api.nvim_get_hl_by_name('DiffAdd', 0).foreground
+
 -- Customized config
 gps.setup {
 
   disable_icons = false, -- Setting it to true will disable all icons
 
   icons = {
-    ["class-name"] = icons.kind.Class .. " ", -- Classes and class-like objects
-    ["function-name"] = icons.kind.Function .. " ", -- Functions
-    ["method-name"] = icons.kind.Method .. " ", -- Methods (functions inside class-like objects)
-    ["container-name"] = icons.type.Object .. " ", -- Containers (example: lua tables)
-    ["tag-name"] = icons.misc.Tag .. " ", -- Tags (example: html tags)
-    ["mapping-name"] = icons.type.Object .. " ",
-    ["sequence-name"] = icons.type.Array .. " ",
-    ["null-name"] = icons.kind.Field .. " ",
-    ["boolean-name"] = icons.type.Boolean .. " ",
-    ["integer-name"] = icons.type.Number .. " ",
-    ["float-name"] = icons.type.Number .. " ",
-    ["string-name"] = icons.type.String .. " ",
-    ["array-name"] = icons.type.Array .. " ",
-    ["object-name"] = icons.type.Object .. " ",
-    ["number-name"] = icons.type.Number .. " ",
-    ["table-name"] = icons.ui.Table .. " ",
-    ["date-name"] = icons.ui.Calendar .. " ",
-    ["date-time-name"] = icons.ui.Table .. " ",
-    ["inline-table-name"] = icons.ui.Calendar .. " ",
-    ["time-name"] = icons.misc.Watch .. " ",
-    ["module-name"] = icons.kind.Module .. " ",
+    ["class-name"] = "%#CmpItemKindClass#" .. icons.kind.Class .. "%*" .. "", -- Classes and class-like objects
+    ["function-name"] = "%#CmpItemKindFunction#" .. icons.kind.Function .. "%*" .. "", -- Functions
+    ["method-name"] = "%#CmpItemKindMethod#" .. icons.kind.Method .. "%*" .. "", -- Methods (functions inside class-like objects)
+    ["container-name"] = "%#CmpItemKindProperty#" .. icons.type.Object .. "%*" .. "", -- Containers (example: lua tables)
+    ["tag-name"] = "%#CmpItemKindKeyword#" .. icons.misc.Tag .. "%*" .. " ", -- Tags (example: html tags)
+    ["mapping-name"] = "%#CmpItemKindProperty#" .. icons.type.Object .. "%*" .. "",
+    ["sequence-name"] = "%CmpItemKindProperty#" .. icons.type.Array .. "%*" .. "",
+    ["null-name"] = "%CmpItemKindField#" .. icons.kind.Field .. "%*" .. "",
+    ["boolean-name"] = "%CmpItemKindValue#" .. icons.type.Boolean .. "%*" .. "",
+    ["integer-name"] = "%CmpItemKindValue#" .. icons.type.Number .. "%*" .. "",
+    ["float-name"] = "%CmpItemKindValue#" .. icons.type.Number .. "%*" .. "",
+    ["string-name"] = "%CmpItemKindValue#" .. icons.type.String .. "%*" .. "",
+    ["array-name"] = "%CmpItemKindProperty#" .. icons.type.Array .. "%*" .. "",
+    ["object-name"] = "%CmpItemKindProperty#" .. icons.type.Object .. "%*" .. "",
+    ["number-name"] = "%CmpItemKindValue#" .. icons.type.Number .. "%*" .. "",
+    ["table-name"] = "%CmpItemKindProperty#" .. icons.ui.Table .. "%*" .. "",
+    ["date-name"] = "%CmpItemKindValue#" .. icons.ui.Calendar .. "%*" .. "",
+    ["date-time-name"] = "%CmpItemKindValue#" .. icons.ui.Table .. "%*" .. "",
+    ["inline-table-name"] = "%CmpItemKindProperty#" .. icons.ui.Calendar .. "%*" .. "",
+    ["time-name"] = "%CmpItemKindValue#" .. icons.misc.Watch .. "%*" .. "",
+    ["module-name"] = "%CmpItemKindModule#" .. icons.kind.Module .. "%*" .. "",
   },
 
   -- Add custom configuration per language or
@@ -85,4 +89,5 @@ gps.setup {
 
   -- indicator used when context is hits depth limit
   depth_limit_indicator = "..",
+  text_hl = "LineNr"
 }
