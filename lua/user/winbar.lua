@@ -22,7 +22,7 @@ M.filename = function()
     local default = false
 
     if isempty(extension) then
-      extension = " "
+      extension = ""
       default = true
     else
       extension = extension:gsub("%.", "") -- remove . (. is a special character so we have to escape it)

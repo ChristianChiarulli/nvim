@@ -56,7 +56,7 @@ local function has_value(tab, val)
   return false
 end
 
-vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
   callback = function()
     local winbar_filetype_exclude = {
       "help",
