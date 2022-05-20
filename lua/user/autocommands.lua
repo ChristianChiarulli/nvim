@@ -46,16 +46,6 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
   end,
 })
 
-local function has_value(tab, val)
-  for _, value in ipairs(tab) do
-    if value == val then
-      return true
-    end
-  end
-
-  return false
-end
-
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
   callback = function()
     local winbar_filetype_exclude = {
@@ -70,9 +60,10 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
       "lir",
       "Outline",
       "spectre_panel",
+      "toggleterm",
     }
 
-    if has_value(winbar_filetype_exclude, vim.bo.filetype) then
+    if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
       vim.opt_local.winbar = nil
       return
     end
