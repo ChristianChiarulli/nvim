@@ -50,3 +50,4 @@ require "user.jabs"
 require "user.cybu"
 require "user.winbar"
 require "user.options"
+require("user.nvim-webdev-icons")
