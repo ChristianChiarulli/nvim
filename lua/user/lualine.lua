@@ -93,7 +93,23 @@ lualine.setup {
     -- lualine_a = { branch, diagnostics },
     lualine_a = { branch },
     lualine_b = { diagnostics },
-    lualine_c = {},
+    lualine_c = {
+      {
+        function()
+          local fg = "#228b22" -- not modified
+          if vim.bo.modified then
+            fg = "#c70039" -- unsaved
+          elseif not vim.bo.modifiable then
+            fg = "#a70089"
+          end -- readonly
+          vim.cmd("hi! lualine_filename_status guifg=" .. fg)
+          -- return "%t %m"
+          return "%m"
+        end,
+        -- color = "lualine_filename_status",
+      },
+    },
+    -- lualine_c = {},
     -- lualine_c = {
     --   { nvim_gps, cond = hide_in_width },
     -- },
