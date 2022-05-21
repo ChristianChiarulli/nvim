@@ -10,8 +10,7 @@ local function isempty(s)
 end
 
 M.filename = function()
-  local filename = vim.fn.expand("%"):match "([^/]+)$"
-
+  local filename = vim.fn.expand "%:t"
   local extension = ""
   local file_icon = ""
   local file_icon_color = ""
@@ -19,15 +18,13 @@ M.filename = function()
   local default_file_icon_color = ""
 
   if not isempty(filename) then
-    extension = filename:match "^.+(%..+)$"
+    extension = vim.fn.expand "%:e"
 
     local default = false
 
     if isempty(extension) then
       extension = ""
       default = true
-    else
-      extension = extension:gsub("%.", "") -- remove . (. is a special character so we have to escape it)
     end
 
     file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = default })
@@ -39,6 +36,7 @@ M.filename = function()
       file_icon = default_file_icon
       file_icon_color = default_file_icon_color
     end
+
     return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
   end
 end
