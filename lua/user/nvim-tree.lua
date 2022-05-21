@@ -50,6 +50,10 @@ nvim_tree.setup {
     "dashboard",
     "alpha",
   },
+  filters = {
+    custom = { ".git" },
+    exclude = { ".gitignore" },
+  },
   -- auto_close = true,
   -- open_on_tab = false,
   -- hijack_cursor = false,
