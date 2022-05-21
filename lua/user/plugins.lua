@@ -101,7 +101,7 @@ return packer.startup(function(use)
         return
       end
       cybu.setup {
-        display_time = 2000, -- time the cybu window is displayed
+        display_time = 4000, -- time the cybu window is displayed
       }
       vim.keymap.set("n", "H", "<Plug>(CybuPrev)")
       vim.keymap.set("n", "L", "<Plug>(CybuNext)")
