@@ -111,9 +111,9 @@ local mappings = {
   --   "Buffers",
   -- },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  -- ["w"] = { "<cmd>w!<CR>", "Save" },
+  ["w"] = { "<cmd>w<CR>", "Write" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["q"] = { "<cmd>q<CR>", "Quit" },
   ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -147,8 +147,8 @@ local mappings = {
     t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
   },
 
-  w = {
-    name = "Window",
+  s = {
+    name = "Split",
     s = { '<cmd>split<cr>', "HSplit" },
     v = { '<cmd>vsplit<cr>', "VSplit" },
   },
@@ -263,15 +263,15 @@ local mappings = {
     t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   },
 
-  s = {
-    name = "Surround",
-    ["."] = { "<cmd>lua require('surround').repeat_last()<cr>", "Repeat" },
-    a = { "<cmd>lua require('surround').surround_add(true)<cr>", "Add" },
-    d = { "<cmd>lua require('surround').surround_delete()<cr>", "Delete" },
-    r = { "<cmd>lua require('surround').surround_replace()<cr>", "Replace" },
-    q = { "<cmd>lua require('surround').toggle_quotes()<cr>", "Quotes" },
-    b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" },
-  },
+  -- s = {
+  --   name = "Surround",
+  --   ["."] = { "<cmd>lua require('surround').repeat_last()<cr>", "Repeat" },
+  --   a = { "<cmd>lua require('surround').surround_add(true)<cr>", "Add" },
+  --   d = { "<cmd>lua require('surround').surround_delete()<cr>", "Delete" },
+  --   r = { "<cmd>lua require('surround').surround_replace()<cr>", "Replace" },
+  --   q = { "<cmd>lua require('surround').toggle_quotes()<cr>", "Quotes" },
+  --   b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" },
+  -- },
 
   S = {
     -- name = "Session",
