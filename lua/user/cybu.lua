@@ -21,6 +21,7 @@ cybu.setup {
     separator = " ", -- string used as separator
     prefix = "…", -- string used as prefix for truncated paths
     padding = 1, -- left & right padding in number of spaces
+    hide_buffer_id = true,
     devicons = {
       enabled = true, -- enable or disable web dev icons
       colored = true, -- enable color for web dev icons
