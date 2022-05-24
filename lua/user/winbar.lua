@@ -5,8 +5,6 @@ if not status_gps_ok then
   return
 end
 
-local isempty = require("user.functions").isempty
-
 local get_filename = function()
   local filename = vim.fn.expand "%:t"
   local extension = ""
@@ -14,13 +12,14 @@ local get_filename = function()
   local file_icon_color = ""
   local default_file_icon = ""
   local default_file_icon_color = ""
+  local f = require "user.functions"
 
-  if not isempty(filename) then
+  if not f.isempty(filename) then
     extension = vim.fn.expand "%:e"
 
     local default = false
 
-    if isempty(extension) then
+    if f.isempty(extension) then
       extension = ""
       default = true
     end
@@ -40,6 +39,7 @@ local get_filename = function()
 end
 
 local get_gps = function()
+  local f = require "user.functions"
   local status_ok, gps_location = pcall(gps.get_location, {})
   if not status_ok then
     return ""
@@ -54,7 +54,7 @@ local get_gps = function()
   if gps_location == "error" then
     return ""
   else
-    if not isempty(gps_location) then
+    if not f.isempty(gps_location) then
       return " " .. icons.ui.ChevronRight .. " " .. gps_location
     else
       return ""
@@ -90,15 +90,15 @@ M.get_winbar = function()
   if excludes() then
     return
   end
-  local funcs = require "user.functions"
+  local f = require "user.functions"
   local value = get_filename()
 
-  if not funcs.isempty(value) then
+  if not f.isempty(value) then
     local gps_value = get_gps()
     value = value .. gps_value
   end
 
-  if not funcs.isempty(value) and funcs.get_buf_option "mod" then
+  if not f.isempty(value) and f.get_buf_option "mod" then
     local mod = require("user.icons").ui.Circle
     value = value .. " " .. "%#LineNr#" .. mod .. "%*"
   end
