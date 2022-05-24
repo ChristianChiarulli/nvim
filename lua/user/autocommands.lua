@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
+vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
   callback = function()
     local winbar_filetype_exclude = {
       "help",
@@ -76,10 +76,19 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
       return
     end
 
-    local value = require("user.winbar").gps()
+    local isempty = require("user.functions").isempty
+    local get_buf_option = vim.api.nvim_buf_get_option
 
-    if value == nil then
-      value = require("user.winbar").filename()
+    local value = require("user.winbar").filename()
+
+    if not isempty(value) then
+      local gps = require("user.winbar").gps()
+      value = value .. gps
+    end
+
+    if not isempty(value) and get_buf_option(0, "mod") then
+      local mod = require("user.icons").ui.Circle
+      value = value .. " " .. "%#LineNr#" .. mod .. "%*"
     end
 
     vim.opt_local.winbar = value

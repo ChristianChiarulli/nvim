@@ -5,9 +5,7 @@ if not status_gps_ok then
   return
 end
 
-local function isempty(s)
-  return s == nil or s == ""
-end
+local isempty = require("user.functions").isempty
 
 M.filename = function()
   local filename = vim.fn.expand "%:t"
@@ -44,24 +42,24 @@ end
 M.gps = function()
   local status_ok, gps_location = pcall(gps.get_location, {})
   if not status_ok then
-    return
+    return ""
   end
 
   local icons = require "user.icons"
 
   if not gps.is_available() then -- Returns boolean value indicating whether a output can be provided
-    return
+    return ""
   end
 
-  local retval = M.filename()
+  -- local retval = M.filename()
 
   if gps_location == "error" then
     return ""
   else
     if not isempty(gps_location) then
-      return retval .. " " .. icons.ui.ChevronRight .. " " .. gps_location
+      return " " .. icons.ui.ChevronRight .. " " .. gps_location
     else
-      return retval
+      return ""
     end
   end
 end
