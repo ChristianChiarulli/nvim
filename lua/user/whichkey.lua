@@ -113,7 +113,7 @@ local mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w<CR>", "Write" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No HL" },
-  ["q"] = { "<cmd>q<CR>", "Quit" },
+  ["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
   ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
   -- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -149,8 +149,8 @@ local mappings = {
 
   s = {
     name = "Split",
-    s = { '<cmd>split<cr>', "HSplit" },
-    v = { '<cmd>vsplit<cr>', "VSplit" },
+    s = { "<cmd>split<cr>", "HSplit" },
+    v = { "<cmd>vsplit<cr>", "VSplit" },
   },
 
   r = {
