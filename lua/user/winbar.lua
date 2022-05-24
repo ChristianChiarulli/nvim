@@ -35,10 +35,6 @@ M.filename = function()
       file_icon_color = default_file_icon_color
     end
 
-    if vim.fn.has "mac" == 1 then
-      return " " .. "%#" .. hl_group .. "#" .. file_icon .. " " .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
-    end
-
     return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
   end
 end
