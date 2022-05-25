@@ -7,30 +7,22 @@ end
 
 local get_filename = function()
   local filename = vim.fn.expand "%:t"
-  local extension = ""
-  local file_icon = ""
-  local file_icon_color = ""
-  local default_file_icon = ""
+  local extension = vim.fn.expand "%:e"
   local default_file_icon_color = ""
   local f = require "user.functions"
 
   if not f.isempty(filename) then
-    extension = vim.fn.expand "%:e"
-
-    local default = false
-
-    if f.isempty(extension) then
-      extension = ""
-      default = true
-    end
-
-    file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = default })
+    local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
+      filename,
+      extension,
+      { default = true }
+    )
 
     local hl_group = "FileIconColor" .. extension
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
-    if file_icon == nil then
-      file_icon = default_file_icon
+    if f.isempty(file_icon) then
+      file_icon = ""
       file_icon_color = default_file_icon_color
     end
 
