@@ -39,26 +39,19 @@ local get_filename = function()
 end
 
 local get_gps = function()
-  local f = require "user.functions"
   local status_ok, gps_location = pcall(gps.get_location, {})
   if not status_ok then
     return ""
   end
 
-  local icons = require "user.icons"
-
-  if not gps.is_available() then -- Returns boolean value indicating whether a output can be provided
+  if not gps.is_available() or gps_location == "error" then
     return ""
   end
 
-  if gps_location == "error" then
-    return ""
+  if not require("user.functions").isempty(gps_location) then
+    return require("user.icons").ui.ChevronRight .. " " .. gps_location
   else
-    if not f.isempty(gps_location) then
-      return icons.ui.ChevronRight .. " " .. gps_location
-    else
-      return ""
-    end
+    return ""
   end
 end
 
