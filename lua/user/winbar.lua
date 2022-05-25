@@ -1,5 +1,20 @@
 local M = {}
 
+M.winbar_filetype_exclude = {
+  "help",
+  "startify",
+  "dashboard",
+  "packer",
+  "neogitstatus",
+  "NvimTree",
+  "Trouble",
+  "alpha",
+  "lir",
+  "Outline",
+  "spectre_panel",
+  "toggleterm",
+}
+
 local status_gps_ok, gps = pcall(require, "nvim-gps")
 if not status_gps_ok then
   return
@@ -8,7 +23,6 @@ end
 local get_filename = function()
   local filename = vim.fn.expand "%:t"
   local extension = vim.fn.expand "%:e"
-  local default_file_icon_color = ""
   local f = require "user.functions"
 
   if not f.isempty(filename) then
@@ -23,7 +37,7 @@ local get_filename = function()
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
     if f.isempty(file_icon) then
       file_icon = ""
-      file_icon_color = default_file_icon_color
+      file_icon_color = ""
     end
 
     return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
@@ -48,26 +62,10 @@ local get_gps = function()
 end
 
 local excludes = function()
-  local winbar_filetype_exclude = {
-    "help",
-    "startify",
-    "dashboard",
-    "packer",
-    "neogitstatus",
-    "NvimTree",
-    "Trouble",
-    "alpha",
-    "lir",
-    "Outline",
-    "spectre_panel",
-    "toggleterm",
-  }
-
-  if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
+  if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) then
     vim.opt_local.winbar = nil
     return true
   end
-
   return false
 end
 
