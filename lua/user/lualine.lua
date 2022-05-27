@@ -3,11 +3,6 @@ if not status_ok then
   return
 end
 
-local status_gps_ok, gps = pcall(require, "nvim-gps")
-if not status_gps_ok then
-  return
-end
-
 local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
@@ -55,6 +50,15 @@ local location = {
   padding = 0,
 }
 
+local current_signature = function()
+  if not pcall(require, "lsp_signature") then
+    return
+  end
+  local sig = require("lsp_signature").status_line(30)
+  -- return sig.label .. "🐼" .. sig.hint
+  return sig.hint
+end
+
 -- cool function for progress
 local progress = function()
   local current_line = vim.fn.line "."
@@ -76,19 +80,13 @@ lualine.setup {
     theme = "auto",
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
-    -- disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
-    disabled_filetypes = { "alpha", "dashboard", "toggleterm" },
+    disabled_filetypes = { "alpha", "dashboard" },
     always_divide_middle = true,
   },
   sections = {
-    -- lualine_a = { branch, diagnostics },
     lualine_a = { branch },
     lualine_b = { diagnostics },
-    lualine_c = {},
-    -- lualine_c = {
-    --   { nvim_gps, cond = hide_in_width },
-    -- },
-    -- lualine_x = { "encoding", "fileformat", "filetype" },
+    lualine_c = { { current_signature, cond = hide_in_width } },
     lualine_x = { diff, spaces, "encoding", filetype },
     lualine_y = { location },
     lualine_z = { progress },
