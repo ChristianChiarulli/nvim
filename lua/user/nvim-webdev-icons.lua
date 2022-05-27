@@ -40,4 +40,10 @@ nvim_web_devicons.set_icon {
     cterm_color = "59",
     name = "GitModules",
   },
+  ["diff"] = {
+    icon = "",
+    color = "#e24329",
+    cterm_color = "59",
+    name = "Diff",
+  },
 }
