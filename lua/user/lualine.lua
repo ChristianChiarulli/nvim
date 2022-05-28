@@ -62,28 +62,14 @@ local diagnostics = {
   sources = { "nvim_diagnostic" },
   sections = { "error", "warn" },
   symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
-  colored = true,
+  colored = false,
   update_in_insert = false,
   always_visible = true,
 }
 
--- local lineNum = vim.api.nvim_win_get_cursor(0)[1]
-local function getLines()
-  return tostring(vim.api.nvim_win_get_cursor(0)[1]) .. "/" .. tostring(vim.api.nvim_buf_line_count(0))
-end
-
-local function getColumn()
-  local val = vim.api.nvim_win_get_cursor(0)[2]
-  -- pad value to 3 units to stop geometry shift
-  return string.format("%03d", val)
-end
-
 local diff = {
   "diff",
-  colored = true,
-  color_added = "#a7c080",
-  color_modified = "#ffdf1b",
-  color_removed = "#ff6666",
+  colored = false,
   symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " }, -- changes diff symbols
   cond = hide_in_width,
   separator = "%#SLSeparator#" .. "│ " .. "%*",
@@ -98,7 +84,7 @@ local diff = {
 local mode = {
   "mode",
   fmt = function(str)
-    return "" .. str .. ""
+    return "-- " .. str .. " --"
   end,
 }
 
@@ -106,6 +92,7 @@ local filetype = {
   "filetype",
   icons_enabled = true,
   -- icon = nil,
+  icons_enabled = false,
   icon = nil,
 }
 
@@ -197,32 +184,6 @@ local spaces = function()
   return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
-local nvim_gps = function()
-  local gps_location = gps.get_location()
-  if gps_location == "error" then
-    return ""
-  else
-    return gps.get_location()
-  end
-end
-
-local function getWords()
-  if vim.bo.filetype == "md" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then
-    if vim.fn.wordcount().visual_words == 1 then
-      return tostring(vim.fn.wordcount().visual_words) .. " word"
-    elseif not (vim.fn.wordcount().visual_words == nil) then
-      return tostring(vim.fn.wordcount().visual_words) .. " words"
-    else
-      return tostring(vim.fn.wordcount().words) .. " words"
-    end
-  else
-    return ""
-  end
-end
-
--- TODO: find out what is overriding this
-vim.opt.laststatus = 3
-
 lualine.setup {
   options = {
     globalstatus = true,
@@ -234,9 +195,8 @@ lualine.setup {
     disabled_filetypes = { "alpha", "dashboard" },
     section_separators = { left = "", right = "" },
     -- disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
-    disabled_filetypes = { "alpha", "dashboard", "toggleterm", "NvimTree" },
+    disabled_filetypes = { "alpha", "dashboard", "toggleterm" },
     always_divide_middle = true,
-    globalstatus = false,
   },
   sections = {
     lualine_a = { mode, branch },
@@ -251,12 +211,9 @@ lualine.setup {
     --   { nvim_gps, cond = hide_in_width },
     -- },
     -- lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_x = { diagnostics, spaces, "encoding" },
-    lualine_y = { filetype },
-    lualine_z = { 
-      { getColumn, padding = { left = 1, right = 0 } },
-      { getLines, icon = "", padding = 1 },
-    },
+    lualine_x = { diff, spaces, "encoding", filetype },
+    lualine_y = { location },
+    lualine_z = { progress },
   },
   inactive_sections = {
     lualine_a = {},
