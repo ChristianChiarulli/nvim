@@ -35,7 +35,7 @@ local mode_color = {
   rm = "#4EC9B0",
   ["r?"] = "#4EC9B0",
   ["!"] = "#4EC9B0",
-  t = "#4EC9B0",
+  t = "#D7BA7D",
 }
 
 local mode = {
