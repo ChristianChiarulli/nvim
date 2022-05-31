@@ -1,3 +1,7 @@
+vim.opt_local.shiftwidth = 2
+vim.opt_local.tabstop = 2
+vim.opt_local.cmdheight = 2 -- more space in the neovim command line for displaying messages
+
 local status, jdtls = pcall(require, "jdtls")
 if not status then
   return
@@ -30,6 +34,8 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = WORKSPACE_PATH .. project_name
 
 -- TODO: Testing
+
+JAVA_DAP_ACTIVE = false
 
 local bundles = {
   vim.fn.glob(
@@ -170,6 +176,10 @@ local config = {
     bundles = bundles,
   },
 }
+
+-- NOTE: issue with cmd height
+config.handers["language/status"] = function() end
+
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
@@ -229,10 +239,6 @@ local vmappings = {
 
 which_key.register(mappings, opts)
 which_key.register(vmappings, vopts)
-
-vim.opt_local.shiftwidth = 2
-vim.opt_local.tabstop = 2
-vim.opt_local.cmdheight = 2 -- more space in the neovim command line for displaying messages
 
 -- debugging
 -- git clone git@github.com:microsoft/java-debug.git
