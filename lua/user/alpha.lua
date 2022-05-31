@@ -27,7 +27,7 @@ dashboard.section.buttons.val = {
   -- dashboard.button("s", icons.ui.SignIn .. " Find Session", ":Telescope sessions save_current=false <CR>"),
   dashboard.button("c", icons.ui.Gear .. " Config", ":e ~/.config/nvim/init.lua <CR>"),
   dashboard.button("u", icons.ui.CloudDownload .. " Update", ":PackerSync<CR>"),
-  dashboard.button("q", icons.diagnostics.Error .. " Quit", ":qa<CR>"),
+  dashboard.button("q", icons.ui.SignOut .. " Quit", ":qa<CR>"),
 }
 local function footer()
   -- NOTE: requires the fortune-mod package to work
