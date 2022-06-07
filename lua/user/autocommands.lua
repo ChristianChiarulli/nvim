@@ -57,12 +57,6 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
-  callback = function()
-    vim.cmd "quit"
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
   callback = function()
     require("user.winbar").get_winbar()
