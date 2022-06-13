@@ -95,7 +95,7 @@ return packer.startup(function(use)
 
   use {
     "ghillb/cybu.nvim",
-    branch = "v1.x", -- won't receive breaking changes
+    -- branch = "v1.x", -- won't receive breaking changes
     -- branch = "main", -- timely updates
     requires = { "kyazdani42/nvim-web-devicons" }, --optional
   }
