@@ -152,8 +152,20 @@ M.set_buffers = function(buf, current_buf)
     end
 
     local extension = ""
-    extension = filename:match "^.+(%..+)$"
-    extension = extension:gsub("%.", "") -- remove . (. is a special character so we have to escape it)
+    extension = filename:match("^.+(%..+)$")
+
+    local hl_group = "FileIconColor"
+    if not (extension == nil or extension == " ") then
+      extension = extension:gsub("%.", "") -- remove . (. is a special character so we have to escape it)
+      hl_group = hl_group .. extension
+    else
+      -- if chunks[3] == "Terminal:" then
+      -- 	hl_group = hl_group .. "term"
+      --      filename = "terminal"
+      -- else
+      hl_group = hl_group .. filename:gsub('%W', '')
+      -- end
+    end
 
     local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
       filename,
@@ -172,8 +184,6 @@ M.set_buffers = function(buf, current_buf)
     -- print("current buf: " .. tostring(current_buf))
     -- print("lastused: " .. tostring(b.lastused))
 
-    local hl_group = "FileIconColor"
-    hl_group = hl_group .. filename:gsub("%W", "")
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
     local line = " " .. file_icon .. " " .. filename .. " " .. changed_icon
 
@@ -183,7 +193,8 @@ M.set_buffers = function(buf, current_buf)
     empty[#empty + 1] = string.rep(" ", max_width)
     vim.api.nvim_buf_set_lines(buf, i - 1, -1, false, empty)
     vim.api.nvim_buf_set_text(buf, i - 1, 0, i - 1, line:len(), { line })
-    vim.api.nvim_buf_set_text(buf, i - 1, max_width - tostring(linenr):len() + padding, i - 1, max_width, { " " .. linenr })
+    vim.api.nvim_buf_set_text(buf, i - 1, max_width - tostring(linenr):len() + padding, i - 1, max_width,
+      { " " .. linenr })
     vim.api.nvim_buf_add_highlight(buf, -1, hl_group, i - 1, 3, 4)
 
 
