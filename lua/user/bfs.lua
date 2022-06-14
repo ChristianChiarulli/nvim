@@ -31,6 +31,7 @@ M.get_bufs = function()
     if buf_info.listed == 1 then
       -- print(vim.inspect(buf_info.bufnr))
       -- print(vim.inspect(buf_info))
+      -- TODO: this is unecessary
       table.insert(bufs, {
         id = id,
         name = string.gsub(buf_info.name, cwd_path, ""),
@@ -106,7 +107,6 @@ function M.close()
   end)
 end
 
-
 -- Set floating window keymaps
 function M.setKeymaps(win, buf)
   vim.api.nvim_buf_set_option(buf, "filetype", "bfs")
@@ -139,7 +139,6 @@ M.set_buffers = function(buf, current_buf)
   for i, b in ipairs(M.get_bufs()) do
     local filename = b.name
     local changed = b.changed
-    -- print("changed: " .. tostring(changed))
 
     local changed_icon = ""
     local padding = 0
@@ -152,18 +151,22 @@ M.set_buffers = function(buf, current_buf)
     local extension = ""
     extension = filename:match("^.+(%..+)$")
 
+    if filename:sub(1, 7) == "term://" then
+      filename = "Terminal" .. filename:gsub("^.*:", ': "')
+      filename = filename:gsub('"', "")
+      extension = ""
+    end
+
     local hl_group = "FileIconColor"
-    if not (extension == nil or extension == " ") then
+    if not (extension == nil or extension == " " or extension == "") then
       extension = extension:gsub("%.", "") -- remove . (. is a special character so we have to escape it)
       hl_group = hl_group .. extension
     else
-      -- TODO: do something about terminals
-      -- if chunks[3] == "Terminal:" then
-      -- 	hl_group = hl_group .. "term"
-      --      filename = "terminal"
-      -- else
-      hl_group = hl_group .. filename:gsub('%W', '')
-      -- end
+      if filename:split(" ", true)[1] == "Terminal:" then
+        hl_group = hl_group .. "term"
+      else
+        hl_group = hl_group .. filename:gsub('%W', '')
+      end
     end
 
     local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
@@ -171,6 +174,16 @@ M.set_buffers = function(buf, current_buf)
       extension,
       { default = true }
     )
+
+    -- TODO: refactor this
+    if filename:split(" ", true)[1] == "Terminal:" then
+      hl_group = hl_group .. "term"
+      file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
+        "terminal",
+        extension,
+        { default = true }
+      )
+    end
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
     local line = " " .. file_icon .. " " .. filename .. " " .. changed_icon
@@ -195,6 +208,7 @@ end
 function M.refresh(buf, current_buf)
   vim.api.nvim_buf_set_option(buf, "modifiable", true)
   M.set_buffers(buf, current_buf)
+	vim.api.nvim_buf_set_option(buf, "modifiable", false)
 end
 
 M.open = function()
