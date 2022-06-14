@@ -75,7 +75,7 @@ function M.closeBufNum(win)
   local buf = l:split(" ", true)[3]
 
   local current_buf = vim.api.nvim_win_get_buf(win)
-  local jabs_buf = vim.api.nvim_get_current_buf()
+  local bfs_buf = vim.api.nvim_get_current_buf()
   local new_current_buf = vim.api.nvim_buf_get_name(current_buf)
   local cwd_path = vim.fn.getcwd() .. "/"
   local cur_buf_name = string.gsub(new_current_buf, cwd_path, "")
@@ -85,7 +85,7 @@ function M.closeBufNum(win)
     local ln = vim.api.nvim_win_get_cursor(0)[1]
     table.remove(M.bopen, ln - 1)
 
-    M.refresh(jabs_buf)
+    M.refresh(bfs_buf)
   else
     vim.api.nvim_notify("Cannot close current buffer!", 3, {})
   end
