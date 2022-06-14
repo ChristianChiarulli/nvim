@@ -71,7 +71,6 @@ end
 -- Close buffer from line
 function M.closeBufNum(win)
   local l = vim.api.nvim_get_current_line()
-  -- local buf = l:split(" ", true)[3]
   local buf = l:split(" ", true)[3]
 
   local current_buf = vim.api.nvim_win_get_buf(win)
@@ -107,10 +106,10 @@ function M.close()
   end)
 end
 
+
 -- Set floating window keymaps
 function M.setKeymaps(win, buf)
-  -- vim.wo.cursorline = true
-  -- vim.wo.number = true
+  vim.api.nvim_buf_set_option(buf, "filetype", "bfs")
   vim.api.nvim_buf_set_keymap(
     buf,
     "n",
@@ -131,7 +130,6 @@ function M.setKeymaps(win, buf)
     buf,
     "n",
     "d",
-    -- string.format([[:lua require'user.bfs'.closeBufNum(%s)<CR>]], win),
     string.format([[:lua require'user.bfs'.closeBufNum(%s)<CR>]], win),
     { nowait = true, noremap = true, silent = true }
   )
@@ -159,6 +157,7 @@ M.set_buffers = function(buf, current_buf)
       extension = extension:gsub("%.", "") -- remove . (. is a special character so we have to escape it)
       hl_group = hl_group .. extension
     else
+      -- TODO: do something about terminals
       -- if chunks[3] == "Terminal:" then
       -- 	hl_group = hl_group .. "term"
       --      filename = "terminal"
@@ -172,17 +171,6 @@ M.set_buffers = function(buf, current_buf)
       extension,
       { default = true }
     )
-
-    -- local current_buf = vim.api.nvim_win_get_buf(win)
-
-    -- print("filename: " .. tostring(filename))
-    -- print("extension: " .. tostring(extension))
-    -- print("file_icon: " .. tostring(file_icon))
-    -- print("file_icon_color: " .. tostring(file_icon_color))
-
-    -- local current_buf = vim.api.nvim_win_get_buf(0)
-    -- print("current buf: " .. tostring(current_buf))
-    -- print("lastused: " .. tostring(b.lastused))
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
     local line = " " .. file_icon .. " " .. filename .. " " .. changed_icon
@@ -210,7 +198,6 @@ function M.refresh(buf, current_buf)
 end
 
 M.open = function()
-  -- print("win: " .. tostring(win))
   local back_win = vim.api.nvim_get_current_win()
 
   local current_buf = vim.api.nvim_win_get_buf(back_win)
