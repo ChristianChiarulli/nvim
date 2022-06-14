@@ -117,7 +117,6 @@ function M.setKeymaps(win, buf)
     string.format([[:<C-U>lua require'user.bfs'.selBufNum(%s, 'window', vim.v.count)<CR>]], win),
     { nowait = true, noremap = true, silent = true }
   )
-
   vim.api.nvim_buf_set_keymap(
     buf,
     "n",
@@ -125,12 +124,32 @@ function M.setKeymaps(win, buf)
     ':lua require"user.bfs".close()<CR>',
     { nowait = true, noremap = true, silent = true }
   )
-
   vim.api.nvim_buf_set_keymap(
     buf,
     "n",
     "d",
     string.format([[:lua require'user.bfs'.closeBufNum(%s)<CR>]], win),
+    { nowait = true, noremap = true, silent = true }
+  )
+  vim.api.nvim_buf_set_keymap(
+    buf,
+    "n",
+    "l",
+    string.format([[:<C-U>lua require'user.bfs'.selBufNum(%s, 'window', vim.v.count)<CR>]], win),
+    { nowait = true, noremap = true, silent = true }
+  )
+  vim.api.nvim_buf_set_keymap(
+    buf,
+    "n",
+    "s",
+    string.format([[:<C-U>lua require'user.bfs'.selBufNum(%s, 'hsplit', vim.v.count)<CR>]], win),
+    { nowait = true, noremap = true, silent = true }
+  )
+  vim.api.nvim_buf_set_keymap(
+    buf,
+    "n",
+    "v",
+    string.format([[:<C-U>lua require'user.bfs'.selBufNum(%s, 'vsplit', vim.v.count)<CR>]], win),
     { nowait = true, noremap = true, silent = true }
   )
 end
@@ -208,7 +227,7 @@ end
 function M.refresh(buf, current_buf)
   vim.api.nvim_buf_set_option(buf, "modifiable", true)
   M.set_buffers(buf, current_buf)
-	vim.api.nvim_buf_set_option(buf, "modifiable", false)
+  vim.api.nvim_buf_set_option(buf, "modifiable", false)
 end
 
 M.open = function()
