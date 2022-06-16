@@ -5,7 +5,7 @@ end
 
 local actions = require "telescope.actions"
 telescope.load_extension "media_files"
-local icons = require("user.icons")
+local icons = require "user.icons"
 
 telescope.setup {
   defaults = {
@@ -13,6 +13,7 @@ telescope.setup {
     prompt_prefix = icons.ui.Telescope .. " ",
     selection_caret = " ",
     path_display = { "smart" },
+    file_ignore_patterns = { ".git/", "node_modules" },
 
     mappings = {
       i = {
@@ -32,7 +33,7 @@ telescope.setup {
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
-        ['<c-d>'] = require('telescope.actions').delete_buffer,
+        ["<c-d>"] = require("telescope.actions").delete_buffer,
 
         -- ["<C-u>"] = actions.preview_scrolling_up,
         -- ["<C-d>"] = actions.preview_scrolling_down,
