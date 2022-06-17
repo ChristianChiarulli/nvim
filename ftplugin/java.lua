@@ -178,7 +178,7 @@ local config = {
 }
 
 -- NOTE: issue with cmd height
-config.handers["language/status"] = function() end
+-- config.handers["language/status"] = function() end
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
