@@ -73,8 +73,8 @@ return packer.startup(function(use)
   use "ThePrimeagen/harpoon"
   use "MattesGroeger/vim-bookmarks"
   -- use "lunarvim/vim-solidity"
-  -- use "Mephistophiles/surround.nvim"
-  -- use "tpope/vim-repeat"
+  use "Mephistophiles/surround.nvim"
+  use "tpope/vim-repeat"
   -- use "Shatur/neovim-session-manager"
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
@@ -88,19 +88,31 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
+  use {
+    "christianchiarulli/JABS.nvim",
+    requires = { "kyazdani42/nvim-web-devicons" }, --optional
+  }
 
-  use "ghillb/cybu.nvim"
+  use {
+    "ghillb/cybu.nvim",
+    -- branch = "v1.x", -- won't receive breaking changes
+    -- branch = "main", -- timely updates
+    requires = { "kyazdani42/nvim-web-devicons" }, --optional
+  }
 
   -- Colorschemes
-  -- use "folke/tokyonight.nvim"
+  use "folke/tokyonight.nvim"
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
-  -- use "rose-pine/neovim"
+  use "rose-pine/neovim"
   -- use "rebelot/kanagawa.nvim"
 
   -- cmp plugins
   -- use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/nvim-cmp"
+  use {
+    "hrsh7th/nvim-cmp",
+    -- commit = "dbc72290295cfc63075dab9ea635260d2b72f2e5",
+  }
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
@@ -143,13 +155,15 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   -- use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
-  use "ray-x/lsp_signature.nvim"
+  use {"ray-x/lsp_signature.nvim",
+    commit = "4852d99f9511d090745d3cc1f09a75772b9e07e9"
+  }
   use "b0o/SchemaStore.nvim"
-  -- use {
-  --   "folke/trouble.nvim",
-  --   cmd = "TroubleToggle",
-  -- }
-  -- use "github/copilot.vim"
+  use {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  }
+  use "github/copilot.vim"
   use "RRethy/vim-illuminate"
 
   -- Java
@@ -159,8 +173,8 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
-  -- use "nvim-telescope/telescope-ui-select.nvim"
-  -- use "nvim-telescope/telescope-file-browser.nvim"
+  use "nvim-telescope/telescope-ui-select.nvim"
+  use "nvim-telescope/telescope-file-browser.nvim"
 
   -- Treesitter
   use {
@@ -173,7 +187,7 @@ return packer.startup(function(use)
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
   use "romgrk/nvim-treesitter-context"
-  -- use "mizlan/iswap.nvim"
+  use "mizlan/iswap.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
@@ -181,11 +195,11 @@ return packer.startup(function(use)
   use "ruifm/gitlinker.nvim"
   use "mattn/vim-gist"
   use "mattn/webapi-vim"
-  -- use "https://github.com/rhysd/conflict-marker.vim"
+  use "https://github.com/rhysd/conflict-marker.vim"
 
   -- DAP
   use "mfussenegger/nvim-dap"
-  -- use "theHamsta/nvim-dap-virtual-text"
+  use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
   use "Pocco81/DAPInstall.nvim"
 
