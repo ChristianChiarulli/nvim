@@ -28,7 +28,7 @@ M.openOptions = {
   hsplit = "sb %s",
 }
 
-M.get_bufs = function()
+local get_bufs = function()
   local bufs = {}
   local cwd_path = vim.fn.getcwd() .. "/"
   for _, id in ipairs(vim.api.nvim_list_bufs()) do
@@ -164,7 +164,7 @@ function M.setKeymaps(win, buf)
 end
 
 M.set_buffers = function(buf)
-  for i, b in ipairs(M.get_bufs()) do
+  for i, b in ipairs(get_bufs()) do
     local filename = b.name
     local changed = b.changed
 
