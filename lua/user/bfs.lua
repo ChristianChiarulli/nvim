@@ -6,6 +6,9 @@ local ui = vim.api.nvim_list_uis()[1]
 
 M.current_buf = ""
 
+M.terminal_count = 0
+M.terminal_map = {}
+
 M.win_conf = {
   width = 40,
   height = 10,
@@ -51,13 +54,17 @@ end
 -- Open buffer from line
 function M.selBufNum(win, opt, count)
   local buf = nil
-  local filename = ""
+  local filename = nil
 
   if count ~= 0 then
     vim.notify "count wasn't 0, idk why"
   else
     buf = vim.api.nvim_get_current_line()
     filename = buf:split(" ", true)[3]
+
+    if filename:split("_", true)[1] == "Terminal" then
+      filename = M.terminal_map[filename]
+    end
   end
 
   M.close()
@@ -173,7 +180,9 @@ M.set_buffers = function(buf)
     extension = filename:match "^.+(%..+)$"
 
     if filename:sub(1, 7) == "term://" then
-      filename = "Terminal" .. filename:gsub("^.*:", ': "')
+      M.terminal_count = M.terminal_count + 1
+      M.terminal_map["Terminal_" .. tostring(M.terminal_count) .. ":"] = filename
+      filename = "Terminal_" .. tostring(M.terminal_count) .. filename:gsub("^.*:", ': "')
       filename = filename:gsub('"', "")
       extension = ""
     end
