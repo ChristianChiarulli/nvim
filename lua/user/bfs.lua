@@ -90,7 +90,12 @@ function M.closeBufNum(win)
   local cur_buf_name = string.gsub(new_current_buf, cwd_path, "")
 
   if buf ~= cur_buf_name then
-    vim.cmd(string.format("bd %s", buf))
+    local modifier = ""
+    if buf:split("_", true)[1] == "Terminal" then
+      buf = M.terminal_map[buf]
+      modifier = "!"
+    end
+    vim.cmd(string.format("bd" .. modifier .. " %s", buf))
     local ln = vim.api.nvim_win_get_cursor(0)[1]
     table.remove(M.bopen, ln - 1)
 
@@ -104,16 +109,10 @@ function M.closeBufNum(win)
 end
 
 function M.close()
-  xpcall(function()
-    vim.api.nvim_win_close(M.main_win, false)
-    vim.api.nvim_buf_delete(M.main_buf, {})
-    M.main_win = nil
-    M.main_buf = nil
-  end, function()
-    M.main_win = nil
-    M.main_buf = nil
-    M.open()
-  end)
+  vim.api.nvim_win_close(M.main_win, false)
+  vim.api.nvim_buf_delete(M.main_buf, {})
+  M.main_win = nil
+  M.main_buf = nil
 end
 
 -- Set floating window keymaps
