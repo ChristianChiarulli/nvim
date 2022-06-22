@@ -1,3 +1,6 @@
+-- TODO: scope open buffers to project
+
+
 local M = {}
 
 local config = require "user.bfs.config"
