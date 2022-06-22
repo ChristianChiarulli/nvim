@@ -147,13 +147,26 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   -- use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
-  use { "ray-x/lsp_signature.nvim", commit = "4852d99f9511d090745d3cc1f09a75772b9e07e9" }
+  use "ray-x/lsp_signature.nvim"
   use "b0o/SchemaStore.nvim"
   use {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   }
-  use "github/copilot.vim"
+  -- use "github/copilot.vim"
+  use {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    module = "copilot_cmp",
+  }
   use "RRethy/vim-illuminate"
 
   -- Java

@@ -19,6 +19,8 @@ local icons = require "user.icons"
 
 local kind_icons = icons.kind
 
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -78,6 +80,15 @@ cmp.setup {
       if entry.source.name == "cmp_tabnine" then
         vim_item.kind = icons.misc.Robot
       end
+      if entry.source.name == "copilot" then
+        vim_item.kind = icons.git.Octoface
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
+      end
+
+      if entry.source.name == "emoji" then
+        vim_item.kind = icons.misc.Smiley
+      end
+
       -- NOTE: order matters
       vim_item.menu = ({
         nvim_lsp = "",
@@ -91,6 +102,7 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },

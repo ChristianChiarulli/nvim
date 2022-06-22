@@ -61,6 +61,7 @@ if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
       Rename = "",
       Diff = "",
       Repo = "",
+      Octoface = "",
     },
     ui = {
       ArrowClosed = "",
@@ -108,6 +109,7 @@ if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
       Squirrel = "",
       Tag = "",
       Watch = "",
+      Smiley = "ﲃ"
     },
   }
 else
@@ -162,6 +164,7 @@ else
       Rename = " ",
       Diff = " ",
       Repo = " ",
+      Octoface = " "
     },
     ui = {
       ArrowClosed = "",
@@ -209,6 +212,7 @@ else
       Squirrel = " ",
       Tag = " ",
       Watch = " ",
+      Smiley = " "
     },
   }
 end
