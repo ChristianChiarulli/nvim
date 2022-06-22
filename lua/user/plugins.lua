@@ -159,7 +159,7 @@ return packer.startup(function(use)
     event = { "VimEnter" },
     config = function()
       vim.defer_fn(function()
-        require("copilot").setup()
+        require("user.copilot")
       end, 100)
     end,
   }
