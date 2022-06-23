@@ -3,11 +3,6 @@ if not cmp_status_ok then
   return
 end
 
-local cmp_dap_status_ok, cmp_dap = pcall(require, "cmp_dap")
-if not cmp_dap_status_ok then
-  return
-end
-
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
   return
@@ -24,16 +19,14 @@ local icons = require "user.icons"
 
 local kind_icons = icons.kind
 
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+
 cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
-
-  enabled = function()
-    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or cmp_dap.is_dap_buffer()
-  end,
 
   mapping = cmp.mapping.preset.insert {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -87,6 +80,15 @@ cmp.setup {
       if entry.source.name == "cmp_tabnine" then
         vim_item.kind = icons.misc.Robot
       end
+      if entry.source.name == "copilot" then
+        vim_item.kind = icons.git.Octoface
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
+      end
+
+      if entry.source.name == "emoji" then
+        vim_item.kind = icons.misc.Smiley
+      end
+
       -- NOTE: order matters
       vim_item.menu = ({
         nvim_lsp = "",
@@ -95,12 +97,12 @@ cmp.setup {
         buffer = "",
         path = "",
         emoji = "",
-        dap = "",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
+    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },
@@ -108,7 +110,6 @@ cmp.setup {
     { name = "cmp_tabnine" },
     { name = "path" },
     { name = "emoji" },
-    { name = "dap" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
