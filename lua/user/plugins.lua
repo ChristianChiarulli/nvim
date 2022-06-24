@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "folke/which-key.nvim"
   -- use "unblevable/quick-scope"
-  use "phaazon/hop.nvim"
+  use "christianchiarulli/hop.nvim"
   use "andymass/vim-matchup"
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
