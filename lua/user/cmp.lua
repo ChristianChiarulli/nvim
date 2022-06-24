@@ -21,6 +21,7 @@ local kind_icons = icons.kind
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", {fg ="#CA42F0"})
+vim.api.nvim_set_hl(0, "CmpItemKindEmoji", {fg ="#FDE030"})
 
 cmp.setup {
   snippet = {
@@ -89,6 +90,7 @@ cmp.setup {
 
       if entry.source.name == "emoji" then
         vim_item.kind = icons.misc.Smiley
+        vim_item.kind_hl_group = "CmpItemKindEmoji"
       end
 
       -- NOTE: order matters
