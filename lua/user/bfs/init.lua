@@ -1,5 +1,6 @@
 -- TODO: scope open buffers to project
 
+require "split"
 
 local M = {}
 
