@@ -48,7 +48,8 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "tamago324/lir.nvim"
-  use "akinsho/bufferline.nvim"
+  -- use "tiagovla/scope.nvim"
+  -- use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "akinsho/toggleterm.nvim"
@@ -77,7 +78,7 @@ return packer.startup(function(use)
   use "rcarriga/nvim-notify"
   use "tversteeg/registers.nvim"
   -- use "metakirby5/codi.vim"
-  use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
+  -- use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
   use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
@@ -198,13 +199,13 @@ return packer.startup(function(use)
   use "ruifm/gitlinker.nvim"
   use "mattn/vim-gist"
   use "mattn/webapi-vim"
-  use "https://github.com/rhysd/conflict-marker.vim"
+  -- use "https://github.com/rhysd/conflict-marker.vim"
 
   -- DAP
-  use "mfussenegger/nvim-dap"
+  -- use "mfussenegger/nvim-dap"
   -- use "theHamsta/nvim-dap-virtual-text"
-  use "rcarriga/nvim-dap-ui"
-  use "Pocco81/DAPInstall.nvim"
+  -- use "rcarriga/nvim-dap-ui"
+  -- use "Pocco81/DAPInstall.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
