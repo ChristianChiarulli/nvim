@@ -18,6 +18,8 @@ local servers = {
   "yamlls",
   "bashls",
   "clangd",
+  "rust_analyzer",
+  "taplo"
 }
 
 local settings = {
