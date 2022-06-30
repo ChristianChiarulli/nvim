@@ -25,8 +25,7 @@ local servers = {
 local settings = {
   ensure_installed = servers,
   ui = {
-    icons = {
-    },
+    icons = {},
     keymaps = {
       toggle_server_expand = "<CR>",
       install_server = "i",
@@ -92,7 +91,13 @@ for _, server in pairs(servers) do
 
   if server == "rust_analyzer" then
     local rust_opts = require "user.lsp.settings.rust"
-    require("rust-tools").setup(rust_opts)
+
+    local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
+    if not rust_tools_status_ok then
+      return
+    end
+
+    rust_tools.setup(rust_opts)
     goto continue
   end
 

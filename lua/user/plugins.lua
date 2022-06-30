@@ -140,6 +140,7 @@ return packer.startup(function(use)
 
   -- Rust
   use "simrat39/rust-tools.nvim"
+  use "Saecki/crates.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"

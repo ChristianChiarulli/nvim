@@ -13,6 +13,7 @@ M.winbar_filetype_exclude = {
   "Outline",
   "spectre_panel",
   "toggleterm",
+  "",
 }
 
 local get_filename = function()
