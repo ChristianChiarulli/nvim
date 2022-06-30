@@ -8,7 +8,7 @@ if not config_status_ok then
   return
 end
 
-local icons = require("user.icons")
+local icons = require "user.icons"
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
@@ -97,10 +97,10 @@ nvim_tree.setup {
   diagnostics = {
     enable = true,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = icons.diagnostics.Hint,
+      info = icons.diagnostics.Information,
+      warning = icons.diagnostics.Warning,
+      error = icons.diagnostics.Error,
     },
   },
   update_focused_file = {
