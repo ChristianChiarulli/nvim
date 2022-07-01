@@ -54,6 +54,15 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "christianchiarulli/hop.nvim"
+  -- Lua
+  use {
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  }
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
   use "norcalli/nvim-colorizer.lua"
