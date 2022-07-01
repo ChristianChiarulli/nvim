@@ -45,9 +45,6 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
-  use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
-  use "tamago324/lir.nvim"
   -- use "tiagovla/scope.nvim"
   -- use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
@@ -56,24 +53,15 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
-  use "folke/which-key.nvim"
   use "christianchiarulli/hop.nvim"
-  use "andymass/vim-matchup"
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
   use "norcalli/nvim-colorizer.lua"
   use "windwp/nvim-spectre"
-  use "folke/zen-mode.nvim"
-  use "karb94/neoscroll.nvim"
-  use "folke/todo-comments.nvim"
   use "kevinhwang91/nvim-bqf"
   use "ThePrimeagen/harpoon"
   use "MattesGroeger/vim-bookmarks"
-  use "Mephistophiles/surround.nvim"
-  use "rcarriga/nvim-notify"
-  use "tversteeg/registers.nvim"
-  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  -- use "Mephistophiles/surround.nvim"
   use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
 
@@ -82,7 +70,21 @@ return packer.startup(function(use)
     ft = "markdown",
   }
 
+  -- UI
+  use { "stevearc/dressing.nvim" }
   use "ghillb/cybu.nvim"
+  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  use "tversteeg/registers.nvim"
+  use "rcarriga/nvim-notify"
+  use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-tree.lua"
+  use "tamago324/lir.nvim"
+  use "goolord/alpha-nvim"
+  use "folke/which-key.nvim"
+  use "folke/zen-mode.nvim"
+  use "karb94/neoscroll.nvim"
+  use "folke/todo-comments.nvim"
+  use "andymass/vim-matchup"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
