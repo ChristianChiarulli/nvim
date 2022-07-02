@@ -79,7 +79,7 @@ return packer.startup(function(use)
   }
 
   -- UI
-  use { "stevearc/dressing.nvim" }
+  use "stevearc/dressing.nvim"
   use "ghillb/cybu.nvim"
   use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use "tversteeg/registers.nvim"
@@ -125,10 +125,7 @@ return packer.startup(function(use)
   use "simrat39/symbols-outline.nvim"
   use "ray-x/lsp_signature.nvim"
   use "b0o/SchemaStore.nvim"
-  use {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  }
+  use "folke/trouble.nvim"
   -- use "github/copilot.vim"
   use {
     "zbirenbaum/copilot.lua",
@@ -146,6 +143,8 @@ return packer.startup(function(use)
   use "RRethy/vim-illuminate"
   use "stevearc/aerial.nvim"
   use "j-hui/fidget.nvim"
+  -- TODO: set this up
+  use "rmagatti/goto-preview"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
@@ -154,6 +153,9 @@ return packer.startup(function(use)
   use "simrat39/rust-tools.nvim"
   use "Saecki/crates.nvim"
 
+  -- Typescript TODO: set this up, also add keybinds to ftplugin
+  use "jose-elias-alvarez/typescript.nvim"
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
@@ -161,11 +163,12 @@ return packer.startup(function(use)
   use "lalitmee/browse.nvim"
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter" }
+  use "nvim-treesitter/nvim-treesitter"
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use { "p00f/nvim-ts-rainbow" }
+  use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
+  use "drybalka/tree-climber.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
