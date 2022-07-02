@@ -1,18 +1,6 @@
-local status_ok, surround = pcall(require, "surround")
+local status_ok, surround = pcall(require, "nvim-surround")
 if not status_ok then
-	return
+  return
 end
 
-surround.setup {
-  context_offset = 100,
-  load_autogroups = false,
-  mappings_style = "sandwich",
-  map_insert_mode = true,
-  quotes = {"'", '"'},
-  brackets = {"(", '{', '['},
-  pairs = {
-    nestable = {{"(", ")"}, {"[", "]"}, {"{", "}"}},
-    linear = {{"'", "'"}, {"`", "`"}, {'"', '"'}}
-  },
-  prefix = "s"
-}
+surround.setup {}

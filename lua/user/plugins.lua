@@ -54,15 +54,9 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "christianchiarulli/hop.nvim"
+  -- use "phaazon/hop.nvim"
   -- Lua
-  use {
-    "kylechui/nvim-surround",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
-  }
+  use "kylechui/nvim-surround"
   -- Lua
   use {
     "abecodes/tabout.nvim",
