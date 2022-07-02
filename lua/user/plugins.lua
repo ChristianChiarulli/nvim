@@ -150,6 +150,8 @@ return packer.startup(function(use)
     module = "copilot_cmp",
   }
   use "RRethy/vim-illuminate"
+  use "stevearc/aerial.nvim"
+  use "j-hui/fidget.nvim"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
@@ -162,6 +164,7 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
+  use "lalitmee/browse.nvim"
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter" }

@@ -129,6 +129,15 @@ local mappings = {
   ["z"] = { "<cmd>ZenMode<cr>", "Zen" },
   ["gy"] = "Link",
 
+  B = {
+    name = "Browse",
+    i = { "<cmd>BrowseInputSearch<cr>", "Input Search" },
+    b = { "<cmd>Browse<cr>", "Browse" },
+    d = { "<cmd>BrowseDevdocsSearch<cr>", "Devdocs" },
+    f = { "<cmd>BrowseDevdocsFiletypeSearch<cr>", "Devdocs Filetype" },
+    m = { "<cmd>BrowseMdnSearch<cr>", "Mdn" },
+  },
+
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
