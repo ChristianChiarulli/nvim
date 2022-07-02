@@ -77,6 +77,7 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
+  use "gbprod/cutlass.nvim"
 
   -- UI
   use "stevearc/dressing.nvim"
