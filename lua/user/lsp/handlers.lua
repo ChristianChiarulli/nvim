@@ -81,6 +81,12 @@ end
 M.on_attach = function(client, bufnr)
   -- TODO: refactor this into a method that checks if string in list
 
+  local status_ok, aerial = pcall(require, "aerial")
+  if not status_ok then
+    return
+  end
+  aerial.on_attach(client, bufnr)
+
   if client.name == "jdt.ls" then
     if JAVA_DAP_ACTIVE then
       require("jdtls").setup_dap { hotcodereplace = "auto" }

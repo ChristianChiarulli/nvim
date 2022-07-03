@@ -77,7 +77,7 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
-  use "gbprod/cutlass.nvim"
+  use "stevearc/stickybuf.nvim"
 
   -- UI
   use "stevearc/dressing.nvim"
@@ -203,6 +203,7 @@ return packer.startup(function(use)
   -- use "rebelot/kanagawa.nvim"
   -- use "unblevable/quick-scope"
   -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  -- use "gbprod/cutlass.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
