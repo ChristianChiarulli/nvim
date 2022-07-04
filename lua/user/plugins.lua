@@ -77,7 +77,7 @@ return packer.startup(function(use)
     run = "cd app && npm install",
     ft = "markdown",
   }
-  use "stevearc/stickybuf.nvim"
+  -- use "stevearc/stickybuf.nvim"
 
   -- UI
   use "stevearc/dressing.nvim"
@@ -142,7 +142,7 @@ return packer.startup(function(use)
     module = "copilot_cmp",
   }
   use "RRethy/vim-illuminate"
-  use "stevearc/aerial.nvim"
+  -- use "stevearc/aerial.nvim"
   use "j-hui/fidget.nvim"
   -- TODO: set this up
   use "rmagatti/goto-preview"
