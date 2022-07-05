@@ -3,39 +3,45 @@ if not status_ok then
   return
 end
 
-local status_theme_ok, theme = pcall(require, "lualine.themes.darkplus_dark")
+local status_theme_ok, theme = pcall(require, "lualine.themes.onedarker_alt")
 if not status_theme_ok then
   return
 end
 
-vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#E8AB53", bg = "#303030" })
-vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#D4D4D4", bg = "#303030", bold = false })
+vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#E8AB53", bg = "#32363e" })
+vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#32363e", bold = false })
 -- vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D7BA7D", bg = "#252525" })
-vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D4D4D4", bg = "#303030" })
-vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#808080", bg = "#252525" })
+vim.api.nvim_set_hl(0, "SLProgress", { fg = "#abb2bf", bg = "#32363e" })
+vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#6b727f", bg = "#282c34" })
+-- darkerplus
+-- vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#E8AB53", bg = "#303030" })
+-- vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#303030", bold = false })
+-- -- vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D7BA7D", bg = "#252525" })
+-- vim.api.nvim_set_hl(0, "SLProgress", { fg = "#abb2bf", bg = "#303030" })
+-- vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#545862", bg = "#252525" })
 local mode_color = {
-  n = "#569cd6",
-  i = "#6a9955",
-  v = "#c586c0",
-  [""] = "#c586c0",
-  V = "#c586c0",
+  n = "#61afef",
+  i = "#e06c75",
+  v = "#c678dd",
+  [""] = "#c678dd",
+  V = "#c678dd",
   -- c = '#B5CEA8',
   -- c = '#D7BA7D',
-  c = "#4EC9B0",
-  no = "#569cd6",
-  s = "#ce9178",
-  S = "#ce9178",
-  [""] = "#ce9178",
-  ic = "#dcdcaa",
-  R = "#d16969",
-  Rv = "#d16969",
-  cv = "#569cd6",
-  ce = "#569cd6",
-  r = "#d16969",
-  rm = "#4EC9B0",
-  ["r?"] = "#4EC9B0",
-  ["!"] = "#4EC9B0",
-  t = "#D7BA7D",
+  c = "#56b6c2",
+  no = "#61afef",
+  s = "#d19a66",
+  S = "#d19a66",
+  [""] = "#d19a66",
+  ic = "#e06c75",
+  R = "#d19a66",
+  Rv = "#e06c75",
+  cv = "#61afef",
+  ce = "#61afef",
+  r = "#e06c75",
+  rm = "#56b6c2",
+  ["r?"] = "#56b6c2",
+  ["!"] = "#56b6c2",
+  t = "#98c379",
 }
 
 local mode = {
@@ -158,7 +164,9 @@ local spaces = {
 local location = {
   "location",
   color = function()
-    return { fg = "#252525", bg = mode_color[vim.fn.mode()] }
+    -- darkerplus
+    -- return { fg = "#252525", bg = mode_color[vim.fn.mode()] }
+    return { fg = "#1E232A", bg = mode_color[vim.fn.mode()] }
   end,
 }
 
@@ -176,6 +184,7 @@ lualine.setup {
   sections = {
     lualine_a = { mode, branch },
     lualine_b = { diagnostics },
+    -- lualine_c = {},
     lualine_c = { { current_signature, cond = hide_in_width } },
     -- lualine_x = { diff, spaces, "encoding", filetype },
     lualine_x = { diff, spaces, filetype },

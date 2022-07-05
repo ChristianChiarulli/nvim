@@ -30,7 +30,7 @@ configs.setup({
 		disable = { "xml", "markdown" },
 	},
 	rainbow = {
-		enable = true,
+		enable = false,
 		colors = {
 			"Gold",
 			"Orchid",
