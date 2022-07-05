@@ -35,15 +35,22 @@ local workspace_dir = WORKSPACE_PATH .. project_name
 
 -- TODO: Testing
 
-JAVA_DAP_ACTIVE = false
+JAVA_DAP_ACTIVE = true
 
-local bundles = {
-  vim.fn.glob(
-    home .. "/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
-  ),
-}
+local bundles = {}
 
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/vscode-java-test/server/*.jar"), "\n"))
+if JAVA_DAP_ACTIVE then
+  vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/vscode-java-test/server/*.jar"), "\n"))
+  vim.list_extend(
+    bundles,
+    vim.split(
+      vim.fn.glob(
+        home .. "/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+      ),
+      "\n"
+    )
+  )
+end
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
