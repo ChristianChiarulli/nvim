@@ -40,6 +40,7 @@ M.setup = function()
       source = "always",
       header = "",
       prefix = "",
+      -- width = 40,
     },
   }
 

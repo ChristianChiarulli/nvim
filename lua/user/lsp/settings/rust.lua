@@ -16,7 +16,7 @@ return {
       auto_focus = false,
       border = "rounded",
       width = 60,
-      height = 30,
+      -- height = 30,
     },
   },
   server = {
