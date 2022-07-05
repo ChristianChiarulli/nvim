@@ -94,6 +94,8 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
   end,
 })
 
+vim.cmd [[ au FocusGained,BufEnter * :checktime ]]
+
 -- vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 --   callback = function()
 --     local luasnip = require "luasnip"
