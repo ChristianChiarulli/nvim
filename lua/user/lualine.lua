@@ -47,11 +47,13 @@ local mode_color = {
 local mode = {
   -- mode component
   function()
-    return "▊"
+    -- return "▊"
+    return "  "
+    -- return "  "
   end,
   color = function()
     -- auto change color according to neovims mode
-    return { fg = mode_color[vim.fn.mode()] }
+    return { bg = mode_color[vim.fn.mode()] }
   end,
   -- padding = { right = 1 },
   padding = 0,
