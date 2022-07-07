@@ -13,6 +13,7 @@ vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#32363e", bold = 
 -- vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D7BA7D", bg = "#252525" })
 vim.api.nvim_set_hl(0, "SLProgress", { fg = "#abb2bf", bg = "#32363e" })
 vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#6b727f", bg = "#282c34" })
+vim.api.nvim_set_hl(0, "SLLSP", { fg = "#5e81ac", bg = "#282c34" })
 -- darkerplus
 -- vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#E8AB53", bg = "#303030" })
 -- vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#303030", bold = false })
@@ -163,6 +164,34 @@ local spaces = {
   separator = "%#SLSeparator#" .. " │" .. "%*",
 }
 
+local lanuage_server = {
+  function()
+    local clients = vim.lsp.buf_get_clients()
+
+    if clients == nil then
+      return
+    end
+
+    -- loop through all clients and print client.name
+    local client_names = {}
+
+    for _, client in ipairs(clients) do
+      if client.name ~= "copilot" and client.name ~= "null-ls" then
+        table.insert(client_names, client.name)
+      end
+    end
+
+    -- join client names with commas
+    local client_names_str = table.concat(client_names, ", ")
+    print(client_names_str)
+
+    return "%#SLLSP#" .. " " .. client_names_str .. "%*"
+  end,
+  padding = 0,
+  cond = hide_in_width,
+  separator = "%#SLSeparator#" .. " │ " .. "%*",
+}
+
 local location = {
   "location",
   color = function()
@@ -189,7 +218,7 @@ lualine.setup {
     -- lualine_c = {},
     lualine_c = { { current_signature, cond = hide_in_width } },
     -- lualine_x = { diff, spaces, "encoding", filetype },
-    lualine_x = { diff, spaces, filetype },
+    lualine_x = { diff, lanuage_server, spaces, filetype },
     lualine_y = { progress },
     lualine_z = { location },
   },
