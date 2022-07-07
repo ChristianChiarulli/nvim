@@ -62,15 +62,15 @@ local mode = {
 }
 
 local hide_in_width_60 = function()
-  return vim.fn.winwidth(0) > 60
+  return vim.o.columns > 60
 end
 
 local hide_in_width = function()
-  return vim.fn.winwidth(0) > 80
+  return vim.o.columns > 80
 end
 
 local hide_in_width_100 = function()
-  return vim.fn.winwidth(0) > 100
+  return vim.o.columns > 100
 end
 
 local icons = require "user.icons"
