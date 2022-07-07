@@ -200,8 +200,15 @@ local lanuage_server = {
 
     -- join client names with commas
     local client_names_str = table.concat(client_names, ", ")
-    -- 
-    return "%#SLLSP#" .. "[" .. client_names_str .. "]" .. "%*"
+
+    -- check client_names_str if empty
+    local client_names_str_len = #client_names_str
+    if client_names_str_len == 0 then
+      return ""
+    else
+      -- 
+      return "%#SLLSP#" .. "[" .. client_names_str .. "]" .. "%*"
+    end
   end,
   padding = 0,
   cond = hide_in_width,
