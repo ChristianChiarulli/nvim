@@ -140,7 +140,7 @@ return packer.startup(function(use)
   }
   use {
     "zbirenbaum/copilot-cmp",
-    module = "copilot_cmp",
+    -- module = "copilot_cmp",
   }
   use "RRethy/vim-illuminate"
   -- use "stevearc/aerial.nvim"
