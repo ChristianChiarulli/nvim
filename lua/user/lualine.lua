@@ -14,6 +14,7 @@ vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#32363e", bold = 
 vim.api.nvim_set_hl(0, "SLProgress", { fg = "#abb2bf", bg = "#32363e" })
 vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#6b727f", bg = "#282c34" })
 vim.api.nvim_set_hl(0, "SLLSP", { fg = "#5e81ac", bg = "#282c34" })
+vim.api.nvim_set_hl(0, "SLCopilot", { fg = "#6CC644", bg = "#282c34" })
 -- darkerplus
 -- vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#E8AB53", bg = "#303030" })
 -- vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#303030", bold = false })
@@ -169,7 +170,7 @@ local current_signature = {
 
 local spaces = {
   function()
-    return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+    return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
   padding = 0,
   separator = "%#SLSeparator#" .. " │" .. "%*",
@@ -180,11 +181,15 @@ local lanuage_server = {
   function()
     local clients = vim.lsp.buf_get_clients()
     local client_names = {}
+    local copilot_active = false
 
     -- add client
     for _, client in pairs(clients) do
       if client.name ~= "copilot" and client.name ~= "null-ls" then
         table.insert(client_names, client.name)
+      end
+      if client.name == "copilot" then
+        copilot_active = true
       end
     end
 
@@ -214,12 +219,13 @@ local lanuage_server = {
     local client_names_str = table.concat(client_names, ", ")
 
     -- check client_names_str if empty
+    local language_servers = ""
     local client_names_str_len = #client_names_str
-    if client_names_str_len == 0 then
-      return ""
-    else
-      -- 
-      return "%#SLLSP#" .. "[" .. client_names_str .. "]" .. "%*"
+    if client_names_str_len ~= 0 then
+      language_servers = "%#SLLSP#" .. "[" .. client_names_str .. "]" .. "%*"
+    end
+    if copilot_active then
+      return language_servers .. " " .. "%#SLCopilot#" .. icons.git.Octoface .. "%*"
     end
   end,
   padding = 0,
