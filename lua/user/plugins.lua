@@ -110,6 +110,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
+  use "zbirenbaum/copilot-cmp"
   use {
     "tzachar/cmp-tabnine",
     run = "./install.sh",
@@ -138,15 +139,12 @@ return packer.startup(function(use)
       end, 100)
     end,
   }
-  use {
-    "zbirenbaum/copilot-cmp",
-    -- module = "copilot_cmp",
-  }
   use "RRethy/vim-illuminate"
   -- use "stevearc/aerial.nvim"
   use "j-hui/fidget.nvim"
   -- TODO: set this up
-  use "rmagatti/goto-preview"
+  -- use "rmagatti/goto-preview"
+  use "nvim-lua/lsp_extensions.nvim"
 
   -- Java
   use "mfussenegger/nvim-jdtls"

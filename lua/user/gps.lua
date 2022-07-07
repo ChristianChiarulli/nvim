@@ -15,6 +15,8 @@ if vim.fn.has "mac" == 1 then
   space = " "
 end
 
+vim.api.nvim_set_hl(0, "Winbar", { fg = "#6b737f" })
+
 -- Customized config
 gps.setup {
 
@@ -95,5 +97,5 @@ gps.setup {
 
   -- indicator used when context is hits depth limit
   depth_limit_indicator = "..",
-  text_hl = "LineNr",
+  text_hl = "Winbar",
 }
