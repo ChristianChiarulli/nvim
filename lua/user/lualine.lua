@@ -60,8 +60,16 @@ local mode = {
   padding = 0,
 }
 
+local hide_in_width_60 = function()
+  return vim.fn.winwidth(0) > 60
+end
+
 local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
+end
+
+local hide_in_width_100 = function()
+  return vim.fn.winwidth(0) > 100
 end
 
 local icons = require "user.icons"
@@ -80,7 +88,7 @@ local diff = {
   "diff",
   colored = false,
   symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " }, -- changes diff symbols
-  cond = hide_in_width,
+  cond = hide_in_width_60,
   separator = "%#SLSeparator#" .. "│ " .. "%*",
 }
 
@@ -136,14 +144,17 @@ local progress = {
 --   -- padding = 0,
 -- }
 
-local current_signature = function()
-  if not pcall(require, "lsp_signature") then
-    return
-  end
-  local sig = require("lsp_signature").status_line(30)
-  -- return sig.label .. "🐼" .. sig.hint
-  return "%#SLSeparator#" .. sig.hint .. "%*"
-end
+local current_signature = {
+  function()
+    if not pcall(require, "lsp_signature") then
+      return
+    end
+    local sig = require("lsp_signature").status_line(30)
+    -- return sig.label .. "🐼" .. sig.hint
+    return "%#SLSeparator#" .. sig.hint .. "%*"
+  end,
+  cond = hide_in_width_100,
+}
 
 -- cool function for progress
 -- local progress = function()
@@ -162,6 +173,7 @@ local spaces = {
   end,
   padding = 0,
   separator = "%#SLSeparator#" .. " │" .. "%*",
+  cond = hide_in_width_100,
 }
 
 local lanuage_server = {
@@ -239,7 +251,7 @@ lualine.setup {
     lualine_a = { mode, branch },
     lualine_b = { diagnostics },
     -- lualine_c = {},
-    lualine_c = { { current_signature, cond = hide_in_width } },
+    lualine_c = { current_signature },
     -- lualine_x = { diff, spaces, "encoding", filetype },
     lualine_x = { diff, lanuage_server, spaces, filetype },
     lualine_y = { progress },
