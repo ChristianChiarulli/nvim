@@ -167,24 +167,41 @@ local spaces = {
 local lanuage_server = {
   function()
     local clients = vim.lsp.buf_get_clients()
-
-    if clients == nil then
-      return
-    end
-
-    -- loop through all clients
     local client_names = {}
 
-    for _, client in ipairs(clients) do
+    -- add client
+    for _, client in pairs(clients) do
       if client.name ~= "copilot" and client.name ~= "null-ls" then
         table.insert(client_names, client.name)
       end
     end
 
+    local buf_ft = vim.bo.filetype
+
+    -- add formatter
+    local s = require "null-ls.sources"
+    local available_sources = s.get_available(buf_ft)
+    local registered = {}
+    for _, source in ipairs(available_sources) do
+      for method in pairs(source.methods) do
+        registered[method] = registered[method] or {}
+        table.insert(registered[method], source.name)
+      end
+    end
+
+    local formatter = registered["NULL_LS_FORMATTING"]
+    local linter = registered["NULL_LS_DIAGNOSTICS"]
+    if formatter ~= nil then
+      vim.list_extend(client_names, formatter)
+    end
+    if linter ~= nil then
+      vim.list_extend(client_names, linter)
+    end
+
     -- join client names with commas
     local client_names_str = table.concat(client_names, ", ")
-
-    return "%#SLLSP#" .. " " .. client_names_str .. "%*"
+    -- 
+    return "%#SLLSP#" .. "[" .. client_names_str .. "]" .. "%*"
   end,
   padding = 0,
   cond = hide_in_width,
