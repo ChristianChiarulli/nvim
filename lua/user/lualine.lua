@@ -1,3 +1,4 @@
+M = {}
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
   return
@@ -180,6 +181,35 @@ local spaces = {
 
 local lanuage_server = {
   function()
+    local buf_ft = vim.bo.filetype
+    local ui_filetypes = {
+      "help",
+      "packer",
+      "neogitstatus",
+      "NvimTree",
+      "Trouble",
+      "lir",
+      "Outline",
+      "spectre_panel",
+      "toggleterm",
+      "DressingSelect",
+      "",
+    }
+
+    -- check if value in table
+    local function contains(t, value)
+      for _, v in pairs(t) do
+        if v == value then
+          return true
+        end
+      end
+      return false
+    end
+
+    if contains(ui_filetypes, buf_ft) then
+      return M.language_servers
+    end
+
     local clients = vim.lsp.buf_get_clients()
     local client_names = {}
     local copilot_active = false
@@ -193,8 +223,6 @@ local lanuage_server = {
         copilot_active = true
       end
     end
-
-    local buf_ft = vim.bo.filetype
 
     -- add formatter
     local s = require "null-ls.sources"
@@ -232,6 +260,7 @@ local lanuage_server = {
     if client_names_str_len ~= 0 and not copilot_active then
       return ""
     else
+      M.language_servers = language_servers
       return language_servers
     end
   end,
