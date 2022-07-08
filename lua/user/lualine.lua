@@ -9,6 +9,16 @@ if not status_theme_ok then
   return
 end
 
+-- check if value in table
+local function contains(t, value)
+  for _, v in pairs(t) do
+    if v == value then
+      return true
+    end
+  end
+  return false
+end
+
 vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#E8AB53", bg = "#32363e" })
 vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#32363e", bold = false })
 -- vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D7BA7D", bg = "#252525" })
@@ -103,6 +113,35 @@ local diff = {
 
 local filetype = {
   "filetype",
+  -- fmt = function(str)
+  --   local buf_ft = vim.bo.filetype
+  --   local ui_filetypes = {
+  --     "help",
+  --     "packer",
+  --     "neogitstatus",
+  --     "NvimTree",
+  --     "Trouble",
+  --     "lir",
+  --     "Outline",
+  --     "spectre_panel",
+  --     "toggleterm",
+  --     "DressingSelect",
+  --     "",
+  --   }
+  --   print(buf_ft)
+  --
+  --   if contains(ui_filetypes, buf_ft) then
+  --     return M.filetype
+  --   end
+  --
+  --   local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color("", buf_ft, { default = true })
+  --
+  --   local hl_group = "FileIconColor" .. buf_ft
+  --   vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color, bg = "#282c34" })
+  --
+  --   M.filetype = "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. buf_ft
+  --   return M.filetype
+  -- end,
   icons_enabled = true,
   -- icon = nil,
 }
@@ -195,16 +234,6 @@ local lanuage_server = {
       "DressingSelect",
       "",
     }
-
-    -- check if value in table
-    local function contains(t, value)
-      for _, v in pairs(t) do
-        if v == value then
-          return true
-        end
-      end
-      return false
-    end
 
     if contains(ui_filetypes, buf_ft) then
       return M.language_servers
