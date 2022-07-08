@@ -211,7 +211,7 @@ local current_signature = {
 local spaces = {
   function()
     -- TODO: update codicons and use their indent
-    return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+    return "  " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
   padding = 0,
   separator = "%#SLSeparator#" .. " │" .. "%*",
@@ -295,7 +295,7 @@ local lanuage_server = {
   end,
   padding = 0,
   cond = hide_in_width,
-  separator = "%#SLSeparator#" .. " │ " .. "%*",
+  separator = "%#SLSeparator#" .. " │" .. "%*",
 }
 
 local location = {
