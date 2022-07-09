@@ -46,7 +46,7 @@ local mode_color = {
   S = "#c18a56",
   [""] = "#c18a56",
   ic = "#d05c65",
-  R = "#c18a56",
+  R = "#88b369",
   Rv = "#d05c65",
   cv = "#519fdf",
   ce = "#519fdf",
@@ -54,7 +54,7 @@ local mode_color = {
   rm = "#46a6b2",
   ["r?"] = "#46a6b2",
   ["!"] = "#46a6b2",
-  t = "#88b369",
+  t = "#c18a56",
 }
 
 local mode = {
