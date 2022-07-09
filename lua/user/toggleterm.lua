@@ -5,7 +5,7 @@ end
 
 toggleterm.setup({
 	size = 20,
-	open_mapping = [[<c-\>]],
+	open_mapping = [[<m-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
 	shade_terminals = true,
@@ -30,10 +30,10 @@ function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
-  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<m-h>', [[<C-\><C-n><C-W>h]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<m-j>', [[<C-\><C-n><C-W>j]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<m-k>', [[<C-\><C-n><C-W>k]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<m-l>', [[<C-\><C-n><C-W>l]], opts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
@@ -80,3 +80,19 @@ local cargo_test = Terminal:new({ cmd = "cargo test", hidden = true })
 function _CARGO_TEST()
 	cargo_test:toggle()
 end
+
+local opts = { silent = true }
+
+local keymap = vim.keymap.set
+
+keymap("n", "<m-1>", "<cmd>1ToggleTerm direction=float<cr>", opts)
+keymap("t", "<m-1>", "<cmd>1ToggleTerm direction=float<cr>", opts)
+keymap("i", "<m-1>", "<cmd>1ToggleTerm direction=float<cr>", opts)
+
+keymap("n", "<m-2>", "<cmd>2ToggleTerm size=60 direction=vertical<cr>", opts)
+keymap("t", "<m-2>", "<cmd>2ToggleTerm size=60 direction=vertical<cr>", opts)
+keymap("i", "<m-2>", "<cmd>2ToggleTerm size=60 direction=vertical<cr>", opts)
+
+keymap("n", "<m-3>", "<cmd>3ToggleTerm size=10 direction=horizontal | set cmdheight=1<cr>", opts)
+keymap("t", "<m-3>", "<cmd>3ToggleTerm size=10 direction=horizontal | set cmdheight=1<cr>", opts)
+keymap("i", "<m-3>", "<cmd>3ToggleTerm size=10 direction=horizontal | set cmdheight=1<cr>", opts)

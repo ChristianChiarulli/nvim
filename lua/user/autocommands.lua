@@ -27,6 +27,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "toggleterm" },
+  callback = function()
+    vim.cmd [[
+      set cmdheight=1 
+    ]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
   callback = function()
     vim.opt_local.wrap = true
