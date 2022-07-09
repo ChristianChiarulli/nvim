@@ -68,7 +68,6 @@ local mode = {
     -- auto change color according to neovims mode
     return { bg = mode_color[vim.fn.mode()] }
   end,
-  -- padding = { right = 1 },
   padding = 0,
 }
 
@@ -104,46 +103,35 @@ local diff = {
   separator = "%#SLSeparator#" .. "│ " .. "%*",
 }
 
--- local mode = {
---   "mode",
---   fmt = function(str)
---     return "-- " .. str .. " --"
---   end,
--- }
-
 local filetype = {
   "filetype",
-  -- fmt = function(str)
-  --   local buf_ft = vim.bo.filetype
-  --   local ui_filetypes = {
-  --     "help",
-  --     "packer",
-  --     "neogitstatus",
-  --     "NvimTree",
-  --     "Trouble",
-  --     "lir",
-  --     "Outline",
-  --     "spectre_panel",
-  --     "toggleterm",
-  --     "DressingSelect",
-  --     "",
-  --   }
-  --   print(buf_ft)
-  --
-  --   if contains(ui_filetypes, buf_ft) then
-  --     return M.filetype
-  --   end
-  --
-  --   local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color("", buf_ft, { default = true })
-  --
-  --   local hl_group = "FileIconColor" .. buf_ft
-  --   vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color, bg = "#282c34" })
-  --
-  --   M.filetype = "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. buf_ft
-  --   return M.filetype
-  -- end,
+  fmt = function(str)
+    local ui_filetypes = {
+      "help",
+      "packer",
+      "neogitstatus",
+      "NvimTree",
+      "Trouble",
+      "lir",
+      "Outline",
+      "spectre_panel",
+      "toggleterm",
+      "DressingSelect",
+      "",
+    }
+
+    if str == "toggleterm" then
+      local term = " " .. vim.api.nvim_buf_get_var(0, "toggle_number")
+      return term
+    end
+
+    if contains(ui_filetypes, str) then
+      return ""
+    else
+      return str
+    end
+  end,
   icons_enabled = true,
-  -- icon = nil,
 }
 
 local branch = {
@@ -157,44 +145,23 @@ local branch = {
 local progress = {
   "progress",
   color = "SLProgress",
-  -- fmt = function(str)
-  --   print(vim.fn.expand(str))
-  --   if str == "1%" then
-  --     return "TOP"
-  --   end
-  --   if str == "100%" then
-  --     return "BOT"
-  --   end
-  --   return str
-  -- end,
-  -- padding = 0,
 }
-
--- local progress = {
---   "progress",
---   fmt = function(str)
---     print(vim.fn.expand(str))
---     if str == "1%" then
---       return "TOP"
---     end
---     if str == "100%" then
---       return "BOT"
---     end
---     return str
---   end,
---   -- padding = 0,
--- }
 
 local current_signature = {
   function()
+    local buf_ft = vim.bo.filetype
+
+    if buf_ft == "toggleterm" then
+      return ""
+    end
     if not pcall(require, "lsp_signature") then
-      return
+      return ""
     end
     local sig = require("lsp_signature").status_line(30)
-    -- return sig.label .. "🐼" .. sig.hint
     return "%#SLSeparator#" .. sig.hint .. "%*"
   end,
   cond = hide_in_width_100,
+  padding = 0,
 }
 
 -- cool function for progress
@@ -210,8 +177,28 @@ local current_signature = {
 
 local spaces = {
   function()
+    local buf_ft = vim.bo.filetype
+
+    local ui_filetypes = {
+      "help",
+      "packer",
+      "neogitstatus",
+      "NvimTree",
+      "Trouble",
+      "lir",
+      "Outline",
+      "spectre_panel",
+      "DressingSelect",
+      "",
+    }
+    local space = ""
+
+    if contains(ui_filetypes, buf_ft) then
+      space = " "
+    end
+
     -- TODO: update codicons and use their indent
-    return "  " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+    return "  " .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. space
   end,
   padding = 0,
   separator = "%#SLSeparator#" .. " │" .. "%*",
@@ -283,7 +270,7 @@ local lanuage_server = {
       language_servers = "%#SLLSP#" .. "[" .. client_names_str .. "]" .. "%*"
     end
     if copilot_active then
-      language_servers = language_servers .. " " .. "%#SLCopilot#" .. icons.git.Octoface .. "%*"
+      language_servers = language_servers .. "%#SLCopilot#" .. " " .. icons.git.Octoface .. "%*"
     end
 
     if client_names_str_len ~= 0 and not copilot_active then
