@@ -121,7 +121,8 @@ local filetype = {
     }
 
     if str == "toggleterm" then
-      local term = " " .. vim.api.nvim_buf_get_var(0, "toggle_number")
+      -- 
+      local term = " " .. vim.api.nvim_buf_get_var(0, "toggle_number")
       return term
     end
 
