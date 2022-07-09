@@ -8,14 +8,12 @@ if not snip_status_ok then
   return
 end
 
-local tabnine_status_ok, tabnine = pcall(require, "user.tabnine")
+local tabnine_status_ok, _ = pcall(require, "user.tabnine")
 if not tabnine_status_ok then
   return
 end
 
 local compare = require "cmp.config.compare"
-
-tabnine.setup()
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
