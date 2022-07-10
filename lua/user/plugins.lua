@@ -169,7 +169,7 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
-  use "drybalka/tree-climber.nvim"
+  -- use "drybalka/tree-climber.nvim"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
