@@ -156,10 +156,23 @@ local mappings = {
     t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
   },
 
+  -- s = {
+  --   name = "Split",
+  --   s = { "<cmd>split<cr>", "HSplit" },
+  --   v = { "<cmd>vsplit<cr>", "VSplit" },
+  -- },
+
   s = {
-    name = "Split",
-    s = { "<cmd>split<cr>", "HSplit" },
-    v = { "<cmd>vsplit<cr>", "VSplit" },
+    name = "Session",
+    s = { "<silent><cmd>SaveSession<cr>", "Save" },
+    r = { "<silent><cmd>RestoreSession<cr>", "Restore" },
+    x = { "<silent><cmd>DeleteSession<cr>", "Delete" },
+    f = { "<silent><cmd>Autosession search<cr>", "Find" },
+    d = { "<silent><cmd>Autosession delete<cr>", "Find Delete" },
+    -- a = { ":SaveSession<cr>", "test" },
+    -- a = { ":RestoreSession<cr>", "test" },
+    -- a = { ":RestoreSessionFromFile<cr>", "test" },
+    -- a = { ":DeleteSession<cr>", "test" },
   },
 
   r = {
@@ -270,8 +283,7 @@ local mappings = {
       "Workspace Symbols",
     },
     t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
-    u = { '<cmd>LuaSnipUnlinkCurrent<cr>', "Unlink Snippet" },
-
+    u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
   },
 
   -- s = {

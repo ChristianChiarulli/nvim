@@ -78,6 +78,7 @@ return packer.startup(function(use)
     ft = "markdown",
   }
   -- use "stevearc/stickybuf.nvim"
+  use "rmagatti/auto-session"
 
   -- UI
   use "stevearc/dressing.nvim"
