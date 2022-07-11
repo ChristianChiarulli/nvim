@@ -1,3 +1,4 @@
+require "user.config.d"
 require "user.keymaps"
 require "user.plugins"
 require "user.autocommands"
