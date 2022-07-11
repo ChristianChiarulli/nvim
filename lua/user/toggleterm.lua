@@ -5,7 +5,7 @@ end
 
 toggleterm.setup {
   size = 20,
-  open_mapping = [[<m-\>]],
+  open_mapping = [[<m-0>]],
   hide_numbers = true,
   shade_filetypes = {},
   shade_terminals = true,
@@ -50,6 +50,7 @@ local lazygit = Terminal:new {
   on_close = function(term)
     vim.cmd "set laststatus=3"
   end,
+  count = 99,
 }
 
 function _LAZYGIT_TOGGLE()
