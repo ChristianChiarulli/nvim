@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim"
+  use "nvim-lua/popup.nvim"
   -- use "tiagovla/scope.nvim"
   -- use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
@@ -56,7 +57,7 @@ return packer.startup(function(use)
   use "christianchiarulli/hop.nvim"
   -- use "phaazon/hop.nvim"
   -- Lua
-  use "kylechui/nvim-surround"
+  -- use "kylechui/nvim-surround"
   -- Lua
   use {
     "abecodes/tabout.nvim",
