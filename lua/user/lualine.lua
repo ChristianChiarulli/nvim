@@ -169,7 +169,8 @@ local current_signature = {
     local hint = sig.hint
 
     if not require("user.functions").isempty(hint) then
-      return "%#SLSeparator#│ : " .. hint .. "%*"
+      -- return "%#SLSeparator#│ : " .. hint .. "%*"
+      return "%#SLSeparator#│ " .. hint .. "%*"
     end
 
     return ""
