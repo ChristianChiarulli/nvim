@@ -288,7 +288,7 @@ local lanuage_server = {
       language_servers = language_servers .. "%#SLCopilot#" .. " " .. icons.git.Octoface .. "%*"
     end
 
-    if client_names_str_len ~= 0 and not copilot_active then
+    if client_names_str_len == 0 and not copilot_active then
       return ""
     else
       M.language_servers = language_servers
