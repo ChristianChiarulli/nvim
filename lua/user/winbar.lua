@@ -14,6 +14,7 @@ M.winbar_filetype_exclude = {
   "spectre_panel",
   "toggleterm",
   "DressingSelect",
+  "Jaq",
   "",
 }
 

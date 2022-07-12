@@ -96,6 +96,7 @@ return packer.startup(function(use)
   use "karb94/neoscroll.nvim"
   use "folke/todo-comments.nvim"
   use "andymass/vim-matchup"
+  use "is0n/jaq-nvim"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
