@@ -65,7 +65,8 @@ return packer.startup(function(use)
   }
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
-  use "norcalli/nvim-colorizer.lua"
+  -- use "norcalli/nvim-colorizer.lua"
+  use "NvChad/nvim-colorizer.lua"
   use "windwp/nvim-spectre"
   use "kevinhwang91/nvim-bqf"
   use "ThePrimeagen/harpoon"
