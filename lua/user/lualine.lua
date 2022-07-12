@@ -159,7 +159,7 @@ local current_signature = {
       return ""
     end
     local sig = require("lsp_signature").status_line(30)
-    return "%#SLSeparator#" .. sig.hint .. "%*"
+    return "%#SLSeparator#│ : " .. sig.hint .. "%*"
   end,
   cond = hide_in_width_100,
   padding = 0,
