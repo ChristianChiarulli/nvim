@@ -156,7 +156,6 @@ local vertical_term = Terminal:new {
       "<cmd>2ToggleTerm size=60 direction=vertical<cr>",
       { noremap = true, silent = true }
     )
-    vim.api.nvim_buf_set_keymap(term.bufnr, "", "<m-2>", "<nop>", { noremap = true, silent = true })
     vim.api.nvim_buf_set_keymap(term.bufnr, "", "<m-3>", "<nop>", { noremap = true, silent = true })
   end,
   count = 2,
@@ -195,7 +194,6 @@ local horizontal_term = Terminal:new {
       { noremap = true, silent = true }
     )
     vim.api.nvim_buf_set_keymap(term.bufnr, "", "<m-2>", "<nop>", { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(term.bufnr, "", "<m-3>", "<nop>", { noremap = true, silent = true })
   end,
   count = 3,
 }
