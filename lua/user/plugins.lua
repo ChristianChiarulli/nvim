@@ -153,7 +153,7 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-jdtls"
 
   -- Rust
-  use "simrat39/rust-tools.nvim"
+  use { "christianchiarulli/rust-tools.nvim", branch = "handler_nil_check" }
   use "Saecki/crates.nvim"
 
   -- Typescript TODO: set this up, also add keybinds to ftplugin
