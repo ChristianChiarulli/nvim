@@ -85,7 +85,11 @@ return packer.startup(function(use)
   -- UI
   use "stevearc/dressing.nvim"
   use "ghillb/cybu.nvim"
-  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  -- use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig",
+  }
   use "tversteeg/registers.nvim"
   use "rcarriga/nvim-notify"
   use "kyazdani42/nvim-web-devicons"

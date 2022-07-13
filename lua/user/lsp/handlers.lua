@@ -69,6 +69,15 @@ local function lsp_highlight_document(client)
   -- end
 end
 
+local function attach_navic(client, bufnr)
+  vim.g.navic_silence = false
+  local status_ok, navic = pcall(require, "nvim-navic")
+  if not status_ok then
+    return
+  end
+  navic.attach(client, bufnr)
+end
+
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -89,19 +98,19 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  -- TODO: refactor this into a method that checks if string in list
+  lsp_keymaps(bufnr)
+  lsp_highlight_document(client)
+  attach_navic(client, bufnr)
 
   if client.name == "jdt.ls" then
+    -- TODO: instantiate capabilities in java file later
+    M.capabilities.textDocument.completion.completionItem.snippetSupport = false
+    vim.lsp.codelens.refresh()
     if JAVA_DAP_ACTIVE then
       require("jdtls").setup_dap { hotcodereplace = "auto" }
       require("jdtls.dap").setup_dap_main_class_configs()
     end
-    M.capabilities.textDocument.completion.completionItem.snippetSupport = false
-    vim.lsp.codelens.refresh()
   end
-
-  lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
 end
 
 function M.enable_format_on_save()

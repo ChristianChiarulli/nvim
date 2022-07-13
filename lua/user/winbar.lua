@@ -18,7 +18,7 @@ M.winbar_filetype_exclude = {
   "",
 }
 
-local get_filename = function()
+M.get_filename = function()
   local filename = vim.fn.expand "%:t"
   local extension = vim.fn.expand "%:e"
   local f = require "user.functions"
@@ -43,8 +43,30 @@ local get_filename = function()
   end
 end
 
+-- local get_gps = function()
+--   local status_gps_ok, gps = pcall(require, "nvim-gps")
+--   if not status_gps_ok then
+--     return ""
+--   end
+--
+--   local status_ok, gps_location = pcall(gps.get_location, {})
+--   if not status_ok then
+--     return ""
+--   end
+--
+--   if not gps.is_available() or gps_location == "error" then
+--     return ""
+--   end
+--
+--   if not require("user.functions").isempty(gps_location) then
+--     return require("user.icons").ui.ChevronRight .. " " .. gps_location
+--   else
+--     return ""
+--   end
+-- end
+
 local get_gps = function()
-  local status_gps_ok, gps = pcall(require, "nvim-gps")
+  local status_gps_ok, gps = pcall(require, "nvim-navic")
   if not status_gps_ok then
     return ""
   end
@@ -78,7 +100,7 @@ M.get_winbar = function()
     return
   end
   local f = require "user.functions"
-  local value = get_filename()
+  local value = M.get_filename()
 
   local gps_added = false
   if not f.isempty(value) then
@@ -110,5 +132,12 @@ M.get_winbar = function()
     return
   end
 end
+
+-- -- TODO: function for tabpage
+-- -- TODO: function for filename
+-- -- TODO: function for song name
+--
+-- vim.api.nvim_set_option_value("winbar", "hi" .. require("nvim-navic").get_location(), { scope = "local" })
+-- vim.o.winbar = require("nvim-navic").get_location()
 
 return M
