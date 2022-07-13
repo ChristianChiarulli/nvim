@@ -13,6 +13,7 @@ local servers = {
   "solc",
   "sumneko_lua",
   "tflint",
+  "terraformls",
   "tsserver",
   "pyright",
   "yamlls",
@@ -20,6 +21,7 @@ local servers = {
   "clangd",
   "rust_analyzer",
   "taplo",
+  "zk@v0.10.1",
 }
 
 local settings = {
@@ -55,6 +57,8 @@ for _, server in pairs(servers) do
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
+  server = vim.split(server, "@")[1]
+
   if server == "jsonls" then
     local jsonls_opts = require "user.lsp.settings.jsonls"
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
@@ -83,6 +87,11 @@ for _, server in pairs(servers) do
   if server == "emmet_ls" then
     local emmet_ls_opts = require "user.lsp.settings.emmet_ls"
     opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
+  end
+
+  if server == "zk" then
+    local zk_opts = require "user.lsp.settings.zk"
+    opts = vim.tbl_deep_extend("force", zk_opts, opts)
   end
 
   if server == "jdtls" then
