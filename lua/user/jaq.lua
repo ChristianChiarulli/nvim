@@ -29,6 +29,34 @@ jaq_nvim.setup {
       -- vim = "source %",
     },
   },
+  behavior = {
+    -- Default type
+    default = "terminal",
+
+    -- Start in insert mode
+    startinsert = false,
+
+    -- Use `wincmd p` on startup
+    wincmd = false,
+
+    -- Auto-save files
+    autosave = false,
+
+    -- position = "vert",
+
+    -- Open the terminal without line numbers
+    -- line_no = false,
+  },
+  terminal = {
+    -- Window position
+    position = "vert",
+
+    -- Window size
+    size = 60,
+
+    -- Disable line numbers
+    line_no = false,
+  },
 
   -- UI settings
   ui = {
@@ -78,5 +106,5 @@ jaq_nvim.setup {
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "<m-r>", "<cmd>only | Jaq<cr>", opts)
+keymap("n", "<m-r>", ":silent only | Jaq<cr>", opts)
 return M
