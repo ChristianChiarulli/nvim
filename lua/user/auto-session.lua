@@ -10,10 +10,12 @@ local opts = {
   auto_session_enabled = true,
   auto_save_enabled = nil,
   auto_restore_enabled = nil,
-  auto_session_suppress_dirs = nil,
+  auto_session_suppress_dirs = { os.getenv "HOME" },
   auto_session_use_git_branch = nil,
   -- the configs below are lua only
   bypass_session_save_file_types = { "alpha" },
 }
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 auto_session.setup(opts)
