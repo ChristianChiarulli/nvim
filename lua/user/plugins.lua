@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use "christianchiarulli/hop.nvim"
   -- use "phaazon/hop.nvim"
   -- Lua
-  -- use "kylechui/nvim-surround"
+  use "kylechui/nvim-surround"
   -- Lua
   use {
     "abecodes/tabout.nvim",

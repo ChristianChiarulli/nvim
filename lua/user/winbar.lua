@@ -15,6 +15,7 @@ M.winbar_filetype_exclude = {
   "toggleterm",
   "DressingSelect",
   "Jaq",
+  "harpoon",
   "",
 }
 
@@ -71,12 +72,12 @@ local get_gps = function()
     return ""
   end
 
-  local status_ok, gps_location = pcall(gps.get_location, {})
-  if not status_ok then
+  if not gps.is_available() or gps_location == "error" then
     return ""
   end
 
-  if not gps.is_available() or gps_location == "error" then
+  local status_ok, gps_location = pcall(gps.get_location, {})
+  if not status_ok then
     return ""
   end
 
@@ -132,12 +133,5 @@ M.get_winbar = function()
     return
   end
 end
-
--- -- TODO: function for tabpage
--- -- TODO: function for filename
--- -- TODO: function for song name
---
--- vim.api.nvim_set_option_value("winbar", "hi" .. require("nvim-navic").get_location(), { scope = "local" })
--- vim.o.winbar = require("nvim-navic").get_location()
 
 return M

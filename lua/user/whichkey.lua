@@ -90,8 +90,10 @@ local m_opts = {
 local m_mappings = {
   a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
   c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
-  m = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
-  h = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  t = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
+  m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  [";"] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
+  l = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
   j = { "<cmd>silent BookmarkNext<cr>", "Next" },
   k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
   s = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
@@ -100,7 +102,7 @@ local m_mappings = {
   --   "Show",
   -- },
   x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
-  u = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
+  [","] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
 }
 
 local mappings = {

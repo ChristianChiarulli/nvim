@@ -11,6 +11,7 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
+keymap("n", "<C-i>", "<C-i>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -28,9 +29,9 @@ keymap("n", "<m-k>", "<C-w>k", opts)
 keymap("n", "<m-l>", "<C-w>l", opts)
 
 -- Tabs --
-keymap("n", "<m-t>", ":tabnew %<cr>", opts)
-keymap("n", "<m-c>", ":tabclose<cr>", opts)
-keymap("n", [[c-\]], ":tabonly<cr>", opts)
+keymap("n", "<enter>", ":tabnew %<cr>", opts)
+keymap("n", "<s-enter>", ":tabclose<cr>", opts)
+-- keymap("n", [[m-\\]], ":tabonly<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -116,7 +117,7 @@ keymap(
   opts
 )
 keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
-keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
+-- keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
 keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
 keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
 
@@ -133,7 +134,7 @@ keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>')
 vim.api.nvim_set_keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 
 -- alt binds
-keymap("n", "<m-s>", "<cmd>split<cr>", opts)
+-- keymap("n", "<m-s>", "<cmd>split<cr>", opts)
 keymap("n", "<m-v>", "<cmd>vsplit<cr>", opts)
 keymap("n", "<m-q>", "<cmd>:q<cr>", opts)
 
