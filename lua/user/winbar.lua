@@ -72,12 +72,12 @@ local get_gps = function()
     return ""
   end
 
-  if not gps.is_available() or gps_location == "error" then
+  local status_ok, gps_location = pcall(gps.get_location, {})
+  if not status_ok then
     return ""
   end
 
-  local status_ok, gps_location = pcall(gps.get_location, {})
-  if not status_ok then
+  if not gps.is_available() or gps_location == "error" then
     return ""
   end
 
