@@ -24,7 +24,7 @@ null_ls.setup {
   },
 }
 
-local no_really = {
+local unwrap = {
   method = null_ls.methods.DIAGNOSTICS,
   filetypes = { "rust" },
   generator = {
@@ -52,4 +52,4 @@ local no_really = {
   },
 }
 
-null_ls.register(no_really)
+null_ls.register(unwrap)
