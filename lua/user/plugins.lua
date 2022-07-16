@@ -186,9 +186,7 @@ return packer.startup(function(use)
   use "mattn/webapi-vim"
 
   -- DAP
-  -- use "mfussenegger/nvim-dap"
   -- use "theHamsta/nvim-dap-virtual-text"
-  -- use "rcarriga/nvim-dap-ui"
   -- use "Pocco81/DAPInstall.nvim"
 
   -- Plugin Graveyard
