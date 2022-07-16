@@ -158,7 +158,7 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-jdtls"
 
   -- Rust
-  use { "simrat39/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
+  use { "christianchiarulli/rust-tools.nvim", branch = "handler_nil_check" }
   use "Saecki/crates.nvim"
 
   -- Typescript TODO: set this up, also add keybinds to ftplugin
@@ -186,7 +186,9 @@ return packer.startup(function(use)
   use "mattn/webapi-vim"
 
   -- DAP
+  use "mfussenegger/nvim-dap"
   -- use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
   -- use "Pocco81/DAPInstall.nvim"
 
   -- Plugin Graveyard
