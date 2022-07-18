@@ -20,7 +20,7 @@ M.server_capabilities = function()
   }, function(choice)
     -- print(active_client_map[choice])
     -- print(vim.inspect(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities.executeCommandProvider))
-    print(vim.inspect(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities))
+    vim.pretty_print(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities)
   end)
 end
 
