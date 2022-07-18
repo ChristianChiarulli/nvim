@@ -21,6 +21,7 @@ M.winbar_filetype_exclude = {
   "dapui_stacks",
   "dapui_watches",
   "dap-repl",
+  "dap-terminal",
   "",
 }
 
