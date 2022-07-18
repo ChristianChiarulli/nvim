@@ -1,8 +1,10 @@
 return {
+  -- cmd = {"py"},
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "off",
+        typeCheckingMode = "basic",
+        diagnosticMode = "workspace",
       },
     },
   },
