@@ -141,6 +141,11 @@ local config = {
       references = {
         includeDecompiledSources = true,
       },
+      inlayHints = {
+        parameterNames = {
+          enabled = "all", -- literals, all, none
+        },
+      },
       format = {
         enabled = false,
         -- settings = {
