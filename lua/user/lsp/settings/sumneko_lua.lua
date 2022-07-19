@@ -13,8 +13,8 @@ return {
         enable = true,
         arrayIndex = "Enable", -- "Enable", "Auto", "Disable"
         await = true,
-        paramName = "All", -- "All", "Literal", "Disable"
-        paramType = true,
+        paramName = "Disable", -- "All", "Literal", "Disable"
+        paramType = false,
         semicolon = "All", -- "All", "SameLine", "Disable"
         setType = true,
       },
@@ -22,7 +22,7 @@ return {
       runtime = {
         version = "LuaJIT",
         special = {
-          include = "reload",
+          reload = "require",
         },
       },
       diagnostics = {
