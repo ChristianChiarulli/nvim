@@ -11,11 +11,11 @@ return {
       },
       hint = {
         enable = true,
-        arrayIndex = "Enable", -- "Enable", "Auto", "Disable"
+        arrayIndex = "Disable", -- "Enable", "Auto", "Disable"
         await = true,
         paramName = "Disable", -- "All", "Literal", "Disable"
         paramType = false,
-        semicolon = "All", -- "All", "SameLine", "Disable"
+        semicolon = "Disable", -- "All", "SameLine", "Disable"
         setType = true,
       },
       -- spell = {"the"}

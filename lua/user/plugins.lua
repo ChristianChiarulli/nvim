@@ -154,7 +154,7 @@ return packer.startup(function(use)
   -- use "rmagatti/goto-preview"
   use "nvim-lua/lsp_extensions.nvim"
   -- use "christianchiarulli/lsp-inlay-hints"
-  use "lvimuser/lsp-inlayhints.nvim"
+  use {"christianchiarulli/lsp-inlayhints.nvim", branch="user-config"}
 
   -- Java
   use "mfussenegger/nvim-jdtls"

@@ -104,15 +104,14 @@ M.on_attach = function(client, bufnr)
   lsp_highlight_document(client)
   attach_navic(client, bufnr)
 
-  require("lsp-inlayhints").setup_autocmd(bufnr)
-  -- if client.server_capabilities.inlayHintProvider then
   -- for tsserver
-  -- if client.name == "tsserver" then
-  --   require("lsp_inlay_hints").setup_autocmd(bufnr, "typescript/inlayHints")
-  -- else
-  --   require("lsp_inlay_hints").setup_autocmd(bufnr)
-  -- end
-  -- end
+  if client.name == "tsserver" then
+    require("lsp-inlayhints").setup_autocmd(bufnr, "typescript/inlayHints")
+  end
+
+  if client.server_capabilities.inlayHintProvider then
+    require("lsp-inlayhints").setup_autocmd(bufnr)
+  end
 
   if client.name == "jdt.ls" then
     -- TODO: instantiate capabilities in java file later
