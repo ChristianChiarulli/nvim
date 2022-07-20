@@ -29,7 +29,7 @@ keymap("n", "<m-k>", "<C-w>k", opts)
 keymap("n", "<m-l>", "<C-w>l", opts)
 
 -- Tabs --
--- keymap("n", "<enter>", ":tabnew %<cr>", opts)
+keymap("n", "<m-t>", ":tabnew %<cr>", opts)
 keymap("n", "<s-enter>", ":tabclose<cr>", opts)
 keymap("n", "<m-\\>", ":tabonly<cr>", opts)
 
