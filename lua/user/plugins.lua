@@ -153,7 +153,8 @@ return packer.startup(function(use)
   -- TODO: set this up
   -- use "rmagatti/goto-preview"
   use "nvim-lua/lsp_extensions.nvim"
-  use "christianchiarulli/lsp-inlay-hints"
+  -- use "christianchiarulli/lsp-inlay-hints"
+  use "lvimuser/lsp-inlayhints.nvim"
 
   -- Java
   use "mfussenegger/nvim-jdtls"
