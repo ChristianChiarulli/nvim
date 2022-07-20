@@ -121,6 +121,10 @@ telescope.setup {
         ["M"] = actions.move_to_middle,
         ["L"] = actions.move_to_bottom,
         ["q"] = actions.close,
+        ["dd"] = require("telescope.actions").delete_buffer,
+        ["s"] = actions.select_horizontal,
+        ["v"] = actions.select_vertical,
+        ["t"] = actions.select_tab,
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,

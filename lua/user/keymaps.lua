@@ -131,7 +131,7 @@ vim.api.nvim_set_keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent 
 -- alt binds
 -- keymap("n", "<m-s>", "<cmd>split<cr>", opts)
 keymap("n", "<m-v>", "<cmd>vsplit<cr>", opts)
-keymap("n", "<m-q>", "<cmd>:q<cr>", opts)
+-- keymap("n", "<m-q>", "<cmd>:q<cr>", opts)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype
@@ -169,5 +169,17 @@ keymap("x", "<m-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vi
 vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
 vim.api.nvim_set_keymap("n", "<m-g>", "<cmd>Telescope git_branches<cr>", opts)
 -- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+
+vim.cmd [[
+  function! QuickFixToggle()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+      copen
+    else
+      cclose
+    endif
+  endfunction
+]]
+
+keymap("n", "<m-q>", ":call QuickFixToggle()<cr>", opts)
 
 return M
