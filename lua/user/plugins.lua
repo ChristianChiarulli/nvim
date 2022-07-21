@@ -69,7 +69,7 @@ return packer.startup(function(use)
   use "NvChad/nvim-colorizer.lua"
   use "windwp/nvim-spectre"
   use "kevinhwang91/nvim-bqf"
-  use "ThePrimeagen/harpoon"
+  use "christianchiarulli/harpoon"
   use "MattesGroeger/vim-bookmarks"
   -- use "Mephistophiles/surround.nvim"
   use { "michaelb/sniprun", run = "bash ./install.sh" }
