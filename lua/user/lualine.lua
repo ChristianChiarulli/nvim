@@ -26,6 +26,8 @@ vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#32363e", bold = 
 vim.api.nvim_set_hl(0, "SLProgress", { fg = "#abb2bf", bg = "#32363e" })
 vim.api.nvim_set_hl(0, "SLFG", { fg = "#abb2bf", bg = "#282c34" })
 vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#6b727f", bg = "#282c34" })
+vim.api.nvim_set_hl(0, "SLError", { fg = "#bf616a", bg = "#282c34" })
+vim.api.nvim_set_hl(0, "SLWarning", { fg = "#D7BA7D", bg = "#282c34" })
 vim.api.nvim_set_hl(0, "SLLSP", { fg = "#5e81ac", bg = "#282c34" })
 vim.api.nvim_set_hl(0, "SLCopilot", { fg = "#6CC644", bg = "#282c34" })
 -- darkerplus
@@ -91,7 +93,7 @@ local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
   sections = { "error", "warn" },
-  symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
+  symbols = { error = "%#SLError#" .. icons.diagnostics.Error .. "%*" .. " ", warn = "%#SLWarning#" .. icons.diagnostics.Warning .. "%*" .. " " },
   colored = false,
   update_in_insert = false,
   always_visible = true,
