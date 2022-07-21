@@ -46,6 +46,9 @@ vim.g.loaded_netrwPlugin = 1
 -- vim.opt.fillchars = vim.opt.fillchars + "vertleft: "
 -- vim.opt.fillchars = vim.opt.fillchars + "vertright: "
 vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+vim.opt.fillchars:append {
+  stl = ' ',
+}
 
 vim.opt.shortmess:append "c"
 
