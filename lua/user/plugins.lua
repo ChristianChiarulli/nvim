@@ -105,7 +105,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
-  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "lunarvim/onedarker.nvim"
 
