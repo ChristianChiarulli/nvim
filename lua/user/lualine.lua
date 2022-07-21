@@ -19,15 +19,13 @@ local function contains(t, value)
   return false
 end
 
-vim.pretty_print(vim.api.nvim_get_hl_by_name("Normal", true))
-
 local sl_hl = vim.api.nvim_get_hl_by_name("StatusLine", true)
 local sl_hl_alt = vim.api.nvim_get_hl_by_name("IndentBlanklineChar", true)
 
 vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#E8AB53", bg = sl_hl_alt.foreground })
 vim.api.nvim_set_hl(0, "SLTermIcon", { fg = "#b668cd", bg = sl_hl.background })
-vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = sl_hl_alt.foreground, bold = false })
-vim.api.nvim_set_hl(0, "SLProgress", { fg = "#abb2bf", bg = sl_hl_alt.foreground })
+vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = "#32363e", bold = false })
+vim.api.nvim_set_hl(0, "SLProgress", { fg = "#abb2bf", bg = "#32363e" })
 vim.api.nvim_set_hl(0, "SLFG", { fg = "#abb2bf", bg = sl_hl.background })
 vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#6b727f", bg = sl_hl.background })
 vim.api.nvim_set_hl(0, "SLError", { fg = "#bf616a", bg = sl_hl.background })
