@@ -42,7 +42,7 @@ vim.notify = notify
 
 local notify_filter = vim.notify
 vim.notify = function(msg, ...)
-  if msg:match "character_offset must be called with valid offset encoding" then
+  if msg:match "character_offset must be called" then
     return
   end
 
