@@ -81,6 +81,7 @@ return packer.startup(function(use)
   }
   -- use "stevearc/stickybuf.nvim"
   use "rmagatti/auto-session"
+  use "rmagatti/session-lens"
 
   -- UI
   use "stevearc/dressing.nvim"
@@ -154,7 +155,7 @@ return packer.startup(function(use)
   -- use "rmagatti/goto-preview"
   use "nvim-lua/lsp_extensions.nvim"
   -- use "christianchiarulli/lsp-inlay-hints"
-  use {"christianchiarulli/lsp-inlayhints.nvim", branch="user-config"}
+  use { "christianchiarulli/lsp-inlayhints.nvim", branch = "user-config" }
 
   -- Java
   use "mfussenegger/nvim-jdtls"
