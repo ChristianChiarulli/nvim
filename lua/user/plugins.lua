@@ -163,6 +163,9 @@ return packer.startup(function(use)
   use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
   use "Saecki/crates.nvim"
 
+  -- Lua
+  use "folke/lua-dev.nvim"
+
   -- Typescript TODO: set this up, also add keybinds to ftplugin
   use "jose-elias-alvarez/typescript.nvim"
 
