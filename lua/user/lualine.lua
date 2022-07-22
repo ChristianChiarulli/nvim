@@ -176,9 +176,17 @@ local filetype = {
       "spectre_panel",
       "toggleterm",
       "DressingSelect",
-      "TelescopePrompt",
       "",
+      "nil",
     }
+
+    local return_val = function(str)
+      return hl_str(" ", "SLSep") .. hl_str(str, "SLFT") .. hl_str("", "SLSep")
+    end
+
+    if str == "TelescopePrompt" then
+      return return_val(icons.ui.Telescope)
+    end
 
     if str == "toggleterm" then
       -- 
@@ -189,14 +197,15 @@ local filetype = {
         .. vim.api.nvim_buf_get_var(0, "toggle_number")
         .. "%*"
 
-      return hl_str(" ", "SLSep") .. hl_str(term, "SLFT") .. hl_str("", "SLSep")
+      return return_val(term)
     end
 
     if contains(ui_filetypes, str) then
       return ""
     else
-      return hl_str(" ", "SLSep") .. hl_str(str, "SLFT") .. hl_str("", "SLSep")
+      return return_val(str)
     end
+    return return_val(str)
   end,
   icons_enabled = false,
   padding = 0,
@@ -281,9 +290,14 @@ local spaces = {
       space = " "
     end
 
-    -- TODO: update codicons and use their indent
+    local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
 
-    return hl_str(" ", "SLSep") .. hl_str(" " .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. space, "SLIndent") .. hl_str("", "SLSep")
+    if shiftwidth == nil then
+      return ""
+    end
+
+    -- TODO: update codicons and use their indent
+    return hl_str(" ", "SLSep") .. hl_str(" " .. shiftwidth .. space, "SLIndent") .. hl_str("", "SLSep")
   end,
   padding = 0,
   -- separator = "%#SLSeparator#" .. " │" .. "%*",
@@ -308,7 +322,11 @@ local lanuage_server = {
     }
 
     if contains(ui_filetypes, buf_ft) then
-      return M.language_servers
+      if M.language_servers == nil then
+        return ""
+      else
+        return M.language_servers
+      end
     end
 
     local clients = vim.lsp.buf_get_clients()
@@ -352,7 +370,7 @@ local lanuage_server = {
     local language_servers = ""
     local client_names_str_len = #client_names_str
     if client_names_str_len ~= 0 then
-      language_servers =  hl_str("", "SLSep")  .. hl_str(client_names_str , "SLSeparator") .. hl_str("", "SLSep")
+      language_servers = hl_str("", "SLSep") .. hl_str(client_names_str, "SLSeparator") .. hl_str("", "SLSep")
     end
     if copilot_active then
       language_servers = language_servers .. "%#SLCopilot#" .. " " .. icons.git.Octoface .. "%*"
