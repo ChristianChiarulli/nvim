@@ -30,7 +30,7 @@ keymap("n", "<m-l>", "<C-w>l", opts)
 
 -- Tabs --
 keymap("n", "<m-t>", ":tabnew %<cr>", opts)
-keymap("n", "<s-enter>", ":tabclose<cr>", opts)
+keymap("n", "<m-y>", ":tabclose<cr>", opts)
 keymap("n", "<m-\\>", ":tabonly<cr>", opts)
 
 -- Resize with arrows
