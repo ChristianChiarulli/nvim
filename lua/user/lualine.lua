@@ -326,6 +326,8 @@ local lanuage_server = {
       "toggleterm",
       "DressingSelect",
       "TelescopePrompt",
+      "lspinfo",
+      "lsp-installer",
       "",
     }
 
