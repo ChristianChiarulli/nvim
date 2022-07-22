@@ -37,7 +37,7 @@ todo_comments.setup {
   highlight = {
     before = "", -- "fg" or "bg" or empty
     -- keyword = "wide", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
-    keyword = "fg", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
+    keyword = "wide", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
     after = "fg", -- "fg" or "bg" or empty
     pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlightng (vim regex)
     comments_only = true, -- uses treesitter to match keywords in comments only

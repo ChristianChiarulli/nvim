@@ -174,6 +174,7 @@ vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('telescope').extensions.
 vim.api.nvim_set_keymap("n", "<s-tab>", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<cr>", opts)
 -- vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
 vim.api.nvim_set_keymap("n", "<m-g>", "<cmd>Telescope git_branches<cr>", opts)
+vim.api.nvim_set_keymap("n", "<s-enter>", "<cmd>TodoQuickFix<cr>", opts)
 -- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
 
 vim.cmd [[
