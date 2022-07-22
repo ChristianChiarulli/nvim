@@ -29,6 +29,7 @@ local settings = {
   ensure_installed = servers,
   ui = {
     icons = {},
+    border = "rounded",
     keymaps = {
       toggle_server_expand = "<CR>",
       install_server = "i",
