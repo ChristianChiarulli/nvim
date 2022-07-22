@@ -204,7 +204,7 @@ return packer.startup(function(use)
   -- use "nvim-telescope/telescope-ui-select.nvim"
   -- use "nvim-telescope/telescope-file-browser.nvim"
   -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
-  use { "christianchiarulli/JABS.nvim" }
+  -- use { "christianchiarulli/JABS.nvim" }
   -- use "lunarvim/vim-solidity"
   -- use "tpope/vim-repeat"
   -- use "Shatur/neovim-session-manager"
