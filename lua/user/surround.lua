@@ -5,11 +5,16 @@ end
 
 surround.setup {
   keymaps = { -- vim-surround style keymaps
-    insert = "<m-s>",
-    insert_line = "<m-s><m-s>",
-    visual = "<m-s>",
-    delete = "<m-d>",
-    change = "<m-c>",
+    insert = "<C-g>s",
+    insert_line = "<C-g>S",
+    normal = "s",
+    normal_cur = "ss",
+    normal_line = "S",
+    normal_cur_line = "SS",
+    visual = "s",
+    visual_line = "gS",
+    delete = "ds",
+    change = "cs",
   },
   delimiters = {
     pairs = {
@@ -54,7 +59,27 @@ surround.setup {
       ["s"] = { ")", "]", "}", ">", "'", '"', "`" }, -- Any surrounding delimiter
     },
   },
-  highlight_motion = { -- Highlight before inserting/changing surrounds
-    duration = 0,
-  },
+  -- highlight_motion = { -- Highlight before inserting/changing surrounds
+  --   duration = 0,
+  -- },
 }
+
+-- local opts = { noremap = true, silent = true }
+-- local keymap = vim.api.nvim_set_keymap
+
+-- keymap("n", "<leader>'", [[ysiw']], opts)
+
+
+vim.cmd[[nmap <leader>' siw']]
+
+
+
+
+
+
+
+
+
+
+
+

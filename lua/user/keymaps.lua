@@ -75,6 +75,7 @@ keymap("v", ">", ">gv", opts)
 -- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 -- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
+-- keymap("v", "P", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -91,7 +92,7 @@ keymap("v", "p", '"_dP', opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Custom
-keymap("n", "<m-h>", "<cmd>nohlsearch<cr>", opts)
+keymap("n", "<c-h>", "<cmd>nohlsearch<cr>", opts)
 -- NOTE: the fact that tab and ctrl-i are the same is stupid
 -- keymap("n", "<TAB>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)

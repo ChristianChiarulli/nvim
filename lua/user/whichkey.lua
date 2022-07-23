@@ -109,6 +109,7 @@ local m_mappings = {
 }
 
 local mappings = {
+  -- ["1"] = "which_key_ignore",
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Action" },
   b = { "<cmd>Telescope buffers<cr>", "Buffers" },
   e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -276,6 +277,7 @@ local mappings = {
       "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
       "Prev Diagnostic",
     },
+    v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     o = { "<cmd>SymbolsOutline<cr>", "Outline" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
