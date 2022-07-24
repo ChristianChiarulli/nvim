@@ -118,22 +118,8 @@ M.on_attach = function(client, bufnr)
   lsp_highlight_document(client)
   attach_navic(client, bufnr)
 
-  -- for tsserver
-  -- if client.name == "tsserver" then
-  --   require("lsp-inlayhints").setup_autocmd(bufnr, "typescript/inlayHints")
-  -- end
-
-  -- if client.name ~= "rust_analyzer" then
-  -- if client.name == "pyright" then
-  -- if client.server_capabilities.inlayHintProvider then
-    -- require("lsp-inlayhints").setup_autocmd(bufnr)
-    -- require("lsp-inlayhints").on_attach(bufnr, client)
-  -- end
-  -- end
-
   if client.name == "jdt.ls" then
     -- TODO: instantiate capabilities in java file later
-    M.capabilities.textDocument.completion.completionItem.snippetSupport = false
     vim.lsp.codelens.refresh()
     if JAVA_DAP_ACTIVE then
       require("jdtls").setup_dap { hotcodereplace = "auto" }
