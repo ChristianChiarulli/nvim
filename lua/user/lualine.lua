@@ -188,14 +188,17 @@ local filetype = {
       return return_val(icons.ui.Telescope)
     end
 
+    local function get_term_num()
+      local t_status_ok, toggle_num = pcall(vim.api.nvim_buf_get_var, 0, "toggle_number")
+      if not t_status_ok then
+        return ""
+      end
+      return toggle_num
+    end
+
     if str == "toggleterm" then
       -- 
-      local term = "%#SLTermIcon#"
-        .. " "
-        .. "%*"
-        .. "%#SLFT#"
-        .. vim.api.nvim_buf_get_var(0, "toggle_number")
-        .. "%*"
+      local term = "%#SLTermIcon#" .. " " .. "%*" .. "%#SLFT#" .. get_term_num() .. "%*"
 
       return return_val(term)
     end
