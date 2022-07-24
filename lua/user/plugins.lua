@@ -46,7 +46,8 @@ return packer.startup(function(use)
   -- Lua Development
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "nvim-lua/popup.nvim"
-  use "folke/lua-dev.nvim"
+  use "christianchiarulli/lua-dev.nvim"
+  -- use "folke/lua-dev.nvim"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
@@ -68,7 +69,7 @@ return packer.startup(function(use)
   }
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
-  use { "christianchiarulli/lsp-inlayhints.nvim", branch = "user-config" }
+  use { "lvimuser/lsp-inlayhints.nvim", branch = "readme" }
   use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
   -- Completion

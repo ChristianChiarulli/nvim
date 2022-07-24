@@ -119,16 +119,17 @@ M.on_attach = function(client, bufnr)
   attach_navic(client, bufnr)
 
   -- for tsserver
-  if client.name == "tsserver" then
-    require("lsp-inlayhints").setup_autocmd(bufnr, "typescript/inlayHints")
-  end
+  -- if client.name == "tsserver" then
+  --   require("lsp-inlayhints").setup_autocmd(bufnr, "typescript/inlayHints")
+  -- end
 
   -- if client.name ~= "rust_analyzer" then
-  if client.name == "pyright" then
-    if client.server_capabilities.inlayHintProvider then
-      require("lsp-inlayhints").setup_autocmd(bufnr)
-    end
-  end
+  -- if client.name == "pyright" then
+  -- if client.server_capabilities.inlayHintProvider then
+    -- require("lsp-inlayhints").setup_autocmd(bufnr)
+    -- require("lsp-inlayhints").on_attach(bufnr, client)
+  -- end
+  -- end
 
   if client.name == "jdt.ls" then
     -- TODO: instantiate capabilities in java file later

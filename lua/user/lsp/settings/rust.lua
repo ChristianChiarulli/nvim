@@ -1,5 +1,6 @@
 return {
   tools = {
+    -- autoSetHints = false,
     on_initialized = function()
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
         pattern = { "*.rs" },
@@ -8,9 +9,12 @@ return {
         end,
       })
     end,
+
+    auto = false,
     inlay_hints = {
       -- Only show inlay hints for the current line
-      only_current_line = true,
+      only_current_line = false,
+      auto = false,
 
       -- Event which triggers a refersh of the inlay hints.
       -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
