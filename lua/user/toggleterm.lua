@@ -43,6 +43,11 @@ local lazygit = Terminal:new {
   cmd = "lazygit",
   hidden = true,
   direction = "float",
+  float_opts = {
+    border = "rounded",
+    width = 100000,
+    height = 100000,
+  },
   on_open = function(_)
     vim.cmd "startinsert!"
     -- vim.cmd "set laststatus=0"
