@@ -7,9 +7,27 @@ nvim_web_devicons.set_icon {
   sh = {
     icon = "",
     color = "#1DC123",
-    cterm_color = "59",
-    name = "Sh",
+    cterm_color = "61",
+    name = "Sy",
   },
+  ["py"] = {
+    icon = "",
+    color = "#519BB7",
+    cterm_color = "59",
+    name = "Py",
+  },
+  -- ["js"] = {
+  --   icon = "",
+  --   color = "#cbcb41",
+  --   cterm_color = "185",
+  --   name = "Js",
+  -- },
+  -- ["ts"] = {
+  --   icon = "ﯤ",
+  --   color = "#519aba",
+  --   cterm_color = "67",
+  --   name = "Ts",
+  -- },
   [".gitattributes"] = {
     icon = "",
     color = "#e24329",
