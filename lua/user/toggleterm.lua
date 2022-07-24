@@ -44,7 +44,7 @@ local lazygit = Terminal:new {
   hidden = true,
   direction = "float",
   float_opts = {
-    border = "rounded",
+    border = "none",
     width = 100000,
     height = 100000,
   },
