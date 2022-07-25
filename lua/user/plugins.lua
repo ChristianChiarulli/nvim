@@ -34,6 +34,7 @@ end
 packer.init {
   -- snapshot = "july-24",
   snapshot_path = fn.stdpath "config" .. "/snapshots",
+  max_jobs = 50,
   display = {
     open_fn = function()
       return require("packer.util").float { border = "rounded" }
