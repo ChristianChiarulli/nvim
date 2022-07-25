@@ -53,22 +53,5 @@ require "user.fidget"
 require "user.browse"
 require "user.auto-session"
 require "user.jaq"
--- require "user.jabs"
 require "user.surround"
 require "user.harpoon"
--- require "user.tree-climber"
--- require "user.stickybuf"
--- require "user.aerial"
--- require "user.cutlass"
--- require "user.scope"
--- require "user.bufferline"
--- revisit this
--- function prequire(package)
---   local status, lib = pcall(require, package)
---   if status then
---     return lib
---   else
---     vim.notify("Failed to require '" .. package .. "' from " .. debug.getinfo(2).source)
---     return nil
---   end
--- end
