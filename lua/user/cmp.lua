@@ -146,7 +146,7 @@ cmp.setup {
     {
       name = "nvim_lsp",
       filter = function(entry, ctx)
-        vim.pretty_print()
+        -- vim.pretty_print()
         local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
         -- vim.bo.filetype
         if kind == "Snippet" and ctx.prev_context.filetype == "java" then
