@@ -51,9 +51,9 @@ surround.setup {
     },
     aliases = {
       ["a"] = ">", -- Single character aliases apply everywhere
-      ["b"] = ")",
-      ["B"] = "}",
-      ["r"] = "]",
+      ["p"] = ")",
+      ["b"] = "]",
+      ["r"] = "}",
       -- Table aliases only apply for changes/deletions
       ["q"] = { '"', "'", "`" }, -- Any quote character
       ["s"] = { ")", "]", "}", ">", "'", '"', "`" }, -- Any surrounding delimiter
@@ -62,9 +62,9 @@ surround.setup {
       vim.notify ("Invalid surround character", vim.log.levels.INFO)
     end,
   },
-  -- highlight_motion = { -- Highlight before inserting/changing surrounds
-  --   duration = 0,
-  -- },
+  highlight_motion = { -- Highlight before inserting/changing surrounds
+    duration = 0,
+  },
 }
 
 -- local opts = { noremap = true, silent = true }
