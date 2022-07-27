@@ -17,7 +17,18 @@ vim.api.nvim_create_autocmd({ "User" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "Jaq", "qf", "help", "man", "lspinfo", "spectre_panel", "lir", "DressingSelect", "tsplayground" },
+  pattern = {
+    "Jaq",
+    "qf",
+    "help",
+    "man",
+    "lspinfo",
+    "spectre_panel",
+    "lir",
+    "DressingSelect",
+    "tsplayground",
+    "Markdown",
+  },
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR> 
@@ -166,3 +177,10 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 --     end
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*.ts" },
+  callback = function()
+    vim.lsp.buf.format { async = true }
+  end,
+})

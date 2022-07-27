@@ -189,6 +189,10 @@ return packer.startup(function(use)
 
   -- Code Runner
   use "is0n/jaq-nvim"
+  use {
+    "0x100101/lab.nvim",
+    run = "cd js && npm ci",
+  }
 
   -- Git
   use "lewis6991/gitsigns.nvim"
