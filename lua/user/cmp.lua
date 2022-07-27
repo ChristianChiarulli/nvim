@@ -130,7 +130,7 @@ cmp.setup {
 
       if entry.source.name == "lab.quick_data" then
         vim_item.kind = icons.misc.CircuitBoard
-        vim_item.kind_hl_group = "CmpItemKindEmoji"
+        vim_item.kind_hl_group = "CmpItemKindConstant"
       end
 
       -- NOTE: order matters
