@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-lab {
+lab.setup {
   code_runner = {
     enabled = true,
   },
