@@ -58,6 +58,9 @@ surround.setup {
       ["q"] = { '"', "'", "`" }, -- Any quote character
       ["s"] = { ")", "]", "}", ">", "'", '"', "`" }, -- Any surrounding delimiter
     },
+    invalid_key_behavior = function()
+      vim.notify ("Invalid surround character", vim.log.levels.INFO)
+    end,
   },
   -- highlight_motion = { -- Highlight before inserting/changing surrounds
   --   duration = 0,
@@ -69,17 +72,4 @@ surround.setup {
 
 -- keymap("n", "<leader>'", [[ysiw']], opts)
 
-
-vim.cmd[[nmap <leader>' siw']]
-
-
-
-
-
-
-
-
-
-
-
-
+vim.cmd [[nmap <leader>' siw']]
