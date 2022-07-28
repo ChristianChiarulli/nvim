@@ -51,6 +51,7 @@ vim.opt.fillchars:append {
 }
 
 vim.opt.shortmess:append "c"
+vim.opt.titlestring = "%t"
 
 for k, v in pairs(options) do
   vim.opt[k] = v
