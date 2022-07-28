@@ -167,7 +167,7 @@ cmp.setup {
     { name = "cmp_tabnine", group_index = 2 },
     { name = "path", group_index = 2 },
     { name = "emoji", group_index = 2 },
-    -- { name = "lab.quick_data", keyword_length = 4, group_index = 2 },
+    { name = "lab.quick_data", keyword_length = 4, group_index = 2 },
   },
   sorting = {
     priority_weight = 2,

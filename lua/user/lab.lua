@@ -8,7 +8,7 @@ lab.setup {
     enabled = true,
   },
   quick_data = {
-    enabled = true,
+    enabled = false,
   },
 }
 
