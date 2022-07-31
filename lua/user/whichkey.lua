@@ -339,6 +339,14 @@ local mappings = {
     p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
     r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
   },
+
+  -- z = {
+  --   name = "Zen",
+  --   z = { "<cmd>TZAtaraxis<cr>", "Zen" },
+  --   m = { "<cmd>TZMinimalist<cr>", "Minimal" },
+  --   n = { "<cmd>TZNarrow<cr>", "Narrow" },
+  --   f = { "<cmd>TZFocus<cr>", "Focus" },
+  -- },
 }
 
 local vopts = {
@@ -352,6 +360,7 @@ local vopts = {
 local vmappings = {
   ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
   s = { "<esc><cmd>'<,'>SnipRun<cr>", "Run range" },
+  -- z = { "<cmd>TZNarrow<cr>", "Narrow" },
 }
 
 which_key.setup(setup)
