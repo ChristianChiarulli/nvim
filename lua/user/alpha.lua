@@ -44,7 +44,7 @@ end
 
 dashboard.section.footer.val = footer()
 
-dashboard.section.header.opts.hl = "Keyword"
+dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Macro"
 dashboard.section.footer.opts.hl = "Type"
 
