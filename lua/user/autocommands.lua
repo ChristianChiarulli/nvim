@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       return project_name
     end
 
-    vim.opt.titlestring = get_project_dir()
+    vim.opt.titlestring = get_project_dir() .. " - nvim"
   end,
 })
 
