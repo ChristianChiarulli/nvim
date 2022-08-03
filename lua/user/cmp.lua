@@ -13,6 +13,22 @@ if not tabnine_status_ok then
   return
 end
 
+local buffer_fts = {
+  "markdown",
+  "toml",
+  "yaml",
+  "json",
+}
+
+local function contains(t, value)
+  for _, v in pairs(t) do
+    if v == value then
+      return true
+    end
+  end
+  return false
+end
+
 local compare = require "cmp.config.compare"
 
 require("luasnip/loaders/from_vscode").lazy_load()
@@ -157,31 +173,32 @@ cmp.setup {
 
       group_index = 2,
     },
-    -- { name = "nvim_lsp", group_index = 2 },
     {
       name = "nvim_lsp",
       filter = function(entry, ctx)
-        -- vim.pretty_print()
         local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
-        -- vim.bo.filetype
         if kind == "Snippet" and ctx.prev_context.filetype == "java" then
+          return true
+        end
+
+        if kind == "Text" then
           return true
         end
       end,
       group_index = 2,
     },
     { name = "nvim_lua", group_index = 2 },
-    -- {
-    --   name = "copilot",
-    --   -- keyword_length = 1,
-    --   trigger_characters = {
-    --     { ".", ":", "(", "'", '"', "[", ",", "#", "*", "@", "|", "=", "-", "{", "/", "\\", "+", "?" },
-    --   },
-    --
-    --   group_index = 2,
-    -- },
     { name = "luasnip", group_index = 2 },
-    { name = "buffer", group_index = 2 },
+    {
+      name = "buffer",
+      group_index = 2,
+      filter = function(entry, ctx)
+        if not contains(buffer_fts, ctx.prev_context.filetype) then
+          -- if ctx.prev_context.filetype ~= "markdown" then
+          return true
+        end
+      end,
+    },
     { name = "cmp_tabnine", group_index = 2 },
     { name = "path", group_index = 2 },
     { name = "emoji", group_index = 2 },
