@@ -194,7 +194,6 @@ cmp.setup {
       group_index = 2,
       filter = function(entry, ctx)
         if not contains(buffer_fts, ctx.prev_context.filetype) then
-          -- if ctx.prev_context.filetype ~= "markdown" then
           return true
         end
       end,
