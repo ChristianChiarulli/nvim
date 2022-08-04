@@ -24,6 +24,7 @@ end
 
 local gray = "#32363e"
 local dark_gray = "#282C34"
+local dark_gray = "#282C34"
 local red = "#D16969"
 local blue = "#569CD6"
 local green = "#6A9955"
@@ -34,7 +35,8 @@ local yellow_orange = "#D7BA7D"
 local purple = "#C586C0"
 
 if lualine_scheme == "darkplus_dark" then
-  gray = "#3e3e3e"
+  -- gray = "#3e3e3e"
+  gray = "#303030"
   dark_gray = "#303030"
   red = "#D16969"
   blue = "#569CD6"
