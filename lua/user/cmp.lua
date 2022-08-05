@@ -56,6 +56,10 @@ vim.g.cmp_active = true
 
 cmp.setup {
   enabled = function()
+    local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+    if buftype == "prompt" then
+      return false
+    end
     return vim.g.cmp_active
   end,
   snippet = {
