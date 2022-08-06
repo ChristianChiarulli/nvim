@@ -177,10 +177,10 @@ cmp.setup {
     { name = "crates", group_index = 1 },
     {
       name = "copilot",
-      -- keyword_length = 1,
+      -- keyword_length = 0,
       max_item_count = 3,
       -- trigger_characters = {
-      --   { ".", ":", "(", "'", '"', "[", ",", "#", "*", "@", "|", "=", "-", "{", "/", "\\", "+", "?" },
+      --   { ".", ":", "(", "'", '"', "[", ",", "#", "*", "@", "|", "=", "-", "{", "/", "\\", "+", "?", " ", "\t", "\n" },
       -- },
 
       group_index = 2,
