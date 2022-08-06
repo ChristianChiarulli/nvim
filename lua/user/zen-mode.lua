@@ -22,7 +22,7 @@ zen_mode.setup {
   plugins = {
     gitsigns = { enabled = false },
     tmux = { enabled = false },
-    twilight = { enabled = true },
+    twilight = { enabled = false },
   },
   on_open = function()
     require("lsp-inlayhints").toggle()
