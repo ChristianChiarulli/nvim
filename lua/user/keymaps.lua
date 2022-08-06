@@ -92,7 +92,7 @@ keymap("v", "p", '"_dP', opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Custom
-keymap("n", "<c-h>", "<cmd>nohlsearch<cr>", opts)
+-- keymap("n", "<c-h>", "<cmd>nohlsearch<cr>", opts)
 -- NOTE: the fact that tab and ctrl-i are the same is stupid
 -- keymap("n", "<TAB>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
@@ -194,3 +194,4 @@ keymap("n", "<c-l>", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
     -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 
 return M
+
