@@ -11,7 +11,7 @@ dep_ch() {
 
 # display error message in red to stderr
 error() {
-	print "\33[2k\r\033[1;31m%s\033[0m\n" "$*" >&2
+	printf "\33[2k\r\033[1;31m%s\033[0m\n" "$*" >&2
 }
 
 #function to terminate script if error occur
