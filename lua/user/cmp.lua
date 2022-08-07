@@ -62,6 +62,7 @@ cmp.setup {
     end
     return vim.g.cmp_active
   end,
+  preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
