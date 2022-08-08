@@ -71,8 +71,8 @@ local hl_str = function(str, hl)
 end
 
 local mode_color = {
-  n = "#519fdf",
-  i = "#c18a56",
+  n = blue,
+  i = orange,
   v = "#b668cd",
   [""] = "#b668cd",
   V = "#b668cd",
@@ -80,19 +80,19 @@ local mode_color = {
   -- c = '#D7BA7D',
   c = "#46a6b2",
   no = "#D16D9E",
-  s = "#88b369",
-  S = "#c18a56",
-  [""] = "#c18a56",
-  ic = "#d05c65",
+  s = green,
+  S = orange,
+  [""] = orange,
+  ic = red,
   R = "#D16D9E",
-  Rv = "#d05c65",
-  cv = "#519fdf",
-  ce = "#519fdf",
-  r = "#d05c65",
+  Rv = red,
+  cv = blue,
+  ce = blue,
+  r = red,
   rm = "#46a6b2",
   ["r?"] = "#46a6b2",
   ["!"] = "#46a6b2",
-  t = "#d05c65",
+  t = red,
 }
 
 local left_pad = {
