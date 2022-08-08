@@ -38,14 +38,14 @@ if lualine_scheme == "darkplus_dark" then
   -- gray = "#3e3e3e"
   gray = "#303030"
   dark_gray = "#303030"
-  red = "#D16969"
-  blue = "#569CD6"
-  green = "#6A9955"
-  cyan = "#4EC9B0"
-  orange = "#CE9178"
+  red = "#bf616a"
+  blue = "#5e81ac"
+  green = "#A3BE8C"
+  cyan = "#88c0d0"
+  orange = "#A3BE8C"
   yellow = "#DCDCAA"
   yellow_orange = "#D7BA7D"
-  purple = "#C586C0"
+  purple = "#B48EAD"
 end
 
 local sl_hl = vim.api.nvim_get_hl_by_name("StatusLine", true)
