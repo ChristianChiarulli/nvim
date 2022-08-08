@@ -30,6 +30,7 @@ local blue = "#569CD6"
 local green = "#6A9955"
 local cyan = "#4EC9B0"
 local orange = "#CE9178"
+local indent = "#CE9178"
 local yellow = "#DCDCAA"
 local yellow_orange = "#D7BA7D"
 local purple = "#C586C0"
@@ -40,9 +41,10 @@ if lualine_scheme == "darkplus_dark" then
   dark_gray = "#303030"
   red = "#bf616a"
   blue = "#5e81ac"
+  indent = "#A3BE8C"
   green = "#A3BE8C"
   cyan = "#88c0d0"
-  orange = "#A3BE8C"
+  orange = "#C68A75"
   yellow = "#DCDCAA"
   yellow_orange = "#D7BA7D"
   purple = "#B48EAD"
@@ -57,7 +59,7 @@ vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = dark_gray, bold = 
 vim.api.nvim_set_hl(0, "SLProgress", { fg = purple, bg = gray })
 vim.api.nvim_set_hl(0, "SLLocation", { fg = blue, bg = gray })
 vim.api.nvim_set_hl(0, "SLFT", { fg = cyan, bg = gray })
-vim.api.nvim_set_hl(0, "SLIndent", { fg = orange, bg = gray })
+vim.api.nvim_set_hl(0, "SLIndent", { fg = indent, bg = gray })
 vim.api.nvim_set_hl(0, "SLLSP", { fg = "#6b727f", bg = "NONE" })
 vim.api.nvim_set_hl(0, "SLSep", { fg = gray, bg = "NONE" })
 vim.api.nvim_set_hl(0, "SLFG", { fg = "#abb2bf", bg = "NONE" })
