@@ -28,7 +28,7 @@ terminate_script() {
 #provide dependency (space seperated)
 dep_ch "gcc" "cmake" || true
 
-CURRENT_DIR=$(pwd)
+CURRENT_DIR="$(pwd)"
 NEOVIM_DIR="$HOME/.config/nvim/neovim"
 
 #checks if neovim directory already exists
