@@ -11,7 +11,8 @@ end
 local servers = {
   "cssls",
   "cssmodules_ls",
-  "emmet_ls",
+  -- "emmet_ls",
+  "eslint",
   "html",
   "jdtls",
   "jsonls",
@@ -20,6 +21,7 @@ local servers = {
   "sumneko_lua",
   "tflint",
   "terraformls",
+  -- "volar",
   "tsserver",
   "pyright",
   "yamlls",
@@ -136,6 +138,11 @@ for _, server in pairs(servers) do
     rust_tools.setup(rust_opts)
     goto continue
   end
+
+  -- if server == "volar" then
+  --   local volar_ls_opts = require "user.lsp.settings.volar"
+  --   opts = vim.tbl_deep_extend("force", volar_ls_opts, opts)
+  -- end
 
   lspconfig[server].setup(opts)
   ::continue::

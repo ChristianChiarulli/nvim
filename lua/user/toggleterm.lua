@@ -24,6 +24,12 @@ toggleterm.setup {
       background = "Normal",
     },
   },
+  winbar = {
+    enabled = true,
+    name_formatter = function(term)
+      return term.name
+    end
+  }
 }
 
 function _G.set_terminal_keymaps()

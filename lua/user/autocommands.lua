@@ -130,9 +130,9 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
+    vim.highlight.on_yank()
   end,
 })
 
@@ -186,4 +186,49 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   callback = function()
     vim.lsp.buf.format { async = true }
   end,
+})
+
+local function mysplit(inputstr, sep)
+  if sep == nil then
+    sep = "%s"
+  end
+  local t = {}
+  for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+    table.insert(t, str)
+  end
+  return t
+end
+
+vim.cmd [[ au UIEnter * :set title ]]
+vim.cmd [[ au VimEnter * let &titlestring = expand("%:t") ]]
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  callback = function()
+    local folders = vim.lsp.buf.list_workspace_folders()
+
+    local folder = folders[#folders]
+    -- local bufpath = vim.fn.expand('%:p')
+    -- for _, wspath in ipairs(folders) do
+    --   print('PATH = ' .. wspath .. ', FNAME = ' .. bufpath)
+    --   if string.find(bufpath, wspath) then
+    --     folder = wspath
+    --     break
+    --   end
+    -- end
+
+    if not folder then
+      -- not inside workspace folder
+      return
+    end
+
+    -- don't update if inside nvim tree
+    if string.find(folder, "NvimTree") then
+      return
+    end
+
+    local ws = string.gsub(folder, '^.*/(%w+)$', '%1')
+
+    ws = string.gsub(ws, os.getenv('HOME'), '~')
+    -- print(vim.inspect('WS = ' .. ws))
+    vim.api.nvim_set_option("titlestring", ws)
+  end
 })

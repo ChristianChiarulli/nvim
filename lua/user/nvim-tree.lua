@@ -30,11 +30,22 @@ nvim_tree.setup {
   filters = {
     custom = { ".git" },
     exclude = { ".gitignore" },
+    -- dotfiles = true,
   },
   -- auto_close = true,
   -- open_on_tab = false,
   -- hijack_cursor = false,
-  update_cwd = true,
+
+  prefer_startup_root = true,
+  sync_root_with_cwd = false,
+  -- update_cwd = true,
+
+  respect_buf_cwd = false,
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+    ignore_list = {},
+  },
   -- update_to_buf_dir = {
   --   enable = true,
   --   auto_open = true,
@@ -103,11 +114,6 @@ nvim_tree.setup {
       error = icons.diagnostics.Error,
     },
   },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
-  },
   -- system_open = {
   --   cmd = nil,
   --   args = {},
@@ -118,7 +124,7 @@ nvim_tree.setup {
   -- },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 500,
   },
   view = {

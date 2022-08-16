@@ -113,6 +113,12 @@ local function lsp_keymaps(bufnr)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
+local buf_map = function(bufnr, mode, lhs, rhs, opts)
+  vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
+    silent = true,
+  })
+end
+
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
@@ -121,6 +127,26 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     require("lsp-inlayhints").on_attach(bufnr, client)
   end
+  -- TODO: refactor this into a method that checks if string in list
+  if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+    local ts_utils = require("nvim-lsp-ts-utils")
+    -- ts_utils.setup({
+    --   filter_out_diagnostics_by_code = { 80001 }
+    -- })
+    ts_utils.setup({})
+    ts_utils.setup_client(client)
+    buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
+    buf_map(bufnr, "n", "gi", ":TSLspRenameFile<CR>")
+    buf_map(bufnr, "n", "go", ":TSLspImportAll<CR>")
+  end
+
+  local status_ok, aerial = pcall(require, "aerial")
+  if not status_ok then
+    return
+  end
+  aerial.on_attach(client, bufnr)
 
   if client.name == "jdt.ls" then
     vim.lsp.codelens.refresh()
@@ -135,7 +161,7 @@ function M.enable_format_on_save()
   vim.cmd [[
     augroup format_on_save
       autocmd! 
-      autocmd BufWritePre * lua vim.lsp.buf.format({ async = false }) 
+      autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 2000)
     augroup end
   ]]
   vim.notify "Enabled format on save"
@@ -161,5 +187,6 @@ function M.remove_augroup(name)
 end
 
 vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("user.lsp.handlers").toggle_format_on_save()' ]]
+M.enable_format_on_save()
 
 return M
