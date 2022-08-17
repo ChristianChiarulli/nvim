@@ -183,7 +183,7 @@ run = "./install.sh" }
   use "windwp/nvim-spectre"
 
   -- Session
-  use {"rmagatti/auto-session", branch="dir-changed-fixes"}
+  use "rmagatti/auto-session"
   use "rmagatti/session-lens"
 
   -- Quickfix
