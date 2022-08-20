@@ -9,18 +9,16 @@ if not status_ok_1 then
 end
 
 comment.setup {
+  ignore = "^$",
   pre_hook = function(ctx)
     -- For inlay hints
     local line_start = (ctx.srow or ctx.range.srow) - 1
     local line_end = ctx.erow or ctx.range.erow
     require("lsp-inlayhints.core").clear(0, line_start, line_end)
 
-    if
-      vim.bo.filetype == "typescriptreact"
-      or vim.bo.filetype == "javascriptreact"
-      or vim.bo.filetype == "javascript"
-      or vim.bo.filetype == "typescript"
-    then
+    require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+
+    if vim.bo.filetype == "javascript" or vim.bo.filetype == "typescript" then
       local U = require "Comment.utils"
 
       -- Determine whether to use linewise or blockwise commentstring
