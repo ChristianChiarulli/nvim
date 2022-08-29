@@ -126,7 +126,8 @@ run = "./install.sh" }
 
   -- Color
   use "NvChad/nvim-colorizer.lua"
-  use "ziontee113/color-picker.nvim"
+  -- use "ziontee113/color-picker.nvim"
+  use "nvim-colortils/colortils.nvim"
 
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
