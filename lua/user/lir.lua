@@ -11,6 +11,7 @@ lir.setup {
   show_hidden_files = false,
   devicons_enable = true,
   mappings = {
+    ["<cr>"] = actions.edit,
     ["l"] = actions.edit,
     ["<C-s>"] = actions.split,
     ["v"] = actions.vsplit,
