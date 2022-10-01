@@ -388,3 +388,6 @@
 [submodule "sniprun"]
 	path = pack/plugins/opt/sniprun
 	url = https://github.com/michaelb/sniprun
+[submodule "filetype.nvim"]
+	path = pack/plugins/opt/filetype.nvim
+	url = https://github.com/nathom/filetype.nvim

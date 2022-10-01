@@ -1,5 +1,5 @@
-local load = require("user.plugin.load")
--- local lazy = require("user.plugin.lazy")
+local load = require "user.plugin.load"
+local lazy = require "user.plugin.lazy"
 
 -- Speed up loading.
 load("impatient.nvim", {
@@ -7,14 +7,14 @@ load("impatient.nvim", {
     _G.__luacache_config = {
       chunks = {
         enable = true,
-        path = vim.fn.stdpath("cache") .. "/luacache_chunks",
+        path = vim.fn.stdpath "cache" .. "/luacache_chunks",
       },
       modpaths = {
         enable = true,
-        path = vim.fn.stdpath("cache") .. "/luacache_modpaths",
+        path = vim.fn.stdpath "cache" .. "/luacache_modpaths",
       },
     }
-    require("impatient")
+    require "impatient"
   end,
 })
 load("filetype.nvim", {
@@ -23,207 +23,313 @@ load("filetype.nvim", {
   end,
 })
 
-load("plenary.nvim") -- Useful lua functions used ny lots of plugins
-load("popup.nvim")
-load("lua-dev.nvim")
--- load("lua-dev.nvim")
+load "plenary.nvim" -- Useful lua functions used ny lots of plugins
+load "popup.nvim"
+-- load "lua-dev.nvim"
 
 -- LSP
-load("nvim-lspconfigload") -- enable LSP
--- "nvim-lsp-installer" -- simple to use language server installer
-load("mason.nvim")
-load("wmason-lspconfig.nvim")
-load("null-ls.nvim") -- for formatters and linters
-load("lsp_signature.nvim")
-load("nvim-navic")
-load("symbols-outline.nvim")
-load("SchemaStore.nvim")
--- load("copilot.vim")
-load("copilot.lua")
-load("vim-illuminate")
-load("fidget.nvim")
-load("lsp-inlayhints.nvim")
+load "nvim-lspconfig" -- enable LSP
+-- load "nvim-lsp-installer" -- simple language server installer
+load "mason.nvim"
+load "mason-lspconfig.nvim"
+load "null-ls.nvim" -- for formatters and linters
+load "lsp_signature.nvim"
+lazy("nvim-navic", {
+  config = "navic",
+})
+lazy("symbols-outline.nvim", {
+  plugin_config = "symbol-outline",
+})
+load "SchemaStore.nvim"
+-- load "copilot.vim"
+load "copilot.lua"
+load("vim-illuminate", {
+  plugin_config = "illuminate",
+})
+-- load("fidget.nvim", {
+--   plugin_config = "fidget"
+-- })
+lazy("lsp-inlayhints.nvim", {
+  plugin_config = "lsp-inlayhints",
+})
 -- load("inlay-hints.nvim")
-load("lsp_lines.nvim")
+lazy "lsp_lines.nvim"
 
 -- Completion
-load("nvim-cmp")
-load("cmp-buffer") -- buffer completions
-load("cmp-path") -- path completions
-load("cmp-cmdline") -- cmdline completions
-load("cmp_luasnip") -- snippet completions
-load("cmp-nvim-lsp")
-load("cmp-emoji")
-load("cmp-nvim-lua")
-load("copilot-cmp")
-load("cmp-tabnine")
+load("nvim-cmp", {
+  plugin_config = "cmp",
+})
+load "cmp-buffer" -- buffer completions
+load "cmp-path" -- path completions
+load "cmp-cmdline" -- cmdline completions
+load "cmp_luasnip" -- snippet completions
+load "cmp-nvim-lsp"
+load "cmp-emoji"
+load "cmp-nvim-lua"
+load "copilot-cmp"
+load "cmp-tabnine"
 
 -- Snippet
-load("LuaSnip") --snippet engine
-load("friendly-snippets") -- a bunch of snippets to use
+lazy "LuaSnip" --snippet engine
+lazy "friendly-snippets" -- a bunch of snippets to use
 
 -- Syntax/Treesitter
-load("nvim-treesitter")
-load("nvim-ts-context-commentstring")
-load("nvim-ts-rainbow")
-load("playground")
-load("nvim-ts-autotag")
-load("nvim-treesitter-textobjects")
--- load("targets.vim")
--- load("nvim-treesitter-textsubjects")
-load("nvim-surround")
-load("tabout.nvim")
+load("nvim-treesitter", {
+  plugin_config = "treesitter",
+})
+lazy("nvim-ts-context-commentstring", {
+  plugin_config = "ts-context",
+})
+lazy "nvim-ts-rainbow"
+lazy "playground"
+lazy "nvim-ts-autotag"
+lazy "nvim-treesitter-textobjects"
+-- lazy "targets.vim"
+-- lazy "nvim-treesitter-textsubjects"
+lazy("nvim-surround", {
+  plugin_config = "surround",
+})
+lazy("tabout.nvim", {
+  plugin_config = "tabout",
+})
 
 -- Marks
-load("harpoon")
-load("vim-bookmarks")
+lazy("harpoon", {
+  plugin_config = "harpoon",
+})
+lazy("vim-bookmarks", {
+  plugin_config = "bookmark",
+})
 
 -- Fuzzy Finder/Telescope
-load("telescope.nvim")
-load("telescope-media-files.nvim")
-load("telescope-vim-bookmarks.nvim")
+lazy("telescope.nvim", {
+  plugin_config = "telescope",
+})
+lazy "telescope-media-files.nvim"
+lazy "telescope-vim-bookmarks.nvim"
 
 -- Note Taking
-load("zk-nvim")
+lazy "zk-nvim"
 
 -- Color
-load("nvim-colorizer.lua")
--- load("color-picker.nvim")
-load("colortils.nvim")
+lazy("nvim-colorizer.lua", {
+  plugin_config = "colorizer",
+})
+-- lazy("color-picker.nvim")
+lazy "colortils.nvim"
 
 -- Colorschemes
-load("onedarker.nvim")
-load("darkplus.nvim")
-load("tokyonight.nvim")
--- load("colorschemes")
+load("darkplus.nvim", {
+  plugin_config = function()
+    require "user.colorscheme"
+  end,
+})
+-- load "onedarker.nvim"
+-- load "tokyonight.nvim"
+-- load "colorschemes"
 
 -- Utility
-load("nvim-notify")
-load("dressing.nvim")
-load("cybu.nvim")
-load("vim-bbye")
-load("impatient.nvim")
-load("browse.nvim")
+lazy("nvim-notify", {
+  plugin_config = "notify",
+})
+lazy("dressing.nvim", {
+  plugin_config = "dressing",
+})
+lazy("cybu.nvim", {
+  plugin_config = "cybu",
+})
+lazy "vim-bbye"
+lazy "impatient.nvim"
+lazy("browse.nvim", {
+  plugin_config = "browse",
+})
 
 -- Registers
-load("registers.nvim")
+lazy("registers.nvim", {
+  plugin_config = "registers",
+})
 
 -- Icon
-load("nvim-web-devicons")
+lazy("nvim-web-devicons", {
+  plugin_config = "nvim-webdev-icons",
+})
 
 -- Debugging
-load("nvim-dap")
-load("nvim-dap-ui")
--- load("nvim-dap-virtual-text")
--- load("DAPInstall.nvim")
+lazy("nvim-dap", {
+  plugin_config = "dap",
+})
+lazy "nvim-dap-ui"
+-- lazy "nvim-dap-virtual-text"
+-- lazy "DAPInstall.nvim"
 
 -- Tabline
--- load("bufferline.nvim")
--- load("scope.nvim")
+-- load "bufferline.nvim"
+-- load "scope.nvim"
 
 -- Statusline
-load("lualine.nvim")
+load("lualine.nvim", {
+  plugin_config = "lualine",
+})
 
 -- Startup
-load("alpha-nvim")
+load("alpha-nvim", {
+  plugin_config = "alpha",
+})
 
 -- Indent
-load("indent-blankline.nvim")
+load("indent-blankline.nvim", {
+  plugin_config = "indentline",
+})
 
 -- File Explorer
-load("nvim-tree.lua")
-load("lir.nvim")
+lazy("nvim-tree.lua", {
+  plugin_config = "nvim-tree",
+  commands = {
+    "NvimTreeToggle",
+  },
+})
+lazy("lir.nvim", {
+  plugin_config = "lir",
+})
 
 -- Comment
-load("Comment.nvim")
-load("todo-comments.nvim")
+lazy("Comment.nvim", {
+  plugin_config = "comment",
+})
+lazy("todo-comments.nvim", {
+  plugin_config = "todo-comments",
+})
 
 -- Terminal
-load("toggleterm.nvim")
+lazy("toggleterm.nvim", {
+  plugin_config = "toggleterm",
+})
 
 -- Project
-load("project.nvim")
-load("nvim-spectre")
+lazy("project.nvim", {
+  plugin_config = "project",
+})
+lazy("nvim-spectre", {
+  plugin_config = "spectre",
+})
 
 -- Session
-load("auto-session")
-load("session-lens")
+lazy("auto-session", {
+  plugin_config = "auto-session",
+})
+lazy "session-lens"
 
 -- Quickfix
-load("nvim-bqf")
+lazy "nvim-bqf"
 
 -- Code Runner
-load("jaq-nvim")
-load("lab.nvim")
+lazy("jaq-nvim", {
+  plugin_config = "jaq",
+})
+lazy("lab.nvim", {
+  plugin_config = "lab",
+})
 
 -- Git
-load("gitsigns.nvim")
-load("git-blame.nvim")
-load("gitlinker.nvim")
-load("vim-gist")
-load("webapi-vim")
+lazy("gitsigns.nvim", {
+  config = "gitsigns",
+})
+lazy("git-blame.nvim", {
+  plugin_config = "git-blame",
+})
+lazy("gitlinker.nvim", {
+  plugin_config = "gitlinker",
+})
+lazy("vim-gist", {
+  plugin_config = "gist",
+})
+lazy "webapi-vim"
 
 -- Github
-load("octo.nvim")
+lazy "octo.nvim"
 
 -- Editing Support
-load("nvim-autopairs")
-load("dial.nvim")
-load("numb.nvim")
-load("vim-matchup")
-load("zen-mode.nvim")
--- load("true-zen.nvim")
-load("neoscroll.nvim")
-load("vim-slash")
+lazy("nvim-autopairs", {
+  plugin_config = "autopairs",
+})
+lazy("dial.nvim", {
+  plugin_config = "dial",
+})
+lazy("numb.nvim", {
+  plugin_config = "numb",
+})
+lazy("vim-matchup", {
+  plugin_config = "matchup",
+})
+lazy("zen-mode.nvim", {
+  plugin_config = "zen-mode",
+})
+-- lazy("true-zen.nvim")
+lazy("neoscroll.nvim", {
+  plugin_config = "neoscroll",
+})
+lazy("vim-slash", {
+  plugin_config = "vim-slash",
+})
 
 -- Motion
-load("hop.nvim")
--- load("eyeliner.nvim")
+lazy("hop.nvim", {
+  plugin_config = "hop",
+})
+-- lazy("eyeliner.nvim")
 
 -- Keybinding
-load("which-key.nvim")
+lazy("which-key.nvim", {
+  plugin_config = "whichkey",
+})
 
 -- Java
-load("nvim-jdtls")
+lazy "nvim-jdtls"
 
 -- Rust
-load("rust-tools.nvim")
-load("crates.nvim")
+lazy "rust-tools.nvim"
+lazy("crates.nvim", {
+  plugin_config = "crates",
+})
 
--- Typescript TODO: set this up, also add keybinds to ftplugin
-load("typescript.nvim")
+-- Typescript
+-- TODO: set this up, also add keybinds to ftplugin
+lazy "typescript.nvim"
 
 -- Markdown
-load("markdown-preview.nvim")
--- ft = "markdown",
+lazy("markdown-preview.nvim", {
+  pattern = "markdown",
+})
 
 -- Graveyard
--- load("nvim-treesitter-context")
--- load("iswap.nvim")
--- load("nvim-ts-rainbow")
--- load("telescope-ui-select.nvim")
--- load("telescope-file-browser.nvim")
--- load("cmp-npm") -- doesn't seem to work
--- load("JABS.nvim")
--- load("vim-solidity")
--- load("vim-repeat")
--- load("neovim-session-manager")
--- load("codi.vim")
--- load("NeoZoom.lua")
--- load("cmp-dap")
--- load("renamer.nvim")
--- load("conflict-marker.vim")
--- load("kanagawa.nvim")
--- load("quick-scope")
--- load(nlsp-settings.nvim") -- language server settings defined in json for
--- load("cutlass.nvim")
--- load("lsp-inlay-hints")
--- load("goto-preview")
--- load("aerial.nvim")
--- load("lsp_extensions.nvim")
--- load("nvim-gps")
--- load("stickybuf.nvim")
--- load("trouble.nvim")
--- load("tree-climber.nvim")
--- load("hop.nvim")
--- load("sniprun")
+-- lazy "nvim-treesitter-context"
+-- lazy "iswap.nvim"
+-- lazy "nvim-ts-rainbow"
+-- lazy "telescope-ui-select.nvim"
+-- lazy "telescope-file-browser.nvim"
+-- lazy "cmp-npm" -- doesn't seem to work
+-- lazy "JABS.nvim"
+-- lazy "vim-solidity"
+-- lazy "vim-repeat"
+-- lazy "neovim-session-manager"
+-- lazy "codi.vim"
+-- lazy "NeoZoom.lua"
+-- lazy "cmp-dap"
+-- lazy "renamer.nvim"
+-- lazy "conflict-marker.vim"
+-- lazy "kanagawa.nvim"
+-- lazy "quick-scope"
+-- lazy "nlsp-settings.nvim" -- language server settings defined in json for
+-- lazy "cutlass.nvim"
+-- lazy "lsp-inlay-hints"
+-- lazy "goto-preview"
+-- lazy "aerial.nvim"
+-- lazy "lsp_extensions.nvim"
+-- lazy "nvim-gps"
+-- lazy "stickybuf.nvim"
+-- lazy "trouble.nvim"
+-- lazy "tree-climber.nvim"
+-- lazy "hop.nvim"
+-- lazy("sniprun", {
+--   plugin_config = "sniprun",
+-- })

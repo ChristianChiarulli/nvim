@@ -19,7 +19,7 @@ local load = function(plugin, config)
   if type(plugin_config) == "string" then
     -- Try execute its configuration
     -- NOTE: configuration file should have the same name as plugin directory
-    pcall(require, "SingularisArt.config." .. plugin_config)
+    pcall(require, "user." .. plugin_config)
   elseif type(plugin_config) == "function" then
     plugin_config()
   else

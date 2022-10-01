@@ -1,5 +1,5 @@
-SingularisArt.g.lazy = {}
-SingularisArt.g.plugin_group = vim.api.nvim_create_augroup("PluginGroup", {
+User.g.lazy = {}
+User.g.plugin_group = vim.api.nvim_create_augroup("PluginGroup", {
   clear = true,
 })
 
@@ -21,7 +21,7 @@ local lazy = function(plugin, config)
 
   local key = "_" .. lazy_index
   lazy_index = lazy_index + 1
-  SingularisArt.g.lazy[key] = config
+  User.g.lazy[key] = config
 
   config.load = function()
     if config.beforeload ~= nil then
@@ -39,7 +39,7 @@ local lazy = function(plugin, config)
     if type(config.plugin_config) == "string" then
       -- Try execute its configuration
       -- NOTE: configuration file should have the same name as plugin directory
-      pcall(require, "SingularisArt.config." .. config.plugin_config)
+      pcall(require, "user." .. config.plugin_config)
     elseif type(config.plugin_config) == "function" then
       config.plugin_config()
     end
@@ -58,7 +58,7 @@ local lazy = function(plugin, config)
       config.afterload()
     end
 
-    SingularisArt.g.lazy[key] = nil
+    User.g.lazy[key] = nil
   end
 
   if config.commands ~= nil then
@@ -70,15 +70,15 @@ local lazy = function(plugin, config)
       end
       vim.cmd(
         "command! "
-          .. opts
-          .. " "
-          .. command
-          .. " "
-          .. ":call v:lua.SingularisArt.g.lazy."
-          .. key
-          .. ".load() <bar> "
-          .. command
-          .. " <args>"
+        .. opts
+        .. " "
+        .. command
+        .. " "
+        .. ":call v:lua.User.g.lazy."
+        .. key
+        .. ".load() <bar> "
+        .. command
+        .. " <args>"
       )
     end
   end
@@ -87,7 +87,7 @@ local lazy = function(plugin, config)
     for _, item in ipairs(config.keymap) do
       local modes = item[1]
       local lhs = item[2]
-      local rhs = ":call v:lua.SingularisArt.g.lazy." .. key .. ".load()<CR>" .. item[3]
+      local rhs = ":call v:lua.User.g.lazy." .. key .. ".load()<CR>" .. item[3]
       local opts = item[4] or {}
       vim.keymap.set(modes, lhs, rhs, opts)
     end
@@ -96,9 +96,13 @@ local lazy = function(plugin, config)
   if config.commands == nil and config.keymap == nil then
     -- No triggers defined, so just load this thing after startup.
     -- vim.defer_fn(config.load, 0)
-    SingularisArt.vim.autocmd("VimEnter", config.pattern or "*", function()
-      vim.defer_fn(config.load, 0)
-    end)
+    vim.api.nvim_create_autocmd("VimEnter", {
+      group = User.g.plugin_group,
+      pattern = config.pattern,
+      callback = function()
+        vim.defer_fn(config.load, 0)
+      end
+    })
   else
     -- `packadd!` adds directories to 'runtimepath', so things like `:help`
     -- will work, but Vim won't load the plugin files as long as we do this
@@ -106,9 +110,13 @@ local lazy = function(plugin, config)
     if vim.v.vim_did_enter == 1 then
       vim.cmd("packadd! " .. plugin)
     else
-      SingularisArt.vim.autocmd("VimEnter", config.pattern or "*", function()
-        vim.cmd("packadd! " .. plugin)
-      end)
+      vim.api.nvim_create_autocmd("VimEnter", {
+        group = User.g.plugin_group,
+        pattern = config.pattern,
+        callback = function()
+          vim.cmd("packadd " .. plugin)
+        end
+      })
     end
   end
 end
