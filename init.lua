@@ -1,6 +1,6 @@
 -- require "user.hot-reload"
 -- require "user.keymaps"
--- require "user.plugins"
+require "user.plugins"
 -- require "user.autocommands"
 -- require "user.colorscheme"
 -- require "user.cmp"
