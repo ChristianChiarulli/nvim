@@ -1,3 +1,5 @@
+vim.cmd("set rtp+=~/nvim")
+
 require "user.hot-reload"
 require "user.keymaps"
 require "user.plugins"
