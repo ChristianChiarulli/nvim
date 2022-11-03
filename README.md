@@ -1,5 +1,9 @@
 # My Neovim Config
 
+### NOTE
+
+This config is BROKEN, you can take a look through it for ideas and stuff but don't expect it to work out of the box. I have since moved on to using LunarVim. It can be a real timesink to maintain a config this big by yourself, I don't recommend it.
+
 ## Try out this config
 
 Make sure to remove or move your current `nvim` directory
