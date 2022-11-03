@@ -1,0 +1,393 @@
+[submodule "plenary.nvim"]
+	path = pack/plugins/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "popup.nvim"]
+	path = pack/plugins/opt/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim
+[submodule "lua-dev.nvim"]
+	path = pack/plugins/opt/lua-dev.nvim
+	url = https://github.com/christianchiarulli/lua-dev.nvim
+[submodule "nvim-lspconfig"]
+	path = pack/plugins/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "nvim-lsp-installer"]
+	path = pack/plugins/opt/nvim-lsp-installer
+	url = https://github.com/williamboman/nvim-lsp-installer
+[submodule "mason.nvim"]
+	path = pack/plugins/opt/mason.nvim
+	url = https://github.com/williamboman/mason.nvim
+[submodule "mason-lspconfig.nvim"]
+	path = pack/plugins/opt/mason-lspconfig.nvim
+	url = https://github.com/williamboman/mason-lspconfig.nvim
+[submodule "null-ls.nvim"]
+	path = pack/plugins/opt/null-ls.nvim
+	url = https://github.com/jose-elias-alvarez/null-ls.nvim
+[submodule "lsp_signature.nvim"]
+	path = pack/plugins/opt/lsp_signature.nvim
+	url = https://github.com/ray-x/lsp_signature.nvim
+[submodule "nvim-navic"]
+	path = pack/plugins/opt/nvim-navic
+	url = https://github.com/SmiteshP/nvim-navic
+[submodule "symbols-outline.nvim"]
+	path = pack/plugins/opt/symbols-outline.nvim
+	url = https://github.com/simrat39/symbols-outline.nvim
+[submodule "SchemaStore.nvim"]
+	path = pack/plugins/opt/SchemaStore.nvim
+	url = https://github.com/b0o/SchemaStore.nvim
+[submodule "copilot.vim"]
+	path = pack/plugins/opt/copilot.vim
+	url = https://github.com/github/copilot.vim
+[submodule "copilot.lua"]
+	path = pack/plugins/opt/copilot.lua
+	url = https://github.com/zbirenbaum/copilot.lua
+[submodule "vim-illuminate"]
+	path = pack/plugins/opt/vim-illuminate
+	url = https://github.com/RRethy/vim-illuminate
+[submodule "fidget.nvim"]
+	path = pack/plugins/opt/fidget.nvim
+	url = https://github.com/j-hui/fidget.nvim
+[submodule "lsp-inlayhints.nvim"]
+	path = pack/plugins/opt/lsp-inlayhints.nvim
+	url = https://github.com/lvimuser/lsp-inlayhints.nvim
+[submodule "inlay-hints.nvim"]
+	path = pack/plugins/opt/inlay-hints.nvim
+	url = https://github.com/simrat39/inlay-hints.nvim
+[submodule "nvim-cmp"]
+	path = pack/plugins/opt/nvim-cmp
+	url = https://github.com/christianchiarulli/nvim-cmp
+[submodule "cmp-buffer"]
+	path = pack/plugins/opt/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer
+[submodule "cmp-path"]
+	path = pack/plugins/opt/cmp-path
+	url = https://github.com/hrsh7th/cmp-path
+[submodule "cmp-cmdline"]
+	path = pack/plugins/opt/cmp-cmdline
+	url = https://github.com/hrsh7th/cmp-cmdline
+[submodule "cmp_luasnip"]
+	path = pack/plugins/opt/cmp_luasnip
+	url = https://github.com/saadparwaiz1/cmp_luasnip
+[submodule "cmp-nvim-lsp"]
+	path = pack/plugins/opt/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "cmp-emoji"]
+	path = pack/plugins/opt/cmp-emoji
+	url = https://github.com/hrsh7th/cmp-emoji
+[submodule "cmp-nvim-lua"]
+	path = pack/plugins/opt/cmp-nvim-lua
+	url = https://github.com/hrsh7th/cmp-nvim-lua
+[submodule "copilot-cmp"]
+	path = pack/plugins/opt/copilot-cmp
+	url = https://github.com/zbirenbaum/copilot-cmp
+[submodule "cmp-tabnine"]
+	path = pack/plugins/opt/cmp-tabnine
+	url = https://github.com/tzachar/cmp-tabnine
+[submodule "LuaSnip"]
+	path = pack/plugins/opt/LuaSnip
+	url = https://github.com/L3MON4D3/LuaSnip
+[submodule "friendly-snippets"]
+	path = pack/plugins/opt/friendly-snippets
+	url = https://github.com/rafamadriz/friendly-snippets
+[submodule "nvim-treesitter"]
+	path = pack/plugins/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "nvim-ts-context-commentstring"]
+	path = pack/plugins/opt/nvim-ts-context-commentstring
+	url = https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+[submodule "nvim-ts-rainbow"]
+	path = pack/plugins/opt/nvim-ts-rainbow
+	url = https://github.com/p00f/nvim-ts-rainbow
+[submodule "playground"]
+	path = pack/plugins/opt/playground
+	url = https://github.com/nvim-treesitter/playground
+[submodule "nvim-ts-autotag"]
+	path = pack/plugins/opt/nvim-ts-autotag
+	url = https://github.com/windwp/nvim-ts-autotag
+[submodule "nvim-treesitter-textobjects"]
+	path = pack/plugins/opt/nvim-treesitter-textobjects
+	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+[submodule "targets.vim"]
+	path = pack/plugins/opt/targets.vim
+	url = https://github.com/wellle/targets.vim
+[submodule "nvim-treesitter-textsubjects"]
+	path = pack/plugins/opt/nvim-treesitter-textsubjects
+	url = https://github.com/RRethy/nvim-treesitter-textsubjects
+[submodule "nvim-surround"]
+	path = pack/plugins/opt/nvim-surround
+	url = https://github.com/kylechui/nvim-surround
+[submodule "tabout.nvim"]
+	path = pack/plugins/opt/tabout.nvim
+	url = https://github.com/abecodes/tabout.nvim
+[submodule "harpoon"]
+	path = pack/plugins/opt/harpoon
+	url = https://github.com/christianchiarulli/harpoon
+[submodule "vim-bookmarks"]
+	path = pack/plugins/opt/vim-bookmarks
+	url = https://github.com/MattesGroeger/vim-bookmarks
+[submodule "telescope.nvim"]
+	path = pack/plugins/opt/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "telescope-media-files.nvim"]
+	path = pack/plugins/opt/telescope-media-files.nvim
+	url = https://github.com/nvim-telescope/telescope-media-files.nvim
+[submodule "telescope-vim-bookmarks.nvim"]
+	path = pack/plugins/opt/telescope-vim-bookmarks.nvim
+	url = https://github.com/tom-anders/telescope-vim-bookmarks.nvim
+[submodule "zk-nvim"]
+	path = pack/plugins/opt/zk-nvim
+	url = https://github.com/mickael-menu/zk-nvim
+[submodule "nvim-colorizer.lua"]
+	path = pack/plugins/opt/nvim-colorizer.lua
+	url = https://github.com/NvChad/nvim-colorizer.lua
+[submodule "color-picker.nvim"]
+	path = pack/plugins/opt/color-picker.nvim
+	url = https://github.com/ziontee113/color-picker.nvim
+[submodule "colortils.nvim"]
+	path = pack/plugins/opt/colortils.nvim
+	url = https://github.com/nvim-colortils/colortils.nvim
+[submodule "onedarker.nvim"]
+	path = pack/plugins/opt/onedarker.nvim
+	url = https://github.com/lunarvim/onedarker.nvim
+[submodule "darkplus.nvim"]
+	path = pack/plugins/opt/darkplus.nvim
+	url = https://github.com/lunarvim/darkplus.nvim
+[submodule "tokyonight.nvim"]
+	path = pack/plugins/opt/tokyonight.nvim
+	url = https://github.com/folke/tokyonight.nvim
+[submodule "colorschemes"]
+	path = pack/plugins/opt/colorschemes
+	url = https://github.com/lunarvim/colorschemes
+[submodule "nvim-notify"]
+	path = pack/plugins/opt/nvim-notify
+	url = https://github.com/rcarriga/nvim-notify
+[submodule "dressing.nvim"]
+	path = pack/plugins/opt/dressing.nvim
+	url = https://github.com/stevearc/dressing.nvim
+[submodule "cybu.nvim"]
+	path = pack/plugins/opt/cybu.nvim
+	url = https://github.com/ghillb/cybu.nvim
+[submodule "vim-bbye"]
+	path = pack/plugins/opt/vim-bbye
+	url = https://github.com/moll/vim-bbye
+[submodule "impatient.nvim"]
+	path = pack/plugins/opt/impatient.nvim
+	url = https://github.com/lewis6991/impatient.nvim
+[submodule "browse.nvim"]
+	path = pack/plugins/opt/browse.nvim
+	url = https://github.com/lalitmee/browse.nvim
+[submodule "registers.nvim"]
+	path = pack/plugins/opt/registers.nvim
+	url = https://github.com/tversteeg/registers.nvim
+[submodule "nvim-web-devicons"]
+	path = pack/plugins/opt/nvim-web-devicons
+	url = https://github.com/kyazdani42/nvim-web-devicons
+[submodule "nvim-dap"]
+	path = pack/plugins/opt/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap
+[submodule "nvim-dap-ui"]
+	path = pack/plugins/opt/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui
+[submodule "nvim-dap-virtual-text"]
+	path = pack/plugins/opt/nvim-dap-virtual-text
+	url = https://github.com/theHamsta/nvim-dap-virtual-text
+[submodule "DAPInstall.nvim"]
+	path = pack/plugins/opt/DAPInstall.nvim
+	url = https://github.com/Pocco81/DAPInstall.nvim
+[submodule "bufferline.nvim"]
+	path = pack/plugins/opt/bufferline.nvim
+	url = https://github.com/akinsho/bufferline.nvim
+[submodule "scope.nvim"]
+	path = pack/plugins/opt/scope.nvim
+	url = https://github.com/tiagovla/scope.nvim
+[submodule "lualine.nvim"]
+	path = pack/plugins/opt/lualine.nvim
+	url = https://github.com/christianchiarulli/lualine.nvim
+[submodule "alpha-nvim"]
+	path = pack/plugins/opt/alpha-nvim
+	url = https://github.com/goolord/alpha-nvim
+[submodule "indent-blankline.nvim"]
+	path = pack/plugins/opt/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim
+[submodule "nvim-tree.lua"]
+	path = pack/plugins/opt/nvim-tree.lua
+	url = https://github.com/kyazdani42/nvim-tree.lua
+[submodule "lir.nvim"]
+	path = pack/plugins/opt/lir.nvim
+	url = https://github.com/christianchiarulli/lir.nvim
+[submodule "Comment.nvim"]
+	path = pack/plugins/opt/Comment.nvim
+	url = https://github.com/numToStr/Comment.nvim
+[submodule "todo-comments.nvim"]
+	path = pack/plugins/opt/todo-comments.nvim
+	url = https://github.com/folke/todo-comments.nvim
+[submodule "toggleterm.nvim"]
+	path = pack/plugins/opt/toggleterm.nvim
+	url = https://github.com/akinsho/toggleterm.nvim
+[submodule "project.nvim"]
+	path = pack/plugins/opt/project.nvim
+	url = https://github.com/ahmedkhalf/project.nvim
+[submodule "nvim-spectre"]
+	path = pack/plugins/opt/nvim-spectre
+	url = https://github.com/windwp/nvim-spectre
+[submodule "auto-session"]
+	path = pack/plugins/opt/auto-session
+	url = https://github.com/rmagatti/auto-session
+[submodule "session-lens"]
+	path = pack/plugins/opt/session-lens
+	url = https://github.com/rmagatti/session-lens
+[submodule "nvim-bqf"]
+	path = pack/plugins/opt/nvim-bqf
+	url = https://github.com/kevinhwang91/nvim-bqf
+[submodule "jaq-nvim"]
+	path = pack/plugins/opt/jaq-nvim
+	url = https://github.com/is0n/jaq-nvim
+[submodule "lab.nvim"]
+	path = pack/plugins/opt/lab.nvim
+	url = https://github.com/0x100101/lab.nvim
+[submodule "gitsigns.nvim"]
+	path = pack/plugins/opt/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "git-blame.nvim"]
+	path = pack/plugins/opt/git-blame.nvim
+	url = https://github.com/f-person/git-blame.nvim
+[submodule "gitlinker.nvim"]
+	path = pack/plugins/opt/gitlinker.nvim
+	url = https://github.com/ruifm/gitlinker.nvim
+[submodule "vim-gist"]
+	path = pack/plugins/opt/vim-gist
+	url = https://github.com/mattn/vim-gist
+[submodule "webapi-vim"]
+	path = pack/plugins/opt/webapi-vim
+	url = https://github.com/mattn/webapi-vim
+[submodule "octo.nvim"]
+	path = pack/plugins/opt/octo.nvim
+	url = https://github.com/pwntester/octo.nvim
+[submodule "nvim-autopairs"]
+	path = pack/plugins/opt/nvim-autopairs
+	url = https://github.com/windwp/nvim-autopairs
+[submodule "dial.nvim"]
+	path = pack/plugins/opt/dial.nvim
+	url = https://github.com/monaqa/dial.nvim
+[submodule "numb.nvim"]
+	path = pack/plugins/opt/numb.nvim
+	url = https://github.com/nacro90/numb.nvim
+[submodule "vim-matchup"]
+	path = pack/plugins/opt/vim-matchup
+	url = https://github.com/andymass/vim-matchup
+[submodule "zen-mode.nvim"]
+	path = pack/plugins/opt/zen-mode.nvim
+	url = https://github.com/folke/zen-mode.nvim
+[submodule "true-zen.nvim"]
+	path = pack/plugins/opt/true-zen.nvim
+	url = https://github.com/Pocco81/true-zen.nvim
+[submodule "neoscroll.nvim"]
+	path = pack/plugins/opt/neoscroll.nvim
+	url = https://github.com/karb94/neoscroll.nvim
+[submodule "vim-slash"]
+	path = pack/plugins/opt/vim-slash
+	url = https://github.com/junegunn/vim-slash
+[submodule "hop.nvim"]
+	path = pack/plugins/opt/hop.nvim
+	url = https://github.com/phaazon/hop.nvim
+[submodule "eyeliner.nvim"]
+	path = pack/plugins/opt/eyeliner.nvim
+	url = https://github.com/jinh0/eyeliner.nvim
+[submodule "which-key.nvim"]
+	path = pack/plugins/opt/which-key.nvim
+	url = https://github.com/folke/which-key.nvim
+[submodule "nvim-jdtls"]
+	path = pack/plugins/opt/nvim-jdtls
+	url = https://github.com/mfussenegger/nvim-jdtls
+[submodule "rust-tools.nvim"]
+	path = pack/plugins/opt/rust-tools.nvim
+	url = https://github.com/christianchiarulli/rust-tools.nvim
+[submodule "crates.nvim"]
+	path = pack/plugins/opt/crates.nvim
+	url = https://github.com/Saecki/crates.nvim
+[submodule "typescript.nvim"]
+	path = pack/plugins/opt/typescript.nvim
+	url = https://github.com/jose-elias-alvarez/typescript.nvim
+[submodule "markdown-preview.nvim"]
+	path = pack/plugins/opt/markdown-preview.nvim
+	url = https://github.com/iamcco/markdown-preview.nvim
+[submodule "nvim-treesitter-context"]
+	path = pack/plugins/opt/nvim-treesitter-context
+	url = https://github.com/romgrk/nvim-treesitter-context
+[submodule "iswap.nvim"]
+	path = pack/plugins/opt/iswap.nvim
+	url = https://github.com/mizlan/iswap.nvim
+[submodule "telescope-ui-select.nvim"]
+	path = pack/plugins/opt/telescope-ui-select.nvim
+	url = https://github.com/nvim-telescope/telescope-ui-select.nvim
+[submodule "telescope-file-browser.nvim"]
+	path = pack/plugins/opt/telescope-file-browser.nvim
+	url = https://github.com/nvim-telescope/telescope-file-browser.nvim
+[submodule "cmp-npm"]
+	path = pack/plugins/opt/cmp-npm
+	url = https://github.com/David-Kunz/cmp-npm
+[submodule "JABS.nvim"]
+	path = pack/plugins/opt/JABS.nvim
+	url = https://github.com/christianchiarulli/JABS.nvim
+[submodule "vim-solidity"]
+	path = pack/plugins/opt/vim-solidity
+	url = https://github.com/lunarvim/vim-solidity
+[submodule "vim-repeat"]
+	path = pack/plugins/opt/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "neovim-session-manager"]
+	path = pack/plugins/opt/neovim-session-manager
+	url = https://github.com/Shatur/neovim-session-manager
+[submodule "codi.vim"]
+	path = pack/plugins/opt/codi.vim
+	url = https://github.com/metakirby5/codi.vim
+[submodule "NeoZoom.lua"]
+	path = pack/plugins/opt/NeoZoom.lua
+	url = https://github.com/nyngwang/NeoZoom.lua
+[submodule "cmp-dap"]
+	path = pack/plugins/opt/cmp-dap
+	url = https://github.com/rcarriga/cmp-dap
+[submodule "renamer.nvim"]
+	path = pack/plugins/opt/renamer.nvim
+	url = https://github.com/filipdutescu/renamer.nvim
+[submodule "kanagawa.nvim"]
+	path = pack/plugins/opt/kanagawa.nvim
+	url = https://github.com/rebelot/kanagawa.nvim
+[submodule "quick-scope"]
+	path = pack/plugins/opt/quick-scope
+	url = https://github.com/unblevable/quick-scope
+[submodule "nlsp-settings.nvim"]
+	path = pack/plugins/opt/nlsp-settings.nvim
+	url = https://github.com/tamago324/nlsp-settings.nvim
+[submodule "cutlass.nvim"]
+	path = pack/plugins/opt/cutlass.nvim
+	url = https://github.com/gbprod/cutlass.nvim
+[submodule "lsp-inlay-hints"]
+	path = pack/plugins/opt/lsp-inlay-hints
+	url = https://github.com/christianchiarulli/lsp-inlay-hints
+[submodule "goto-preview"]
+	path = pack/plugins/opt/goto-preview
+	url = https://github.com/rmagatti/goto-preview
+[submodule "aerial.nvim"]
+	path = pack/plugins/opt/aerial.nvim
+	url = https://github.com/stevearc/aerial.nvim
+[submodule "lsp_extensions.nvim"]
+	path = pack/plugins/opt/lsp_extensions.nvim
+	url = https://github.com/nvim-lua/lsp_extensions.nvim
+[submodule "nvim-gps"]
+	path = pack/plugins/opt/nvim-gps
+	url = https://github.com/christianchiarulli/nvim-gps
+[submodule "stickybuf.nvim"]
+	path = pack/plugins/opt/stickybuf.nvim
+	url = https://github.com/stevearc/stickybuf.nvim
+[submodule "trouble.nvim"]
+	path = pack/plugins/opt/trouble.nvim
+	url = https://github.com/folke/trouble.nvim
+[submodule "tree-climber.nvim"]
+	path = pack/plugins/opt/tree-climber.nvim
+	url = https://github.com/drybalka/tree-climber.nvim
+[submodule "sniprun"]
+	path = pack/plugins/opt/sniprun
+	url = https://github.com/michaelb/sniprun
+[submodule "filetype.nvim"]
+	path = pack/plugins/opt/filetype.nvim
+	url = https://github.com/nathom/filetype.nvim
