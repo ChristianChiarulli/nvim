@@ -2,7 +2,7 @@
 
 ### NOTE
 
-This config is BROKEN, you can take a look through it for ideas and stuff but don't expect it to work out of the box. I have since moved on to using LunarVim. It can be a real timesink to maintain a config this big by yourself, I don't recommend it.
+This config is BROKEN, you can take a look through it for ideas and stuff but don't expect it to work out of the box. I have since moved on to using LunarVim. It can be a real timesink to maintain a config this big by yourself, I don't recommend it. Soon I will turn this repo into a super light Neovim config to complement my LunarVim IDE setup.
 
 ## Try out this config
 
