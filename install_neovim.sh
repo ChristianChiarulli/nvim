@@ -72,4 +72,4 @@ make CMAKE_BUILD_TYPE="$BUILD_TYPE"
 
 sudo make install
 cd "$CURRENT_DIR" || terminate_script "Error: not able to change directory to \"$CURRENT_DIR\""
-rm -rf "$NEOVIM_DIR"
+sudo rm -rf "$NEOVIM_DIR"
