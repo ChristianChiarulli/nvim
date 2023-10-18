@@ -24,6 +24,7 @@ function M.config()
 
   require("nvim-tree").setup {
     on_attach = my_on_attach,
+    hijack_netrw = false,
     sync_root_with_cwd = true,
     renderer = {
       add_trailing = false,
