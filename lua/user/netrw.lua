@@ -1,9 +1,11 @@
 local M = {
   "prichrd/netrw.nvim",
-  event = "VeryLazy",
+  lazy = false,
+  -- event = "VeryLazy",
 }
 
 function M.config()
+  vim.cmd [[autocmd FileType netrw nmap <buffer> a %]]
   require("netrw").setup {
     icons = {
       symlink = " ",
