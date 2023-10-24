@@ -8,6 +8,16 @@ vim.g.maplocalleader = " "
 keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
 
+-- Insert
+keymap("i", "<C-b>", "<ESC>^i", opts)
+keymap("i", "<C-e>", "<End>", opts)
+
+-- Navigation in Insert Mode
+keymap("i", "<m-h>", "<Left>", opts)
+keymap("i", "<m-l>", "<Right>", opts)
+keymap("i", "<m-j>", "<Down>", opts)
+keymap("i", "<m-k>", "<Up>", opts)
+
 -- Better window navigation
 keymap("n", "<m-h>", "<C-w>h", opts)
 keymap("n", "<m-j>", "<C-w>j", opts)
