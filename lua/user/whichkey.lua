@@ -73,6 +73,17 @@ function M.config()
       B = { '<cmd>lua require("nostr").publish_bounty()<cr>', "Publish Bounty" },
     },
 
+    j = {
+      name = "JavaScript",
+      s = { '<cmd>lua require("package-info").show()<cr>', "Show package info" },
+      h = { '<cmd>lua require("package-info").hide()<cr>', "Hide package info" },
+      t = { '<cmd>lua require("package-info").toggle()<cr>', "Toggle package info" },
+      u = { '<cmd>lua require("package-info").update()<cr>', "Update package" },
+      d = { '<cmd>lua require("package-info").delete()<cr>', "Delete package" },
+      i = { '<cmd>lua require("package-info").install()<cr>', "Install package" },
+      v = { '<cmd>lua require("package-info").change_version()<cr>', "Change Version" },
+    },
+
     f = {
       name = "Find",
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },

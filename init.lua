@@ -58,6 +58,7 @@ spec "user.extras.fugitive"
 spec "user.extras.bookmark"
 spec "user.extras.harpoon"
 spec "user.extras.trailblazer"
+spec "user.extras.package-info"
 require "user.lazy"
 
 -- local colors = vim.fn.getcompletion("", "color")
