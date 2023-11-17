@@ -3,6 +3,10 @@ local M = {
   dependencies = { { "nvim-lua/plenary.nvim" } },
   event = "VeryLazy",
 }
+-- GitLink: generate git link and copy to clipboard.
+-- GitLink!: generate git link and open in browser.
+-- GitLink blame: generate the /blame url and copy to clipboard.
+-- GitLink! blame: generate the /blame url and open in browser.
 
 function M.config()
   require("gitlinker").setup {
@@ -10,18 +14,18 @@ function M.config()
     message = true,
 
     -- key mapping
-    mapping = {
-      ["<leader>gY"] = {
-        -- copy git link to clipboard
-        action = require("gitlinker.actions").clipboard,
-        desc = "Copy git link to clipboard",
-      },
-      ["<leader>gy"] = {
-        -- open git link in browser
-        action = require("gitlinker.actions").system,
-        desc = "Open git link in browser",
-      },
-    },
+    -- mapping = {
+    --   ["<leader>gY"] = {
+    --     -- copy git link to clipboard
+    --     action = require("gitlinker.actions").clipboard,
+    --     desc = "Copy git link to clipboard",
+    --   },
+    --   ["<leader>gy"] = {
+    --     -- open git link in browser
+    --     action = require("gitlinker.actions").system,
+    --     desc = "Open git link in browser",
+    --   },
+    -- },
 
     -- write logs to console(command line)
     console_log = true,

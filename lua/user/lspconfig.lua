@@ -50,7 +50,7 @@ function M.config()
     "lua_ls",
     "cssls",
     "html",
-    "tsserver",
+    -- "tsserver",
     "astro",
     "pyright",
     "bashls",
@@ -58,6 +58,8 @@ function M.config()
     "yamlls",
     "marksman",
     "tailwindcss",
+    -- "eslint",
+    "prismals",
   }
 
   local default_diagnostic_config = {

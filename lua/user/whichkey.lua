@@ -73,15 +73,22 @@ function M.config()
       B = { '<cmd>lua require("nostr").publish_bounty()<cr>', "Publish Bounty" },
     },
 
-    j = {
+    c = {
       name = "JavaScript",
-      s = { '<cmd>lua require("package-info").show()<cr>', "Show package info" },
-      h = { '<cmd>lua require("package-info").hide()<cr>', "Hide package info" },
-      t = { '<cmd>lua require("package-info").toggle()<cr>', "Toggle package info" },
+      -- s = { '<cmd>lua require("package-info").show()<cr>', "Show package info" },
+      -- h = { '<cmd>lua require("package-info").hide()<cr>', "Hide package info" },
+      g = { '<cmd>lua require("package-info").toggle()<cr>', "Toggle package info" },
       u = { '<cmd>lua require("package-info").update()<cr>', "Update package" },
-      d = { '<cmd>lua require("package-info").delete()<cr>', "Delete package" },
-      i = { '<cmd>lua require("package-info").install()<cr>', "Install package" },
+      x = { '<cmd>lua require("package-info").delete()<cr>', "Delete package" },
+      -- i = { '<cmd>lua require("package-info").install()<cr>', "Install package" },
       v = { '<cmd>lua require("package-info").change_version()<cr>', "Change Version" },
+      s = { '<cmd>TSToolsSortImports<cr>', "Sort imports" },
+      o = { '<cmd>TSToolsOrganizeImports<cr>', "Organize imports" },
+      f = { '<cmd>TSToolsFixAll<cr>', "Fix all" },
+      i = { '<cmd>TSToolsAddMissingImports<cr>', "Add imports" },
+      d = { '<cmd>TSToolsGoToSourceDefinition<cr>', "Source definition" },
+      r = { '<cmd>TSToolsRenameFile<cr>', "Rename file" },
+      t = { '<cmd>TSC<cr>', "TSC" },
     },
 
     f = {
@@ -120,6 +127,8 @@ function M.config()
       o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
       c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+      y = { "<cmd>GitLink!<cr>", "Git link" },
+      Y = { "<cmd>GitLink! blam<cr>", "Git link blame" },
       C = {
         "<cmd>Telescope git_bcommits<cr>",
         "Checkout commit(for current file)",
@@ -129,14 +138,21 @@ function M.config()
         "Git Diff",
       },
     },
-    -- vim.lsp.buf.format({timeout_ms = 10000})
+
+    -- vim.lsp.buf.format {
+    -- filter = function(client) return client.name ~= "tsserver" end
+    -- }
 
     l = {
       name = "LSP",
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
       d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
       w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-      f = { "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", "Format" },
+      -- f = { "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", "Format" },
+      f = {
+        "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'tsserver' end})<cr>",
+        "Format",
+      },
       i = { "<cmd>LspInfo<cr>", "Info" },
       I = { "<cmd>Mason<cr>", "Mason Info" },
       j = {
@@ -280,13 +296,13 @@ function M.config()
   }
 
   local m_mappings = {
-    m = { "<cmd>BookmarkToggle<cr>", "Toggle" },
+    b = { "<cmd>BookmarkToggle<cr>", "Toggle" },
     j = { "<cmd>BookmarkNext<cr>", "Next" },
     k = { "<cmd>BookmarkPrev<cr>", "Prev" },
     c = { "<cmd>BookmarkClear<cr>", "Clear" },
     l = { "<cmd>BookmarkList<cr>", "List" },
     -- f = { "<cmd>FilemarkToggle<cr>", "Mark File" },
-    h = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+    m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
     -- ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
     -- [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
     -- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
