@@ -43,7 +43,28 @@ function M.config()
       disable = { "lua" },
     },
 
-    autotag = { enable = true },
+    autotag = {
+      enable = true,
+      filetypes = {
+        "html",
+        "javascript",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact",
+        "svelte",
+        "vue",
+        "tsx",
+        "jsx",
+        "rescript",
+        "xml",
+        "php",
+        "markdown",
+        "astro",
+        "glimmer",
+        "handlebars",
+        "hbs",
+      },
+    },
 
     context_commentstring = {
       enable = true,

@@ -44,3 +44,8 @@ vim.cmd [[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<C
 
 vim.keymap.set("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
 vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
+
+-- more good
+keymap("n", "<s-m>", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
+keymap({"n", "o", "x"}, "<s-h>", "^", opts)
+keymap({"n", "o", "x"}, "<s-l>", "g_", opts)
