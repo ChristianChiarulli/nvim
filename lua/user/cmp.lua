@@ -178,11 +178,12 @@ function M.config()
             end
 
             local hl_group = "lsp_documentColor_mf_" .. color
-            vim.api.nvim_set_hl(0, hl_group, { fg = "#" .. color, bg = "#" .. color })
+            -- vim.api.nvim_set_hl(0, hl_group, { fg = "#" .. color, bg = "#" .. color })
+            vim.api.nvim_set_hl(0, hl_group, { fg = "#" .. color, bg = "NONE" })
             vim_item.kind_hl_group = hl_group
 
             -- make the color square 2 chars wide
-            vim_item.kind = string.rep(" ", 2)
+            vim_item.kind = string.rep("▣", 1)
 
             return vim_item
           elseif #words < 3 or #words > 4 then
@@ -208,12 +209,13 @@ function M.config()
           local color = tailwindcss_colors[color_name][color_index]
 
           local hl_group = "lsp_documentColor_mf_" .. color
-          vim.api.nvim_set_hl(0, hl_group, { fg = "#" .. color, bg = "#" .. color })
+          -- vim.api.nvim_set_hl(0, hl_group, { fg = "#" .. color, bg = "#" .. color })
+          vim.api.nvim_set_hl(0, hl_group, { fg = "#" .. color, bg = "NONE" })
 
           vim_item.kind_hl_group = hl_group
 
           -- make the color square 2 chars wide
-          vim_item.kind = string.rep(" ", 2)
+          vim_item.kind = string.rep("▣", 1)
 
           -- return vim_item
         end
