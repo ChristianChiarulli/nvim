@@ -150,7 +150,7 @@ function M.config()
       w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
       -- f = { "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", "Format" },
       f = {
-        "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'tsserver' end})<cr>",
+        "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
         "Format",
       },
       i = { "<cmd>LspInfo<cr>", "Info" },
