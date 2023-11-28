@@ -7,10 +7,6 @@ local M = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       event = "VeryLazy",
     },
-    {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      event = "VeryLazy",
-    },
     -- {
     --   "HiPhish/nvim-ts-rainbow2",
     --   event = "VeryLazy",
@@ -32,7 +28,7 @@ function M.config()
     sync_install = false,
     highlight = {
       enable = true,
-      disable = { "markdown" },
+      -- disable = { "markdown" },
       additional_vim_regex_highlighting = false,
     },
 
@@ -66,10 +62,10 @@ function M.config()
       },
     },
 
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
+    -- context_commentstring = {
+    --   enable = true,
+    --   enable_autocmd = false,
+    -- },
 
     autopairs = { enable = true },
 

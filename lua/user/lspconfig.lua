@@ -58,7 +58,7 @@ function M.config()
     "yamlls",
     "marksman",
     "tailwindcss",
-    -- "eslint",
+    "eslint",
     "prismals",
   }
 
