@@ -6,8 +6,8 @@ local M = {
 function M.config()
   local lspconfig = require "user.lspconfig"
   require("typescript-tools").setup {
-    on_attach = function(client)
-      lspconfig.on_attach()
+    on_attach = function(client, bufnr)
+      lspconfig.on_attach(client, bufnr)
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
     end,
@@ -27,9 +27,19 @@ function M.config()
       -- tsserver_format_options = {},
 
       tsserver_file_preferences = {
-        includeInlayParameterNameHints = "all",
-        -- includeCompletionsForModuleExports = true,
-        -- quotePreference = "auto",
+        includeInlayParameterNameHints = "all", -- "none" | "literals" | "all";
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+
+        includeCompletionsForModuleExports = true,
+        quotePreference = "auto",
+
+        -- autoImportFileExcludePatterns = { "node_modules/*", ".git/*" },
       },
 
       jsx_close_tag = {

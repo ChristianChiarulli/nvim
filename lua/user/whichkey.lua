@@ -165,6 +165,7 @@ function M.config()
         "<cmd>lua vim.diagnostic.goto_next()<cr>",
         "Next Diagnostic",
       },
+      h = { "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", "Hints" },
       k = {
         "<cmd>lua vim.diagnostic.goto_prev()<cr>",
         "Prev Diagnostic",
