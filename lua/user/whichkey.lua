@@ -178,6 +178,7 @@ function M.config()
         "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
         "Workspace Symbols",
       },
+      t = { "<cmd>TodoTrouble<cr>", "TODO" },
       e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
     },
 
