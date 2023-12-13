@@ -12,6 +12,7 @@ function M.config()
       "NeogitCommitMessage",
       "qf",
       "dirvish",
+      "oil",
       "minifiles",
       "fugitive",
       "alpha",

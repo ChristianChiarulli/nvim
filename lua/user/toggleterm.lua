@@ -107,6 +107,7 @@ function M.config()
     pattern = { "*" },
     callback = function()
       vim.cmd "startinsert"
+      _G.set_terminal_keymaps()
     end,
   })
 

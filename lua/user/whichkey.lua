@@ -9,6 +9,11 @@ function M.config()
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+    ["y"] = { "<cmd>CellularAutomaton make_it_rain<CR>", "Yup" },
+    -- ["s"] = { "<cmd><CR>", "Explorer" },
+    -- ["x"] = { "<cmd>Trouble<CR>", "Diagnostics" },
+    [";"] = { "<cmd>tabnew | terminal<CR>", "Term" },
+    ["v"] = { "<cmd>vsplit<CR>", "Split" },
     ["o"] = { "<cmd>Navbuddy<cr>", "Nav" },
     b = {
       name = "Buffers",
@@ -82,13 +87,13 @@ function M.config()
       x = { '<cmd>lua require("package-info").delete()<cr>', "Delete package" },
       -- i = { '<cmd>lua require("package-info").install()<cr>', "Install package" },
       v = { '<cmd>lua require("package-info").change_version()<cr>', "Change Version" },
-      s = { '<cmd>TSToolsSortImports<cr>', "Sort imports" },
-      o = { '<cmd>TSToolsOrganizeImports<cr>', "Organize imports" },
-      f = { '<cmd>TSToolsFixAll<cr>', "Fix all" },
-      i = { '<cmd>TSToolsAddMissingImports<cr>', "Add imports" },
-      d = { '<cmd>TSToolsGoToSourceDefinition<cr>', "Source definition" },
-      r = { '<cmd>TSToolsRenameFile<cr>', "Rename file" },
-      t = { '<cmd>TSC<cr>', "TSC" },
+      s = { "<cmd>TSToolsSortImports<cr>", "Sort imports" },
+      o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize imports" },
+      f = { "<cmd>TSToolsFixAll<cr>", "Fix all" },
+      i = { "<cmd>TSToolsAddMissingImports<cr>", "Add imports" },
+      d = { "<cmd>TSToolsGoToSourceDefinition<cr>", "Source definition" },
+      r = { "<cmd>TSToolsRenameFile<cr>", "Rename file" },
+      t = { "<cmd>TSC<cr>", "TSC" },
     },
 
     f = {
@@ -146,8 +151,9 @@ function M.config()
     l = {
       name = "LSP",
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-      d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
-      w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+      d = { "<cmd>Trouble<cr>", "Diagnostics" },
+      -- d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
+      -- w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
       -- f = { "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", "Format" },
       f = {
         "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
@@ -159,6 +165,7 @@ function M.config()
         "<cmd>lua vim.diagnostic.goto_next()<cr>",
         "Next Diagnostic",
       },
+      h = { "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", "Hints" },
       k = {
         "<cmd>lua vim.diagnostic.goto_prev()<cr>",
         "Prev Diagnostic",
@@ -171,6 +178,7 @@ function M.config()
         "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
         "Workspace Symbols",
       },
+      t = { "<cmd>TodoTrouble<cr>", "TODO" },
       e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
     },
 
@@ -180,6 +188,7 @@ function M.config()
         "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
         "Find Tab",
       },
+      -- [";"] = { "<cmd>$tabnew<cr>", "New Empty Tab" },
       a = { "<cmd>$tabnew<cr>", "New Empty Tab" },
       A = { "<cmd>tabnew %<cr>", "New Tab" },
       n = { "<cmd>tabn<cr>", "Next" },

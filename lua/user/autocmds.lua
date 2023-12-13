@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "help",
     "man",
     "lspinfo",
+    "oil",
     "spectre_panel",
     "lir",
     "DressingSelect",

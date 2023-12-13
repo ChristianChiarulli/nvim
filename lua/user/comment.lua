@@ -1,10 +1,21 @@
 local M = {
   "numToStr/Comment.nvim",
-  event = "VeryLazy",
   lazy = false,
+  dependencies = {
+
+    {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      event = "VeryLazy",
+    },
+  },
 }
 
 function M.config()
+  vim.g.skip_ts_context_commentstring_module = true
+  require("ts_context_commentstring").setup {
+    enable_autocmd = false,
+  }
+
   require("Comment").setup {
     ---Add a space b/w comment and the line
     padding = true,
@@ -44,14 +55,9 @@ function M.config()
       extra = true,
     },
     ---Function to call before (un)comment
-    pre_hook = function(...)
-      local loaded, ts_comment = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
-      if loaded and ts_comment then
-        return ts_comment.create_pre_hook()(...)
-      end
-    end,
+    pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
     ---Function to call after (un)comment
-    post_hook = nil,
+    -- post_hook = nil,
   }
 end
 

@@ -19,6 +19,7 @@ function M.config()
       javascriptreact = "rainbow-parens",
       tsx = "rainbow-parens",
       jsx = "rainbow-parens",
+      html = "rainbow-parens",
     },
     highlight = {
 
