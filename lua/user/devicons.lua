@@ -12,6 +12,13 @@ function M.config()
       color = "#FF7E33",
       name = "astro",
     },
+    lockb = {
+      --  󱓟 
+      icon = "󰳮",
+      color = "#fbf0df",
+      name = "astro",
+    },
+
   }
 end
 

@@ -9,7 +9,7 @@ function M.config()
 
   local function button(sc, txt, keybind, keybind_opts)
     local b = dashboard.button(sc, txt, keybind, keybind_opts)
-    b.opts.hl_shortcut = "Macro"
+    b.opts.hl_shortcut = "Include"
     return b
   end
 
@@ -54,8 +54,8 @@ function M.config()
 
   dashboard.section.footer.val = footer()
 
-  dashboard.section.header.opts.hl = "String"
-  dashboard.section.buttons.opts.hl = "Macro"
+  dashboard.section.header.opts.hl = "Keyword"
+  dashboard.section.buttons.opts.hl = "Include"
   dashboard.section.footer.opts.hl = "Type"
 
   dashboard.opts.opts.noautocmd = true

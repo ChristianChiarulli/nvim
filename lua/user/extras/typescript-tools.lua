@@ -43,7 +43,7 @@ function M.config()
       },
 
       jsx_close_tag = {
-        enable = false,
+        enable = true,
         filetypes = { "javascriptreact", "typescriptreact" },
       },
     },

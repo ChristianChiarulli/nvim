@@ -27,9 +27,9 @@ function M.config()
       "TSRainbowBlue",
       -- "TSRainbowOrange",
       -- "TSRainbowCoral",
-      "TSRainbowPink",
+      -- "TSRainbowPink",
+      "TSRainbowViolet",
       "TSRainbowYellow",
-      -- "TSRainbowViolet",
       -- "TSRainbowGreen",
 
       -- TODO: define these in colorscheme

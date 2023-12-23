@@ -7,14 +7,6 @@ local M = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       event = "VeryLazy",
     },
-    -- {
-    --   "HiPhish/nvim-ts-rainbow2",
-    --   event = "VeryLazy",
-    -- },
-    {
-      "windwp/nvim-ts-autotag",
-      event = "VeryLazy",
-    },
     {
       "windwp/nvim-autopairs",
       event = "InsertEnter",
@@ -38,34 +30,6 @@ function M.config()
       enable = { "astro" },
       disable = { "lua" },
     },
-
-    autotag = {
-      enable = true,
-      filetypes = {
-        "html",
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact",
-        "svelte",
-        "vue",
-        "tsx",
-        "jsx",
-        "rescript",
-        "xml",
-        "php",
-        "markdown",
-        "astro",
-        "glimmer",
-        "handlebars",
-        "hbs",
-      },
-    },
-
-    -- context_commentstring = {
-    --   enable = true,
-    --   enable_autocmd = false,
-    -- },
 
     autopairs = { enable = true },
 
