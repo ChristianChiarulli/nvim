@@ -68,7 +68,7 @@ function M.config()
 
   require("ufo").setup {
     fold_virt_text_handler = handler,
-    close_fold_kinds = { "imports" },
+    close_fold_kinds = {},
     -- close_fold_kinds = { "imports", "comment" },
     provider_selector = function(bufnr, filetype, buftype)
       -- if you prefer treesitter provider rather than lsp,
