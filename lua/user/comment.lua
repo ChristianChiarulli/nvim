@@ -21,6 +21,7 @@ function M.config()
   }
 
   vim.g.skip_ts_context_commentstring_module = true
+  ---@diagnostic disable: missing-fields
   require("ts_context_commentstring").setup {
     enable_autocmd = false,
   }
@@ -30,8 +31,6 @@ function M.config()
     padding = true,
     ---Whether the cursor should stay at its position
     sticky = true,
-    ---Lines to be ignored while (un)comment
-    ignore = nil,
     ---LHS of toggle mappings in NORMAL mode
     toggler = {
       ---Line-comment toggle keymap
