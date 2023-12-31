@@ -1,0 +1,18 @@
+
+    -- c = {
+    --   name = "JavaScript",
+    --   -- s = { '<cmd>lua require("package-info").show()<cr>', "Show package info" },
+    --   -- h = { '<cmd>lua require("package-info").hide()<cr>', "Hide package info" },
+    --   g = { '<cmd>lua require("package-info").toggle()<cr>', "Toggle package info" },
+    --   u = { '<cmd>lua require("package-info").update()<cr>', "Update package" },
+    --   x = { '<cmd>lua require("package-info").delete()<cr>', "Delete package" },
+    --   -- i = { '<cmd>lua require("package-info").install()<cr>', "Install package" },
+    --   v = { '<cmd>lua require("package-info").change_version()<cr>', "Change Version" },
+    --   s = { "<cmd>TSToolsSortImports<cr>", "Sort imports" },
+    --   o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize imports" },
+    --   f = { "<cmd>TSToolsFixAll<cr>", "Fix all" },
+    --   i = { "<cmd>TSToolsAddMissingImports<cr>", "Add imports" },
+    --   d = { "<cmd>TSToolsGoToSourceDefinition<cr>", "Source definition" },
+    --   r = { "<cmd>TSToolsRenameFile<cr>", "Rename file" },
+    --   t = { "<cmd>TSC<cr>", "TSC" },
+    -- },

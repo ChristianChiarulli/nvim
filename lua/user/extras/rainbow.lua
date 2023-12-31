@@ -23,13 +23,13 @@ function M.config()
     },
     highlight = {
 
-      -- "TSRainbowRed",
+      "TSRainbowYellow",
+      "TSRainbowViolet",
       "TSRainbowBlue",
+      -- "TSRainbowRed",
       -- "TSRainbowOrange",
       -- "TSRainbowCoral",
       -- "TSRainbowPink",
-      "TSRainbowViolet",
-      "TSRainbowYellow",
       -- "TSRainbowGreen",
 
       -- TODO: define these in colorscheme

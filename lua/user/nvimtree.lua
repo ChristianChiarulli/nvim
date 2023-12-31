@@ -4,6 +4,12 @@ local M = {
 }
 
 function M.config()
+
+  local wk = require "which-key"
+  wk.register {
+    ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+  }
+
   local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
 
@@ -87,7 +93,7 @@ function M.config()
     },
 
     diagnostics = {
-      enable = false,
+      enable = true,
       show_on_dirs = false,
       show_on_open_dirs = true,
       debounce_delay = 50,

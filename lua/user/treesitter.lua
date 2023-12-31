@@ -1,19 +1,21 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPost", "BufNewFile" },
-  build = ":TSUpdate",
+  -- event = { "BufReadPost", "BufNewFile" },
+  -- build = ":TSUpdate",
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      event = "VeryLazy",
-    },
-    {
-      "windwp/nvim-autopairs",
-      event = "InsertEnter",
+      -- event = "VeryLazy",
     },
   },
 }
+
 function M.config()
+  local wk = require "which-key"
+  wk.register {
+    ["<leader>Ti"] = { "<cmd>TSConfigInfo<CR>", "Info" },
+  }
+
   require("nvim-treesitter.configs").setup {
     ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" }, -- put the language you want in this array
     ignore_install = { "" },
@@ -23,16 +25,10 @@ function M.config()
       -- disable = { "markdown" },
       additional_vim_regex_highlighting = false,
     },
-
+    auto_install = true,
+    modules = {},
     indent = { enable = true },
-
-    matchup = {
-      enable = { "astro" },
-      disable = { "lua" },
-    },
-
     autopairs = { enable = true },
-
     textobjects = {
       select = {
         enable = true,
@@ -66,32 +62,6 @@ function M.config()
       },
     },
   }
-
-  -- local configs = require "nvim-treesitter.configs"
-  --
-  -- configs.setup {
-  --   -- modules = {
-  --   --
-  --   --
-  --   --   rainbow = {
-  --   --     enable = false,
-  --   --     query = {
-  --   --       "rainbow-parens",
-  --   --     },
-  --   --     strategy = require("ts-rainbow").strategy.global,
-  --   --     hlgroups = {
-  --   --       -- "TSRainbowRed",
-  --   --       "TSRainbowBlue",
-  --   --       -- "TSRainbowOrange",
-  --   --       -- "TSRainbowCoral",
-  --   --       "TSRainbowPink",
-  --   --       "TSRainbowYellow",
-  --   --       -- "TSRainbowViolet",
-  --   --       -- "TSRainbowGreen",
-  --   --     },
-  --   --   },
-  --   -- },
-  -- }
 end
 
 return M
