@@ -66,7 +66,6 @@ function M.config()
   }
 
   which_key.register(mappings, opts)
-  vim.keymap.set("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 end
 
 return M
