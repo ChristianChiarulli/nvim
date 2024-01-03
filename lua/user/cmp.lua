@@ -63,6 +63,7 @@ function M.config()
   end
 
   local icons = require "user.icons"
+  local types = require "cmp.types"
 
   cmp.setup {
     snippet = {
@@ -71,10 +72,22 @@ function M.config()
       end,
     },
     mapping = cmp.mapping.preset.insert {
-      ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-      ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-      ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-      ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+      ["<C-k>"] = cmp.mapping(
+        cmp.mapping.select_prev_item { behavior = types.cmp.SelectBehavior.Select },
+        { "i", "c" }
+      ),
+      ["<C-j>"] = cmp.mapping(
+        cmp.mapping.select_next_item { behavior = types.cmp.SelectBehavior.Select },
+        { "i", "c" }
+      ),
+      ["<C-p>"] = cmp.mapping(
+        cmp.mapping.select_prev_item { behavior = types.cmp.SelectBehavior.Select },
+        { "i", "c" }
+      ),
+      ["<C-n>"] = cmp.mapping(
+        cmp.mapping.select_next_item { behavior = types.cmp.SelectBehavior.Select },
+        { "i", "c" }
+      ),
       ["<C-h>"] = function()
         if cmp.visible_docs() then
           cmp.close_docs()

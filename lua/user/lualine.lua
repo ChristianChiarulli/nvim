@@ -21,9 +21,25 @@ function M.config()
   }
 
   local filetype = {
-    "filetype",
-    colored = false,
-    icon_only = false,
+    function()
+      local filetype = vim.bo.filetype
+      local upper_case_filetypes = {
+        "json",
+        "jsonc",
+        "yaml",
+        "toml",
+        "css",
+        "scss",
+        "html",
+        "xml",
+      }
+
+      if vim.tbl_contains(upper_case_filetypes, filetype) then
+        return filetype:upper()
+      end
+
+      return filetype
+    end,
   }
 
   require("lualine").setup {
