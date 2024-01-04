@@ -33,6 +33,12 @@ function M.config()
     --   color = "#fbf0df",
     --   name = "bunfig.toml",
     -- },
+    ["tsx"] = {
+      icon = "",
+      color = "#519aba",
+      cterm_color = "26",
+      name = "Tsx",
+    },
     toml = {
       icon = "",
       color = "#6e8086",
