@@ -27,7 +27,10 @@ function M.config()
     },
     auto_install = true,
     modules = {},
-    indent = { enable = true },
+    indent = {
+      enable = true,
+      disable = { "yaml" },
+    },
     autopairs = { enable = true },
     textobjects = {
       select = {

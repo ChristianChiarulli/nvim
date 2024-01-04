@@ -63,7 +63,7 @@ function M.config()
   local ftMap = {
     -- typescriptreact = { "lsp", "treesitter" },
     -- python = { "indent" },
-    -- git = "",
+    yaml = "",
   }
 
   require("ufo").setup {
