@@ -102,8 +102,7 @@ function M.config()
     "marksman",
     "tailwindcss",
     "eslint",
-    "rust_analyzer",
-    -- "prismals",
+    -- "rust_analyzer",
   }
 
   local default_diagnostic_config = {

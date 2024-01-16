@@ -6,7 +6,7 @@ local M = {
   },
 }
 
-M.servers = {
+M.execs = {
   "lua_ls",
   "cssls",
   "html",
@@ -18,6 +18,8 @@ M.servers = {
   "yamlls",
   "marksman",
   "tailwindcss",
+  "rust_analyzer",
+  "eslint",
 }
 
 function M.config()
@@ -32,7 +34,7 @@ function M.config()
     },
   }
   require("mason-lspconfig").setup {
-    ensure_installed = M.servers,
+    ensure_installed = M.execs,
   }
 end
 
