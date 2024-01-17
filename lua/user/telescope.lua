@@ -85,7 +85,7 @@ function M.config()
         "--line-number",
         "--column",
         "--smart-case",
-        "--hidden",
+        -- "--hidden",
         "--glob=!.git/",
       },
 
