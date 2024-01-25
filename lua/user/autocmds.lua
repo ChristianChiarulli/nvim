@@ -47,6 +47,14 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    local dirname = vim.fn.getcwd():match "([^/]+)$"
+    vim.opt.titlestring = dirname
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 40 }
