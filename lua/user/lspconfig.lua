@@ -154,6 +154,10 @@ function M.config()
       require("neodev").setup {}
     end
 
+    if server == "vtsls" then
+      require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+    end
+
     lspconfig[server].setup(opts)
   end
 end
