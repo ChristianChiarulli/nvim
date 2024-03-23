@@ -12,12 +12,12 @@ function M.config()
 
       -- Uses external commands such as 'g++' and 'cargo'
       external = {
-        typescript = "ts-node %",
+        typescript = "bun %",
         javascript = "node %",
         -- markdown = "glow %",
         python = "python3 %",
         -- rust = "rustc % && ./$fileBase && rm $fileBase",
-        rust = "cargo run",
+        rust = "cargo run -q",
         cpp = "g++ % -o $fileBase && ./$fileBase",
         go = "go run %",
         sh = "sh %",

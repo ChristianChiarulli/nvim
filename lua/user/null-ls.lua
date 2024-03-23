@@ -12,6 +12,7 @@ function M.config()
     sources = {
       formatting.stylua,
       formatting.prettier,
+      formatting.black,
       -- formatting.prettier.with {
       --   extra_filetypes = { "toml" },
       --   -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },

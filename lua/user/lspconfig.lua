@@ -102,6 +102,7 @@ function M.config()
     "marksman",
     "tailwindcss",
     "eslint",
+    "taplo",
     -- "rust_analyzer",
   }
 
