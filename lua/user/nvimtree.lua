@@ -92,22 +92,22 @@ function M.config()
       ignore_list = {},
     },
 
-    diagnostics = {
-      enable = true,
-      show_on_dirs = false,
-      show_on_open_dirs = true,
-      debounce_delay = 50,
-      severity = {
-        min = vim.diagnostic.severity.HINT,
-        max = vim.diagnostic.severity.ERROR,
-      },
-      icons = {
-        hint = icons.diagnostics.BoldHint,
-        info = icons.diagnostics.BoldInformation,
-        warning = icons.diagnostics.BoldWarning,
-        error = icons.diagnostics.BoldError,
-      },
-    },
+    -- diagnostics = {
+    --   enable = true,
+    --   show_on_dirs = false,
+    --   show_on_open_dirs = true,
+    --   debounce_delay = 50,
+    --   severity = {
+    --     min = vim.diagnostic.severity.HINT,
+    --     max = vim.diagnostic.severity.ERROR,
+    --   },
+    --   icons = {
+    --     hint = icons.diagnostics.BoldHint,
+    --     info = icons.diagnostics.BoldInformation,
+    --     warning = icons.diagnostics.BoldWarning,
+    --     error = icons.diagnostics.BoldError,
+    --   },
+    -- },
   }
 end
 

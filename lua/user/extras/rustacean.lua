@@ -1,7 +1,8 @@
 -- https://github.com/mrcjkb/rustaceanvim/tree/master
 local M = {
   "mrcjkb/rustaceanvim",
-  version = "^3",
+  version = "^4",
+  lazy = false,
   ft = { "rust" },
 }
 
