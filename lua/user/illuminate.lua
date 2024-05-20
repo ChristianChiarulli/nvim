@@ -29,6 +29,7 @@ function M.config()
       "toggleterm",
       "DressingSelect",
       "TelescopePrompt",
+      "neo-tree",
     },
   }
 end
