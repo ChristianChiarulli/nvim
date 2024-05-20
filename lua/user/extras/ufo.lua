@@ -64,6 +64,7 @@ function M.config()
     -- typescriptreact = { "lsp", "treesitter" },
     -- python = { "indent" },
     yaml = "",
+    ["neo-tree"] = "",
   }
 
   require("ufo").setup {
