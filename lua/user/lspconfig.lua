@@ -96,7 +96,7 @@ function M.config()
     "pyright",
     -- "basedpyright",
     "bashls",
-    "lemminx",
+    -- "lemminx",
     "jsonls",
     "yamlls",
     "marksman",

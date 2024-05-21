@@ -21,7 +21,7 @@ function M.config()
     close_if_last_window = false,
     popup_border_style = "rounded",
     enable_git_status = true,
-    enable_diagnostics = false,
+    enable_diagnostics = true,
 
     source_selector = {
       sources = { -- table
@@ -153,10 +153,10 @@ function M.config()
           --"*/src/*/tsconfig.json",
         },
         always_show = { -- remains visible even if other settings would normally hide it
-          --".gitignored",
+          ".gitignore",
         },
         never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-          --".DS_Store",
+          ".DS_Store",
           --"thumbs.db"
         },
         never_show_by_pattern = { -- uses glob style patterns
