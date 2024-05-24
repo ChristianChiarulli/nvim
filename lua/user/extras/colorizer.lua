@@ -1,5 +1,5 @@
 local M = {
-  "NvChad/nvim-colorizer.lua",
+  "ChristianChiarulli/nvim-colorizer.lua",
   event = { "BufReadPost", "BufNewFile" },
 }
 
