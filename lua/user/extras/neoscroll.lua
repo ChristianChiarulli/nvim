@@ -1,5 +1,6 @@
 local M = {
   "karb94/neoscroll.nvim",
+  commit = "e786577",
 }
 
 function M.config()
