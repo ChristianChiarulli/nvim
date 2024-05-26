@@ -33,6 +33,7 @@ spec "user.netrw"
 spec "user.project"
 spec "user.toggleterm"
 spec "user.bufdelete"
+spec "user.luarocks"
 spec "user.image"
 -- Extras
 spec "user.extras.colorizer"

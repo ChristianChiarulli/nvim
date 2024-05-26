@@ -1,5 +1,6 @@
 local M = {
   "3rd/image.nvim",
+  dependencies = { "luarocks.nvim" },
 }
 
 function M.config()
