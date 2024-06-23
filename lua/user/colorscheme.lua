@@ -317,8 +317,8 @@ function M.config()
   hl(0, "NavicIconsEvent", { link = "CmpItemKindEvent" })
   hl(0, "NavicIconsOperator", { link = "CmpItemKindOperator" })
   hl(0, "NavicIconsTypeParameter", { link = "CmpItemKindTypeParameter" })
-  hl(0, "NavicText", { fg = "#a9a9a9", bg = "NONE" })
-  hl(0, "NavicSeparator", { fg = "#a9a9a9", bg = "NONE" })
+  hl(0, "NavicText", { fg = c.light_grey_3, bg = "NONE" })
+  hl(0, "NavicSeparator", { fg = c.light_grey_3, bg = "NONE" })
 
   -- Telescope
   hl(0, "TelescopeSelection", { fg = "NONE", bg = c.select })
