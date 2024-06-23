@@ -29,6 +29,7 @@ function M.config()
       },
     },
     filetypes = {
+      yaml = true,
       markdown = true,
       help = false,
       gitcommit = false,

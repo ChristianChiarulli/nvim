@@ -48,6 +48,9 @@ function M.config()
     highlight = true,
     lsp = {
       auto_attach = true,
+      preference = {
+        "templ",
+      },
     },
     click = true,
     separator = " " .. icons.ui.ChevronRight .. " ",

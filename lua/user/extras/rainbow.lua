@@ -20,6 +20,7 @@ function M.config()
       tsx = "rainbow-parens",
       jsx = "rainbow-parens",
       html = "rainbow-parens",
+      templ = "rainbow-parens",
     },
     highlight = {
 

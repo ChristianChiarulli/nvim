@@ -3,6 +3,7 @@ local M = {
   event = "BufEnter",
   cmd = "Gitsigns",
 }
+-- TODO: add highlights to the colorscheme
 M.config = function()
   local icons = require "user.icons"
 
@@ -28,34 +29,34 @@ M.config = function()
   require("gitsigns").setup {
     signs = {
       add = {
-        hl = "GitSignsAdd",
+        -- hl = "GitSignsAdd",
         text = icons.ui.BoldLineMiddle,
-        numhl = "GitSignsAddNr",
-        linehl = "GitSignsAddLn",
+        -- numhl = "GitSignsAddNr",
+        -- linehl = "GitSignsAddLn",
       },
       change = {
-        hl = "GitSignsChange",
+        -- hl = "GitSignsChange",
         text = icons.ui.BoldLineDashedMiddle,
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
+        -- numhl = "GitSignsChangeNr",
+        -- linehl = "GitSignsChangeLn",
       },
       delete = {
-        hl = "GitSignsDelete",
+        -- hl = "GitSignsDelete",
         text = icons.ui.TriangleShortArrowRight,
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
+        -- numhl = "GitSignsDeleteNr",
+        -- linehl = "GitSignsDeleteLn",
       },
       topdelete = {
-        hl = "GitSignsDelete",
+        -- hl = "GitSignsDelete",
         text = icons.ui.TriangleShortArrowRight,
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
+        -- numhl = "GitSignsTopDeleteNr",
+        -- linehl = "GitSignsDeleteLn",
       },
       changedelete = {
-        hl = "GitSignsChange",
+        -- hl = "GitSignsChange",
         text = icons.ui.BoldLineMiddle,
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
+        -- numhl = "GitSignsChangeNr",
+        -- linehl = "GitSignsChangeLn",
       },
     },
     watch_gitdir = {

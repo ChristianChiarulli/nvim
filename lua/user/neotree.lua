@@ -107,7 +107,7 @@ function M.config()
       mappings = {
         ["l"] = "open",
         ["h"] = "close_node",
-        ["p"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+        ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
         -- Read `# Preview Mode` for more information
         ["s"] = "open_vsplit",
         ["t"] = "open_tabnew",

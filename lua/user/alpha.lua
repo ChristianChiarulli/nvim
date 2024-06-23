@@ -9,7 +9,7 @@ function M.config()
 
   local function button(sc, txt, keybind, keybind_opts)
     local b = dashboard.button(sc, txt, keybind, keybind_opts)
-    b.opts.hl_shortcut = "Include"
+    b.opts.hl_shortcut = "Function"
     return b
   end
 
@@ -54,9 +54,9 @@ function M.config()
 
   dashboard.section.footer.val = footer()
 
-  dashboard.section.header.opts.hl = "Keyword"
-  dashboard.section.buttons.opts.hl = "Include"
-  dashboard.section.footer.opts.hl = "Type"
+  dashboard.section.header.opts.hl = "Function"
+  dashboard.section.buttons.opts.hl = "Type"
+  dashboard.section.footer.opts.hl = "@keyword.return"
 
   dashboard.opts.opts.noautocmd = true
   require("alpha").setup(dashboard.opts)

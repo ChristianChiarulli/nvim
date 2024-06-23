@@ -103,6 +103,9 @@ function M.config()
     "tailwindcss",
     "eslint",
     "taplo",
+    "gopls",
+    "templ",
+    "nginx-language-server",
     -- "rust_analyzer",
   }
 
@@ -143,11 +146,11 @@ function M.config()
       opts = vim.tbl_deep_extend("force", settings, opts)
     end
 
-    -- if server == "lua_ls" then
-    --   require("neodev").setup {}
-    -- end
-
     lspconfig[server].setup(opts)
+
+    if server == "nginx-language-server" then
+      require("lspconfig").nginx_language_server.setup(opts)
+    end
   end
 end
 
