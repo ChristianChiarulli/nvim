@@ -135,6 +135,10 @@ function M.config()
   hl(0, "Directory", { fg = c.fg, bg = "NONE" })
   hl(0, "CursorLine", { fg = "NONE", bg = c.cursorline })
 
+  hl(0, "TabLine", { fg = c.light_gray_3, bg = c.alt_bg })
+  hl(0, "TabLineSel", { fg = c.light_grey_3, bg = c.bg })
+  hl(0, "TabLineFill", { fg = c.light_grey_3, bg = c.alt_bg })
+
   hl(0, "FloatBorder", { fg = c.dark_grey_4, bg = c.bg })
   hl(0, "VertSplit", { fg = c.dark_grey_4, bg = c.bg })
   hl(0, "WinSeparator", { fg = c.dark_grey_4, bg = "NONE" })
