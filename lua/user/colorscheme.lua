@@ -4,6 +4,8 @@ local M = {
   lazy = false, -- make sure we load this during startup if it is your main colorscheme
   priority = 1000, -- make sure to load this before all the other start plugins
 }
+-- #590008
+-- #ffc0b9
 
 function M.config()
   -- #005078 NvimDarkBlue
@@ -72,7 +74,13 @@ function M.config()
     cursorline = "#222428",
     reference = "#292b30",
 
-    red = "#d16969",
+
+-- #ff6a6a
+-- #ee6363
+-- #cd5555
+-- #8b3a3a
+
+    red = "#d7ba7d",
     cyan = "#8cf8f7",
     yellow = "#d7ba7d",
     green = "#b3f6c0",
@@ -108,8 +116,8 @@ function M.config()
   hl(0, "Function", { fg = c.light_blue, bg = "NONE" })
   hl(0, "Identifier", { fg = c.fg, bg = "NONE" })
   hl(0, "Type", { fg = c.cyan, bg = "NONE" })
-  -- hl(0, "Number", { fg = c.purple, bg = 'NONE' })
-  -- hl(0, "Boolean", { fg = c.purple, bg = 'NONE' })
+  hl(0, "Number", { fg = c.purple, bg = 'NONE' })
+  hl(0, "Boolean", { fg = c.purple, bg = 'NONE' })
   -- hl(0, "Exception", { fg = c.red, bg = "NONE" })
 
   hl(0, "Special", { fg = c.purple, bg = "NONE" })
