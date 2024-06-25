@@ -131,6 +131,7 @@ function M.config()
   hl(0, "@tag.tsx", { fg = c.cyan, bg = 'NONE' })
   hl(0, "@tag.jsx", { fg = c.cyan, bg = 'NONE' })
   hl(0, "@constructor.lua", { fg = c.fg, bg = 'NONE' })
+  hl(0, "@markup.heading", { fg = c.yellow, bg = 'NONE' })
 
 
   hl(0, "@keyword.coroutine", { fg = c.red, bg = "NONE" })

@@ -3,7 +3,7 @@ local M = {
   event = "BufEnter",
   cmd = "Gitsigns",
 }
--- TODO: add highlights to the colorscheme
+
 M.config = function()
   local icons = require "user.icons"
 
