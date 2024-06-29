@@ -140,6 +140,11 @@ function M.config()
       },
     },
     filesystem = {
+      bind_to_cwd = false,
+      cwd_target = {
+        sidebar = "tab", -- sidebar is when position = left or right
+        current = "window", -- current is when position = current
+      },
       filtered_items = {
         visible = true, -- when true, they will just be displayed differently than normal items
         hide_dotfiles = false,
