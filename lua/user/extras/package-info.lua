@@ -18,7 +18,7 @@ function M.config()
     -- The plugin will try to auto-detect the package manager based on
     -- `yarn.lock` or `package-lock.json`. If none are found it will use the
     -- provided one, if nothing is provided it will use `yarn`
-    package_manager = "bun",
+    package_manager = "npm",
   }
 end
 
