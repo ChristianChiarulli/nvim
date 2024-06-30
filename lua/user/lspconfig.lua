@@ -106,6 +106,7 @@ function M.config()
     "gopls",
     "templ",
     "nginx-language-server",
+    -- "sqls",
     -- "rust_analyzer",
   }
 

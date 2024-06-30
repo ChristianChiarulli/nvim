@@ -74,11 +74,10 @@ function M.config()
     cursorline = "#222428",
     reference = "#292b30",
 
-
--- #ff6a6a
--- #ee6363
--- #cd5555
--- #8b3a3a
+    -- #ff6a6a
+    -- #ee6363
+    -- #cd5555
+    -- #8b3a3a
 
     red = "#d7ba7d",
     cyan = "#8cf8f7",
@@ -116,23 +115,22 @@ function M.config()
   hl(0, "Function", { fg = c.light_blue, bg = "NONE" })
   hl(0, "Identifier", { fg = c.fg, bg = "NONE" })
   hl(0, "Type", { fg = c.cyan, bg = "NONE" })
-  hl(0, "Number", { fg = c.purple, bg = 'NONE' })
-  hl(0, "Boolean", { fg = c.purple, bg = 'NONE' })
+  hl(0, "Number", { fg = c.purple, bg = "NONE" })
+  hl(0, "Boolean", { fg = c.purple, bg = "NONE" })
   -- hl(0, "Exception", { fg = c.red, bg = "NONE" })
 
   hl(0, "Special", { fg = c.purple, bg = "NONE" })
   hl(0, "Tag", { fg = c.purple, bg = "NONE" })
-  hl(0, "@tag.builtin.tsx", { link = 'Tag' })
-  hl(0, "@tag.attribute", { fg = c.fg, bg = "NONE" })
+  hl(0, "@tag.builtin.tsx", { link = "Tag" })
+  hl(0, "@tag.attribute", { fg = c.fg, bg = "NONE", italic = true })
   hl(0, "@tag.delimiter", { fg = c.dark_grey_4, bg = "NONE" })
-  hl(0, "@type", { link = 'Type' })
-  hl(0, "@type.builtin", { link = 'Type' })
-  hl(0, "@function.builtin", { link = 'Function' })
-  hl(0, "@tag.tsx", { fg = c.cyan, bg = 'NONE' })
-  hl(0, "@tag.jsx", { fg = c.cyan, bg = 'NONE' })
-  hl(0, "@constructor.lua", { fg = c.fg, bg = 'NONE' })
-  hl(0, "@markup.heading", { fg = c.yellow, bg = 'NONE' })
-
+  hl(0, "@type", { link = "Type" })
+  hl(0, "@type.builtin", { link = "Type" })
+  hl(0, "@function.builtin", { link = "Function" })
+  hl(0, "@tag.tsx", { fg = c.cyan, bg = "NONE" })
+  hl(0, "@tag.jsx", { fg = c.cyan, bg = "NONE" })
+  hl(0, "@constructor.lua", { fg = c.fg, bg = "NONE" })
+  hl(0, "@markup.heading", { fg = c.yellow, bg = "NONE" })
 
   hl(0, "@keyword.coroutine", { fg = c.red, bg = "NONE" })
   hl(0, "@keyword.return", { fg = c.yellow, bg = "NONE" })

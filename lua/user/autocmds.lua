@@ -83,3 +83,19 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
     end
   end,
 })
+
+if vim.fn.executable "hyprctl" == 1 then
+  vim.api.nvim_create_autocmd({ "VimEnter" }, {
+    pattern = { "*" },
+    callback = function()
+      os.execute 'hyprctl activewindow -j | jq -r ".address" | xargs -I {} hyprctl setprop address:{} forceopaque 1 lock'
+    end,
+  })
+
+  vim.api.nvim_create_autocmd({ "VimLeave" }, {
+    pattern = { "*" },
+    callback = function()
+      os.execute 'hyprctl activewindow -j | jq -r ".address" | xargs -I {} hyprctl setprop address:{} forceopaque 0 lock'
+    end,
+  })
+end
