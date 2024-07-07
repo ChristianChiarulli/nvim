@@ -16,7 +16,7 @@ function M.config()
       formatting.black,
       formatting.shfmt,
 
-      diagnostics.shellcheck,
+      -- diagnostics.shellcheck,
 
       -- formatting.prettier.with {
       --   extra_filetypes = { "toml" },

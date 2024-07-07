@@ -105,7 +105,7 @@ function M.config()
     "taplo",
     "gopls",
     "templ",
-    "nginx-language-server",
+    -- "nginx-language-server",
     -- "rust_analyzer",
   }
 
