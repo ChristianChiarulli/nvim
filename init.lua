@@ -36,6 +36,7 @@ spec "user.bufdelete"
 spec "user.luarocks"
 -- spec "user.image"
 -- Extras
+spec "user.extras.notify"
 spec "user.extras.colorizer"
 -- spec "user.extras.smoothie"
 spec "user.extras.neoscroll"
