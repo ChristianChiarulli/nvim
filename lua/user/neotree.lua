@@ -10,9 +10,13 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>e"] = { "<cmd>Neotree toggle<CR>", "Explorer" },
-    -- ["<leader>b"] = { "<cmd>Neotree toggle source=buffers position=left<CR>", "Buffers" },
+
+  wk.add {
+    {
+      "<leader>e",
+      "<cmd>Neotree toggle<CR>",
+      desc = "Explorer",
+    },
   }
 
   local icons = require "user.icons"

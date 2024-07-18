@@ -12,8 +12,8 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>Ti"] = { "<cmd>TSConfigInfo<CR>", "Info" },
+  wk.add {
+    { "<leader>Ti", "<cmd>TSConfigInfo<CR>", desc = "Info" },
   }
 
   require("nvim-treesitter.configs").setup {
