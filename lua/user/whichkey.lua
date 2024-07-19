@@ -43,7 +43,18 @@ function M.config()
 
   local wk = require "which-key"
 
+  -- icon colors
+  -- azure, blue, cyan, green, grey, orange, purple, red, yellow
+
   wk.add {
+    {
+      "<leader>a",
+      group = "AI",
+      icon = {
+        icon = " ",
+        color = "blue",
+      },
+    },
     {
       "<leader>q",
       "<cmd>confirm q<CR>",
@@ -53,49 +64,72 @@ function M.config()
       "<leader>h",
       "<cmd>nohlsearch<CR>",
       desc = "NOHL",
+      hidden = true,
     },
     {
       "<leader>;",
       "<cmd>tabnew | terminal<CR>",
       desc = "Term",
+      icon = {
+        icon = " ",
+        color = "green",
+      },
     },
     {
       "<leader>w",
       "<cmd>lua vim.wo.wrap = not vim.wo.wrap<CR>",
       desc = "Wrap",
+      hidden = true,
     },
     {
       "<leader>v",
       "<cmd>vsplit<CR>",
       desc = "Split",
+      hidden = true,
     },
     {
       "<leader>b",
-      name = "Buffers",
+      group = "Buffers",
     },
     {
       "<leader>d",
-      name = "Debug",
+      group = "Debug",
     },
     {
       "<leader>f",
-      name = "Find",
+      group = "Find",
     },
     {
       "<leader>g",
-      name = "Git",
+      group = "Git",
     },
     {
       "<leader>l",
-      name = "LSP",
+      group = "LSP",
+      icon = {
+        icon = " ",
+        color = "blue",
+      },
+    },
+    {
+      "<leader>n",
+      icon = {
+        icon = "󱞂 ",
+        color = "yellow",
+      },
+      group = "Nostr",
     },
     {
       "<leader>p",
-      name = "Plugins",
+      icon = {
+        icon = " ",
+        color = "azure",
+      },
+      group = "Plugins",
     },
     {
       "<leader>t",
-      name = "Test",
+      group = "Test",
     },
     -- {
     --   "<leader>a",
@@ -130,7 +164,7 @@ function M.config()
     -- },
     {
       "<leader>T",
-      name = "Treesitter",
+      group = "Treesitter",
     },
   }
 end

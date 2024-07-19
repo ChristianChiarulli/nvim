@@ -9,7 +9,8 @@ function M.config()
     {
       "<leader>y",
       "<cmd>CellularAutomaton make_it_rain<CR>",
-      desc = "Cellular Automaton",
+      desc = "Rain",
+      hidden = true,
     },
   }
 end

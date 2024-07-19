@@ -16,6 +16,7 @@ function M.config()
       "<leader>e",
       "<cmd>Neotree toggle<CR>",
       desc = "Explorer",
+      hidden = true,
     },
   }
 

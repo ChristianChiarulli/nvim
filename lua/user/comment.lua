@@ -18,6 +18,7 @@ function M.config()
       "<leader>/",
       "<Plug>(comment_toggle_linewise_current)",
       desc = "Comment",
+      hidden = true,
     },
   }
 
@@ -27,6 +28,7 @@ function M.config()
       "<Plug>(comment_toggle_linewise_visual)",
       mode = "v",
       desc = "Comment",
+      hidden = true,
     },
   }
 
