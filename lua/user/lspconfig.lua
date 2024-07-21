@@ -13,7 +13,7 @@ local function lsp_keymaps(bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
   keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  keymap(bufnr, "n", "<CR>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   vim.keymap.set("n", "K", function()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then
@@ -146,7 +146,7 @@ function M.config()
         [vim.diagnostic.severity.INFO] = icons.diagnostics.Information,
       },
     },
-    virtual_text = false,
+    virtual_text = true,
     update_in_insert = false,
     underline = true,
     severity_sort = true,
