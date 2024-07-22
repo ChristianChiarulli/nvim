@@ -145,7 +145,7 @@ function M.config()
       },
     },
     filesystem = {
-      bind_to_cwd = false,
+      bind_to_cwd = true,
       cwd_target = {
         sidebar = "tab", -- sidebar is when position = left or right
         current = "window", -- current is when position = current
