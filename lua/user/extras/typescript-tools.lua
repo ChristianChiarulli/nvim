@@ -1,7 +1,6 @@
 local M = {
   -- "pmizio/typescript-tools.nvim",
   "notomo/typescript-tools.nvim",
-  branch = "fix-deprecated",
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 }
 
