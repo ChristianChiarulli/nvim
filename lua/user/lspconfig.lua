@@ -133,6 +133,7 @@ function M.config()
     "taplo",
     "gopls",
     "templ",
+    "biome",
     -- "nginx-language-server",
     -- "rust_analyzer",
   }
