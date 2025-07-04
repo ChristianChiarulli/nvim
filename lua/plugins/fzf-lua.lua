@@ -1,11 +1,16 @@
 return {
 	"ibhagwan/fzf-lua",
-	commit = "23aaad0339471d408cfe6875ad16747b07ce5be3",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local fzf = require("fzf-lua")
 
 		fzf.setup({
+			-- "telescope",
+			-- keymap = {
+			-- 	fzf = {
+			-- 		["ctrl-q"] = "select-all+accept",
+			-- 	},
+			-- },
 			winopts = {
 				height = 0.85,
 				width = 0.80,
@@ -28,37 +33,38 @@ return {
 			fzf_opts = {
 				["--layout"] = "reverse",
 				["--info"] = "inline",
+				["--bind"] = "ctrl-j:down,ctrl-k:up",
 			},
 			-- Global actions - applies to all pickers
-			actions = {
-				files = {
-					["default"] = fzf.actions.file_edit,
-					["ctrl-s"] = fzf.actions.file_split,
-					["ctrl-v"] = fzf.actions.file_vsplit,
-					["ctrl-t"] = fzf.actions.file_tabedit,
-					["ctrl-q"] = fzf.actions.file_sel_to_qf,
-					["alt-q"] = fzf.actions.file_sel_to_ll,
-				},
-			},
-			files = {
-				prompt = "Files❯ ",
-				multiprocess = true,
-				git_icons = true,
-				file_icons = true,
-				color_icons = true,
-				fd_opts = "--color=never --type f --hidden --follow --exclude .git",
-				rg_opts = "--color=never --files --hidden --follow -g '!.git'",
-				cwd_prompt = false,
-			},
-			grep = {
-				prompt = "Rg❯ ",
-				input_prompt = "Grep For❯ ",
-				multiprocess = true,
-				git_icons = true,
-				file_icons = true,
-				color_icons = true,
-				rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
-			},
+			-- actions = {
+			-- 	files = {
+			-- 		["default"] = fzf.actions.file_edit,
+			-- 		["ctrl-s"] = fzf.actions.file_split,
+			-- 		["ctrl-v"] = fzf.actions.file_vsplit,
+			-- 		["ctrl-t"] = fzf.actions.file_tabedit,
+			-- 		["ctrl-q"] = fzf.actions.file_sel_to_qf,
+			-- 		["alt-q"] = fzf.actions.file_sel_to_ll,
+			-- 	},
+			-- },
+			-- files = {
+			-- 	prompt = "Files❯ ",
+			-- 	multiprocess = true,
+			-- 	git_icons = true,
+			-- 	file_icons = true,
+			-- 	color_icons = true,
+			-- 	fd_opts = "--color=never --type f --hidden --follow --exclude .git",
+			-- 	rg_opts = "--color=never --files --hidden --follow -g '!.git'",
+			-- 	cwd_prompt = false,
+			-- },
+			-- grep = {
+			-- 	prompt = "Rg❯ ",
+			-- 	input_prompt = "Grep For❯ ",
+			-- 	multiprocess = true,
+			-- 	git_icons = true,
+			-- 	file_icons = true,
+			-- 	color_icons = true,
+			-- 	rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+			-- },
 		})
 
 		-- Keybindings
@@ -99,5 +105,9 @@ return {
 		keymap("n", "<leader>fs", "<cmd>FzfLua git_status<cr>", { desc = "Git status" })
 		keymap("n", "<leader>fgc", "<cmd>FzfLua git_commits<cr>", { desc = "Git commits" })
 		keymap("n", "<leader>fgb", "<cmd>FzfLua git_branches<cr>", { desc = "Git branches" })
+
+		-- Diagnostics
+		keymap("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Document diagnostics" })
+		keymap("n", "<leader>fD", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Workspace diagnostics" })
 	end,
 }

@@ -12,7 +12,7 @@ return {
 			},
 		})
 
-		require("mason-lspconfig").setup()
+		-- require("mason-lspconfig").setup()
 
 		-- Install formatters, and linters
 		require("mason-tool-installer").setup({

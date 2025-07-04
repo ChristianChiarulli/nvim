@@ -4,6 +4,9 @@ local keymap = vim.keymap
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Such nonsense
+vim.keymap.set("n", "<C-i>", "<C-i>")
+
 -- Delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
