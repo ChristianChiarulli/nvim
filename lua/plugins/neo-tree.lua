@@ -107,6 +107,7 @@ function M.config()
 				-- ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
 				-- Read `# Preview Mode` for more information
 				["s"] = "open_vsplit",
+				["S"] = "",
 				["t"] = "open_tabnew",
 				["w"] = "open_with_window_picker",
 				-- ["p"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
