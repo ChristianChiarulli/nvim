@@ -1,5 +1,5 @@
 -- Enable LSP servers
-vim.lsp.enable("ts_ls")
+vim.lsp.enable({ "ts_ls", "lua_ls" })
 
 -- Configure diagnostic display with custom signs
 vim.diagnostic.config({
@@ -39,13 +39,12 @@ vim.lsp.config("*", {
 -- Add additional capabilities supported by blink-cmp
 local blink_status_ok, blink = pcall(require, "blink.cmp")
 if blink_status_ok then
-	capabilities =
-		vim.tbl_deep_extend("force", {}, lsp_capabilities, blink.get_lsp_capabilities()),
-		-- Configure LSP servers using the new vim.lsp.config syntax
-		-- Default configuration for all servers
-		vim.lsp.config("*", {
-			capabilities = capabilities,
-		})
+	local ext_capabilities = vim.tbl_deep_extend("force", {}, lsp_capabilities, blink.get_lsp_capabilities())
+	-- Configure LSP servers using the new vim.lsp.config syntax
+	-- Default configuration for all servers
+	vim.lsp.config("*", {
+		capabilities = ext_capabilities,
+	})
 end
 
 local keymap = vim.keymap
