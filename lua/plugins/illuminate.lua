@@ -6,6 +6,8 @@ local M = {
 function M.config()
 	require("illuminate").configure({
 		filetypes_denylist = {
+            "snacks_dashboard",
+            "snacks_picker_input",
 			"mason",
 			"harpoon",
 			"DressingInput",

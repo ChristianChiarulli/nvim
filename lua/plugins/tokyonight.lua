@@ -1,6 +1,5 @@
 return {
 	"folke/tokyonight.nvim",
-	commit = "057ef5d260c1931f1dffd0f052c685dcd14100a3",
 	lazy = false, -- make sure we load this during startup
 	priority = 1000, -- make sure to load this before all the other start plugins
 	config = function()
@@ -54,4 +53,3 @@ return {
 		vim.cmd([[colorscheme tokyonight]])
 	end,
 }
-

@@ -1,5 +1,6 @@
 return {
 	"nvimdev/indentmini.nvim",
+	enabled = false,
 	opts = {
 		char = "│",
 		minlevel = 1,

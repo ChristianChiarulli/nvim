@@ -1,5 +1,6 @@
 return {
 	"ibhagwan/fzf-lua",
+    enabled = true,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local fzf = require("fzf-lua")
@@ -67,47 +68,47 @@ return {
 			-- },
 		})
 
-		-- Keybindings
-		local keymap = vim.keymap.set
+		-- -- Keybindings
+		-- local keymap = vim.keymap.set
+		--
+		-- -- Helper function to get git root
+		-- local function get_git_root()
+		-- 	local dot_git_path = vim.fn.finddir(".git", ".;")
+		-- 	if dot_git_path ~= "" then
+		-- 		return vim.fn.fnamemodify(dot_git_path, ":h")
+		-- 	end
+		-- 	return nil
+		-- end
 
-		-- Helper function to get git root
-		local function get_git_root()
-			local dot_git_path = vim.fn.finddir(".git", ".;")
-			if dot_git_path ~= "" then
-				return vim.fn.fnamemodify(dot_git_path, ":h")
-			end
-			return nil
-		end
-
-		-- File search from git root or cwd
-		keymap("n", "<leader>ff", function()
-			fzf.files({ cwd = get_git_root() })
-		end, { desc = "Find files" })
-
-		-- Live grep from git root or cwd
-		keymap("n", "<leader>fg", function()
-			fzf.live_grep({ cwd = get_git_root() })
-		end, { desc = "Live grep" })
-
-		keymap("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" })
-		keymap("n", "<leader>fh", "<cmd>FzfLua help_tags<cr>", { desc = "Help tags" })
-		keymap("n", "<leader>fr", "<cmd>FzfLua resume<cr>", { desc = "Resume last search" })
-
-		-- Grep word under cursor from git root
-		keymap("n", "<leader>fw", function()
-			fzf.grep_cword({ cwd = get_git_root() })
-		end, { desc = "Grep word under cursor" })
-
-		-- Additional useful mappings
-		keymap("n", "<leader>fo", "<cmd>FzfLua oldfiles<cr>", { desc = "Recent files" })
-		keymap("n", "<leader>fc", "<cmd>FzfLua commands<cr>", { desc = "Commands" })
-		keymap("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>", { desc = "Keymaps" })
-		keymap("n", "<leader>fs", "<cmd>FzfLua git_status<cr>", { desc = "Git status" })
-		keymap("n", "<leader>fgc", "<cmd>FzfLua git_commits<cr>", { desc = "Git commits" })
-		keymap("n", "<leader>fgb", "<cmd>FzfLua git_branches<cr>", { desc = "Git branches" })
-
-		-- Diagnostics
-		keymap("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Document diagnostics" })
-		keymap("n", "<leader>fD", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Workspace diagnostics" })
+		-- -- File search from git root or cwd
+		-- keymap("n", "<leader>ff", function()
+		-- 	fzf.files({ cwd = get_git_root() })
+		-- end, { desc = "Find files" })
+		--
+		-- -- Live grep from git root or cwd
+		-- keymap("n", "<leader>ft", function()
+		-- 	fzf.live_grep({ cwd = get_git_root() })
+		-- end, { desc = "Find text" })
+		--
+		-- keymap("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" })
+		-- keymap("n", "<leader>fh", "<cmd>FzfLua help_tags<cr>", { desc = "Help tags" })
+		-- keymap("n", "<leader>fr", "<cmd>FzfLua resume<cr>", { desc = "Resume last search" })
+		--
+		-- -- Grep word under cursor from git root
+		-- keymap("n", "<leader>fw", function()
+		-- 	fzf.grep_cword({ cwd = get_git_root() })
+		-- end, { desc = "Grep word under cursor" })
+		--
+		-- -- Additional useful mappings
+		-- keymap("n", "<leader>fo", "<cmd>FzfLua oldfiles<cr>", { desc = "Recent files" })
+		-- keymap("n", "<leader>fc", "<cmd>FzfLua commands<cr>", { desc = "Commands" })
+		-- keymap("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>", { desc = "Keymaps" })
+		-- keymap("n", "<leader>fs", "<cmd>FzfLua git_status<cr>", { desc = "Git status" })
+		-- keymap("n", "<leader>fgc", "<cmd>FzfLua git_commits<cr>", { desc = "Git commits" })
+		-- keymap("n", "<leader>fgb", "<cmd>FzfLua git_branches<cr>", { desc = "Git branches" })
+		--
+		-- -- Diagnostics
+		-- keymap("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<cr>", { desc = "Document diagnostics" })
+		-- keymap("n", "<leader>fD", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Workspace diagnostics" })
 	end,
 }
