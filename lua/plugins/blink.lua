@@ -91,7 +91,8 @@ return {
 				-- },
 
 				fuzzy = {
-					implementation = "lua",
+					implementation = "prefer_rust_with_warning",
+					-- implementation = "lua",
 				},
 				appearance = {
 					nerd_font_variant = "mono",
