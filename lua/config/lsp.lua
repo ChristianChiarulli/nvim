@@ -1,5 +1,26 @@
 -- Enable LSP servers
-vim.lsp.enable({ "ts_ls", "lua_ls" })
+vim.lsp.enable({
+	"ts_ls",
+	"lua_ls",
+	"tailwindcss",
+	"eslint",
+	"rust_analyzer",
+	"gopls",
+	"html",
+	"cssls",
+	"basedpyright",
+	"bashls",
+	"css_variables",
+	"cssmodules_ls",
+	"dockerls",
+	"grammarly",
+	"jsonls",
+	"lemminx",
+	"marksman",
+	"nginx_language_server",
+	"taplo",
+	"yamlls",
+})
 
 -- Configure diagnostic display with custom signs
 vim.diagnostic.config({

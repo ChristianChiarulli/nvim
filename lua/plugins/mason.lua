@@ -17,22 +17,32 @@ return {
 		-- Install formatters, and linters
 		require("mason-tool-installer").setup({
 			ensure_installed = {
+				"ts_ls",
 				"lua_ls",
-				"pyright",
+				"tailwindcss",
+				"eslint",
+				"rust_analyzer",
+				"gopls",
 				"html",
 				"cssls",
-				"tailwindcss",
-				"ts_ls",
-				"jsonls",
-				"yamlls",
+				"basedpyright",
 				"bashls",
+				"css_variables",
+				"cssmodules_ls",
+				"dockerls",
+				"grammarly",
+				"jsonls",
+				"lemminx",
 				"marksman",
+				"nginx_language_server",
+				"taplo",
+				"yamlls",
+
 				"prettier", -- JavaScript/TypeScript formatter
 				"stylua", -- Lua formatter
 				"black", -- Python formatter
 				"isort", -- Python import organizer
 				"pylint", -- Python linter
-				"eslint_d", -- JavaScript/TypeScript linter
 				"shellcheck", -- Shell script linter
 				"shfmt", -- Shell script formatter
 			},
