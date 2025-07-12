@@ -1,7 +1,12 @@
 return {
 	{
 		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets", "onsails/lspkind.nvim" },
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"onsails/lspkind.nvim",
+			"giuxtaposition/blink-cmp-copilot",
+		},
+
 		version = "1.*",
 		config = function()
 			-- setup() is also available as an alias
@@ -21,7 +26,7 @@ return {
 				-- 'codicons' for codicon preset (requires vscode-codicons font)
 				--
 				-- default: 'default'
-				preset = "codicons",
+				-- preset = "codicons",
 
 				-- override preset symbols
 				--
@@ -63,6 +68,8 @@ return {
 					Value = " ",
 					Variable = " ",
 					Codeium = "󰚩 ",
+					Copilot = " ",
+					LazyDev = "b ",
 				},
 			})
 
@@ -94,9 +101,7 @@ return {
 					implementation = "prefer_rust_with_warning",
 					-- implementation = "lua",
 				},
-				appearance = {
-					nerd_font_variant = "mono",
-				},
+
 				completion = {
 					menu = {
 						draw = {
@@ -127,17 +132,37 @@ return {
 					documentation = { auto_show = true },
 				},
 				sources = {
-					default = { "codeium", "lazydev", "lsp", "path", "buffer" },
+					-- default = { "codeium", "lazydev", "lsp", "path", "buffer" },
+					default = { "copilot", "lazydev", "lsp", "path", "buffer" },
 					providers = {
-						codeium = {
-							name = "Codeium",
-							module = "codeium.blink",
+						copilot = {
+							name = "copilot",
+							module = "blink-cmp-copilot",
+							score_offset = 100,
 							async = true,
+							transform_items = function(_, items)
+								local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+								local kind_idx = #CompletionItemKind + 1
+								CompletionItemKind[kind_idx] = "Copilot"
+								for _, item in ipairs(items) do
+									item.kind = kind_idx
+								end
+								return items
+							end,
 						},
 						lazydev = {
 							name = "LazyDev",
 							module = "lazydev.integrations.blink",
 							score_offset = 100,
+							transform_items = function(_, items)
+								local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+								local kind_idx = #CompletionItemKind + 1
+								CompletionItemKind[kind_idx] = "LazyDev"
+								for _, item in ipairs(items) do
+									item.kind = kind_idx
+								end
+								return items
+							end,
 						},
 					},
 				},

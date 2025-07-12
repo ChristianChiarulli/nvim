@@ -4,6 +4,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"saghen/blink.cmp",
 	},
+	enabled = false,
 	config = function()
 		require("codeium").setup({
 			-- Optionally disable cmp source if using virtual text only
