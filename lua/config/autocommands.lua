@@ -136,3 +136,16 @@ autocmd({ "CursorHold" }, {
 		end
 	end,
 })
+
+-- Window navigation in sidekick_terminal buffers
+autocmd({ "FileType" }, {
+	pattern = "sidekick_terminal",
+	callback = function()
+		local opts = { buffer = true, noremap = true, silent = true }
+		vim.keymap.set("t", "<m-h>", "<C-\\><C-n><C-w>h", opts)
+		vim.keymap.set("t", "<m-j>", "<C-\\><C-n><C-w>j", opts)
+		vim.keymap.set("t", "<m-k>", "<C-\\><C-n><C-w>k", opts)
+		vim.keymap.set("t", "<m-l>", "<C-\\><C-n><C-w>l", opts)
+	end,
+	desc = "Window navigation in sidekick terminal",
+})

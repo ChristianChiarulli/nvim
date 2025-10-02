@@ -28,8 +28,7 @@ return {
 			--- You can override specific color groups to use other groups or a hex color
 			--- function will be called with a ColorScheme table
 			on_colors = function(colors)
-				-- colors.bg = "#1a1b26"
-				-- colors.bg_dark = "#16161e"
+				colors.bg = "#14161b"
 			end,
 
 			--- You can override specific highlights to use other groups or a hex color
@@ -40,11 +39,25 @@ return {
 					fg = colors.border_highlight,
 				}
 				-- Make neo-tree background slightly different
+
 				highlights.NeoTreeNormal = {
-					bg = colors.bg_dark,
+					-- bg = colors.bg_dark,
+					bg = "#181a1f",
 				}
+
 				highlights.NeoTreeNormalNC = {
 					bg = colors.bg_dark,
+				}
+
+				highlights.SnacksIndent = {
+					fg = colors.bg_highlight,
+				}
+				highlights.SnacksIndentScope = {
+					fg = colors.fg_gutter,
+				}
+
+				highlights.WinSeparator = {
+					fg = colors.fg_gutter,
 				}
 			end,
 		})
