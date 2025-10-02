@@ -48,7 +48,7 @@ vim.diagnostic.config({
 })
 
 -- Enable inlay hints
-vim.lsp.inlay_hint.enable(true)
+vim.lsp.inlay_hint.enable(false)
 
 -- Create default capabilities without cmp
 local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()

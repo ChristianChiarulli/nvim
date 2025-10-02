@@ -146,6 +146,7 @@ autocmd({ "FileType" }, {
 		vim.keymap.set("t", "<m-j>", "<C-\\><C-n><C-w>j", opts)
 		vim.keymap.set("t", "<m-k>", "<C-\\><C-n><C-w>k", opts)
 		vim.keymap.set("t", "<m-l>", "<C-\\><C-n><C-w>l", opts)
+		-- vim.keymap.set("t", "<Esc>", "<Nop>", opts)
 	end,
 	desc = "Window navigation in sidekick terminal",
 })
